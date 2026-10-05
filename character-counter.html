@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Character Counter - Count Characters, Words & Lines | FreeToolsHub</title>
+
+  <meta name="description" content="Free online character counter to count characters with and without spaces, letters, numbers, special characters, words and lines instantly.">
+
+  <meta name="keywords" content="character counter, online character counter, character count tool, letter counter, word counter, text counter">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/character-counter.html">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 25px 20px 50px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 25px 0;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #6b7280;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .ad {
+      background: #e5e7eb;
+      border: 1px dashed #9ca3af;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .tool-card {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 280px;
+      resize: vertical;
+      padding: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      padding: 11px 20px;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .clear-btn {
+      background: #ef4444;
+    }
+
+    .clear-btn:hover {
+      background: #dc2626;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .stat h3 {
+      font-size: 28px;
+      color: #2563eb;
+      margin-bottom: 5px;
+    }
+
+    .stat p {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .info-section {
+      background: white;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .info-section h2 {
+      margin-bottom: 12px;
+      font-size: 25px;
+    }
+
+    .info-section h3 {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .info-section p {
+      color: #4b5563;
+      margin-bottom: 12px;
+    }
+
+    .info-section ul,
+    .info-section ol {
+      padding-left: 20px;
+      color: #4b5563;
+    }
+
+    .faq {
+      border-top: 1px solid #e5e7eb;
+      padding: 15px 0;
+    }
+
+    .faq strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tool-card,
+      .info-section {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .stat h3 {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">FreeToolsHub</a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#tools">All Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>Character Counter</h1>
+
+    <p>
+      Count characters, letters, numbers, words and lines instantly
+      with this free online character counter.
+    </p>
+  </section>
+
+  <div class="ad">
+    Advertisement
+  </div>
+
+  <section class="tool-card">
+
+    <textarea
+      id="textInput"
+      placeholder="Type or paste your text here..."
+      oninput="countCharacters()"
+    ></textarea>
+
+    <div class="buttons">
+      <button onclick="copyText()">Copy Text</button>
+      <button class="clear-btn" onclick="clearText()">Clear</button>
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <h3 id="totalCharacters">0</h3>
+        <p>Total Characters</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="withSpaces">0</h3>
+        <p>With Spaces</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="withoutSpaces">0</h3>
+        <p>Without Spaces</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="letters">0</h3>
+        <p>Letters</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="numbers">0</h3>
+        <p>Numbers</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="specialCharacters">0</h3>
+        <p>Special Characters</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="words">0</h3>
+        <p>Words</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="lines">0</h3>
+        <p>Lines</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="ad">
+    Advertisement
+  </div>
+
+  <section class="info-section">
+
+    <h2>Free Online Character Counter</h2>
+
+    <p>
+      FreeToolsHub Character Counter is a fast and simple online tool
+      for counting characters in any text. It can count total characters,
+      characters with and without spaces, letters, numbers, special
+      characters, words and lines.
+    </p>
+
+    <h3>How to Use the Character Counter</h3>
+
+    <ol>
+      <li>Type or paste your text into the text box.</li>
+      <li>The character statistics update automatically.</li>
+      <li>Check characters with or without spaces.</li>
+      <li>Check letters, numbers and special characters.</li>
+      <li>Use the Copy button to copy your text.</li>
+      <li>Click Clear to start again.</li>
+    </ol>
+
+    <h3>What Does This Character Counter Calculate?</h3>
+
+    <ul>
+      <li>
+        <strong>Total Characters:</strong>
+        Total number of characters in the text.
+      </li>
+
+      <li>
+        <strong>With Spaces:</strong>
+        Characters including spaces and line breaks.
+      </li>
+
+      <li>
+        <strong>Without Spaces:</strong>
+        Characters after removing whitespace.
+      </li>
+
+      <li>
+        <strong>Letters:</strong>
+        Alphabetic characters such as A-Z and a-z.
+      </li>
+
+      <li>
+        <strong>Numbers:</strong>
+        Numeric characters from 0 to 9.
+      </li>
+
+      <li>
+        <strong>Special Characters:</strong>
+        Characters that are not letters, numbers or whitespace.
+      </li>
+
+      <li>
+        <strong>Words:</strong>
+        Words separated by whitespace.
+      </li>
+
+      <li>
+        <strong>Lines:</strong>
+        Number of lines in the entered text.
+      </li>
+    </ul>
+
+    <h3>Who Can Use a Character Counter?</h3>
+
+    <p>
+      Character counters are useful for students, writers, bloggers,
+      social media creators, copywriters, marketers, SEO professionals
+      and anyone who needs to stay within a specific character limit.
+    </p>
+
+    <h3>Why Count Characters?</h3>
+
+    <p>
+      Some websites, forms and social media platforms use character
+      limits. A character counter makes it easy to check the length of
+      your content before publishing or submitting it.
+    </p>
+
+    <h3>Frequently Asked Questions</h3>
+
+    <div class="faq">
+      <strong>Is this character counter free?</strong>
+      <p>
+        Yes. You can use the FreeToolsHub Character Counter for free.
+      </p>
+    </div>
+
+    <div class="faq">
+      <strong>Does it count spaces?</strong>
+      <p>
+        Yes. The tool provides separate counts for characters with
+        spaces and without spaces.
+      </p>
+    </div>
+
+    <div class="faq">
+      <strong>Can I count numbers and special characters?</strong>
+      <p>
+        Yes. The tool separately displays numbers and special characters.
+      </p>
+    </div>
+
+    <div class="faq">
+      <strong>Does the counter work while typing?</strong>
+      <p>
+        Yes. All statistics update instantly as you type or paste text.
+      </p>
+    </div>
+
+    <div class="faq">
+      <strong>Can I use it for social media captions?</strong>
+      <p>
+        Yes. You can use the tool to quickly check the character length
+        of captions, posts and other short-form content.
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <p>© 2026 FreeToolsHub. All rights reserved.</p>
+
+  <p>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Contact</a>
+  </p>
+
+</footer>
+
+<script>
+
+function countCharacters() {
+
+  const text = document.getElementById("textInput").value;
+
+  // Total characters including spaces and line breaks
+  const total = text.length;
+
+  // Characters excluding whitespace
+  const noSpaces = text.replace(/\s/g, "").length;
+
+  // Letters
+  const letterMatches = text.match(/[A-Za-z]/g);
+  const letterCount = letterMatches
+    ? letterMatches.length
+    : 0;
+
+  // Numbers
+  const numberMatches = text.match(/[0-9]/g);
+  const numberCount = numberMatches
+    ? numberMatches.length
+    : 0;
+
+  // Special characters
+  const specialMatches = text.match(/[^A-Za-z0-9\s]/g);
+  const specialCount = specialMatches
+    ? specialMatches.length
+    : 0;
+
+  // Words
+  const wordCount = text.trim()
+    ? text.trim().split(/\s+/).length
+    : 0;
+
+  // Lines
+  const lineCount = text.length
+    ? text.split(/\r\n|\r|\n/).length
+    : 0;
+
+  document.getElementById("totalCharacters").textContent =
+    total;
+
+  document.getElementById("withSpaces").textContent =
+    total;
+
+  document.getElementById("withoutSpaces").textContent =
+    noSpaces;
+
+  document.getElementById("letters").textContent =
+    letterCount;
+
+  document.getElementById("numbers").textContent =
+    numberCount;
+
+  document.getElementById("specialCharacters").textContent =
+    specialCount;
+
+  document.getElementById("words").textContent =
+    wordCount;
+
+  document.getElementById("lines").textContent =
+    lineCount;
+}
+
+
+function clearText() {
+
+  document.getElementById("textInput").value = "";
+
+  countCharacters();
+
+}
+
+
+function copyText() {
+
+  const text = document.getElementById("textInput").value;
+
+  if (!text) {
+    alert("There is no text to copy.");
+    return;
+  }
+
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      alert("Text copied successfully!");
+    })
+    .catch(() => {
+      alert("Unable to copy text.");
+    });
+
+}
+
+</script>
+
+</body>
+</html>
