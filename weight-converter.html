@@ -4,19 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Weight Converter - Kg, Gram, Pound & Ounce Converter | FreeToolsHub</title>
+  <title>Weight Converter - Kg to Lbs, Grams, Ounces & More | FreeToolsHub</title>
 
-  <meta name="description" content="Free online weight converter. Convert kilograms, grams, milligrams, tonnes, pounds and ounces quickly and accurately.">
+  <meta name="description" content="Free online weight converter to convert kilograms, grams, milligrams, tonnes, pounds and ounces. Fast, accurate and mobile-friendly weight conversion tool.">
 
-  <meta name="keywords" content="weight converter, kg to lbs, kg to pound, gram to kg, pound to kg, ounce to gram, weight conversion, mass converter">
+  <meta name="keywords" content="weight converter, kg to lbs, kg to pound, kg to gram, gram to kg, pound to kg, ounce to gram, weight conversion, mass converter">
 
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/weight-converter.html">
 
+  <meta property="og:title" content="Weight Converter - Kg, Gram, Pound & Ounce">
+  <meta property="og:description" content="Convert kilograms, grams, milligrams, tonnes, pounds and ounces instantly with this free online weight converter.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/weight-converter.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FreeToolsHub Weight Converter",
+    "url": "https://itzajay43-collab.github.io/free-tools-hub/weight-converter.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "description": "Free online weight converter for kilograms, grams, milligrams, tonnes, pounds and ounces.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many grams are in 1 kilogram?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1 kilogram equals exactly 1,000 grams."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many pounds are in 1 kilogram?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1 kilogram equals approximately 2.20462 pounds."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many ounces are in 1 pound?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1 pound equals exactly 16 ounces."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many kilograms are in 1 tonne?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1 metric tonne equals exactly 1,000 kilograms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this weight converter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The FreeToolsHub weight converter is completely free to use on phones, tablets and computers."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -83,7 +158,7 @@
     .hero {
       background: white;
       border-radius: 14px;
-      padding: 30px;
+      padding: 32px 25px;
       text-align: center;
       margin-bottom: 25px;
       box-shadow: 0 3px 15px rgba(0,0,0,0.06);
@@ -92,6 +167,7 @@
     .hero h1 {
       margin: 0 0 10px;
       font-size: 34px;
+      line-height: 1.25;
     }
 
     .hero p {
@@ -131,6 +207,10 @@
       gap: 20px;
     }
 
+    .form-group {
+      min-width: 0;
+    }
+
     label {
       display: block;
       font-weight: 600;
@@ -151,6 +231,7 @@
     input:focus,
     select:focus {
       border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
     }
 
     button {
@@ -168,6 +249,21 @@
 
     button:hover {
       background: #1d4ed8;
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(37,99,235,0.3);
+      outline-offset: 2px;
+    }
+
+    .error {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      background: #fef2f2;
+      color: #b91c1c;
+      border-radius: 8px;
+      border: 1px solid #fecaca;
     }
 
     .result {
@@ -274,6 +370,38 @@
       margin-top: 20px;
     }
 
+    .related {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .related h2 {
+      margin-bottom: 15px;
+    }
+
+    .related-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .related-links a {
+      display: block;
+      padding: 12px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .related-links a:hover {
+      background: #eff6ff;
+    }
+
     .back-link {
       display: inline-block;
       margin-top: 25px;
@@ -295,14 +423,27 @@
       margin: 0 8px;
     }
 
+    footer a:hover {
+      color: white;
+    }
+
     @media (max-width: 700px) {
+
+      header {
+        padding: 15px;
+      }
 
       .header-inner {
         flex-direction: column;
+        gap: 10px;
       }
 
       nav a {
         margin: 0 7px;
+      }
+
+      .container {
+        padding: 20px 15px 40px;
       }
 
       .hero h1 {
@@ -313,7 +454,8 @@
         grid-template-columns: 1fr;
       }
 
-      .quick-conversions {
+      .quick-conversions,
+      .related-links {
         grid-template-columns: 1fr;
       }
 
@@ -333,22 +475,19 @@
 <body>
 
 <header>
-
   <div class="header-inner">
 
-    <a class="logo" href="index.html">
+    <a class="logo" href="index.html" aria-label="FreeToolsHub Home">
       FreeToolsHub
     </a>
 
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#tools">Tools</a>
     </nav>
 
   </div>
-
 </header>
-
 
 <main class="container">
 
@@ -357,96 +496,79 @@
     Weight Converter
   </div>
 
-
   <section class="hero">
-
     <h1>Weight Converter</h1>
 
     <p>
       Convert kilograms, grams, milligrams, tonnes, pounds and ounces
       quickly with this free online weight and mass converter.
     </p>
-
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
+  <section class="calculator" aria-labelledby="calculator-title">
 
-  <section class="calculator">
-
-    <h2>Online Weight Converter</h2>
+    <h2 id="calculator-title">Online Weight Converter</h2>
 
     <div class="form-grid">
 
-      <div>
-
-        <label for="amount">
-          Enter Weight
-        </label>
+      <div class="form-group">
+        <label for="amount">Enter Weight</label>
 
         <input
           type="number"
           id="amount"
           value="1"
           step="any"
+          inputmode="decimal"
           placeholder="Enter value"
-          oninput="convertWeight()"
+          aria-describedby="error"
         >
-
       </div>
 
+      <div class="form-group">
+        <label for="fromUnit">From</label>
 
-      <div>
-
-        <label for="fromUnit">
-          From
-        </label>
-
-        <select id="fromUnit" onchange="convertWeight()">
-
+        <select id="fromUnit">
           <option value="kilogram">Kilogram</option>
           <option value="gram">Gram</option>
           <option value="milligram">Milligram</option>
           <option value="tonne">Tonne</option>
           <option value="pound">Pound</option>
           <option value="ounce">Ounce</option>
-
         </select>
-
       </div>
 
+      <div class="form-group">
+        <label for="toUnit">Convert To</label>
 
-      <div>
-
-        <label for="toUnit">
-          Convert To
-        </label>
-
-        <select id="toUnit" onchange="convertWeight()">
-
+        <select id="toUnit">
           <option value="kilogram">Kilogram</option>
           <option value="gram">Gram</option>
           <option value="milligram">Milligram</option>
           <option value="tonne">Tonne</option>
           <option value="pound" selected>Pound</option>
           <option value="ounce">Ounce</option>
-
         </select>
-
       </div>
 
     </div>
 
-
-    <button onclick="convertWeight()">
+    <button type="button" id="convertBtn">
       Convert Weight
     </button>
 
+    <div
+      class="error"
+      id="error"
+      role="alert"
+      aria-live="polite"
+    ></div>
 
-    <div class="result">
+    <div class="result" aria-live="polite">
 
       <div class="result-label">
         Conversion Result
@@ -457,7 +579,6 @@
       </div>
 
     </div>
-
 
     <div class="quick-conversions">
 
@@ -480,11 +601,9 @@
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
-
 
   <section class="content">
 
@@ -501,23 +620,18 @@
       without manually calculating conversion factors.
     </p>
 
-
     <h3>Supported Weight Units</h3>
 
     <ul>
-
       <li>Kilogram (kg)</li>
       <li>Gram (g)</li>
       <li>Milligram (mg)</li>
       <li>Tonne (t)</li>
       <li>Pound (lb)</li>
       <li>Ounce (oz)</li>
-
     </ul>
 
-
     <h3>Common Weight Conversion Formulas</h3>
-
 
     <div class="formula">
       1 Kilogram = 1,000 Grams
@@ -543,129 +657,113 @@
       1 Pound = 16 Ounces
     </div>
 
-
     <h3>Weight Conversion Examples</h3>
 
-
     <div class="example">
-
       <strong>Example 1: Kilograms to Grams</strong>
 
       <p>
         5 kilograms × 1,000 =
         <strong>5,000 grams</strong>
       </p>
-
     </div>
 
-
     <div class="example">
-
       <strong>Example 2: Kilograms to Pounds</strong>
 
       <p>
         10 kilograms × 2.20462262185 =
         <strong>22.0462 pounds</strong> approximately.
       </p>
-
     </div>
 
-
     <div class="example">
-
       <strong>Example 3: Pounds to Kilograms</strong>
 
       <p>
         10 pounds =
         <strong>4.53592 kilograms</strong> approximately.
       </p>
-
     </div>
 
-
     <div class="example">
-
       <strong>Example 4: Grams to Kilograms</strong>
 
       <p>
         5,000 grams ÷ 1,000 =
         <strong>5 kilograms</strong>
       </p>
-
     </div>
 
-
     <div class="note">
-
       <strong>Tip:</strong>
       Enter your weight, select the original unit and choose the unit
       you want to convert to. The result is calculated instantly.
-
     </div>
-
 
     <div class="faq">
 
       <h2>Frequently Asked Questions</h2>
 
-
       <div class="faq-item">
-
         <h3>How many grams are in 1 kilogram?</h3>
-
         <p>
           1 kilogram equals exactly 1,000 grams.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>How many pounds are in 1 kilogram?</h3>
-
         <p>
           1 kilogram equals approximately 2.20462 pounds.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>How many ounces are in 1 pound?</h3>
-
         <p>
           1 pound equals exactly 16 ounces.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>How many kilograms are in 1 tonne?</h3>
-
         <p>
           1 metric tonne equals exactly 1,000 kilograms.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>Is this weight converter free?</h3>
-
         <p>
           Yes. The FreeToolsHub weight converter is completely free
           to use on phones, tablets and computers.
         </p>
-
       </div>
 
     </div>
 
+    <div class="related">
+
+      <h2>Related Free Tools</h2>
+
+      <div class="related-links">
+
+        <a href="unit-converter.html">
+          Unit Converter
+        </a>
+
+        <a href="length-converter.html">
+          Length Converter
+        </a>
+
+        <a href="temperature-converter.html">
+          Temperature Converter
+        </a>
+
+      </div>
+
+    </div>
 
     <a class="back-link" href="index.html">
       ← Back to FreeToolsHub
@@ -673,13 +771,11 @@
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
 </main>
-
 
 <footer>
 
@@ -688,85 +784,65 @@
   </p>
 
   <p>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Disclaimer</a>
-    <a href="#">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
   </p>
 
 </footer>
 
-
 <script>
 
   const conversionFactors = {
-
     kilogram: 1,
-
     gram: 0.001,
-
     milligram: 0.000001,
-
     tonne: 1000,
-
     pound: 0.45359237,
-
     ounce: 0.028349523125
-
   };
-
 
   const unitNames = {
-
     kilogram: "Kilograms",
-
     gram: "Grams",
-
     milligram: "Milligrams",
-
     tonne: "Tonnes",
-
     pound: "Pounds",
-
     ounce: "Ounces"
-
   };
 
+  const amountInput = document.getElementById("amount");
+  const fromUnit = document.getElementById("fromUnit");
+  const toUnit = document.getElementById("toUnit");
+  const result = document.getElementById("result");
+  const error = document.getElementById("error");
+  const convertBtn = document.getElementById("convertBtn");
 
   function convertWeight() {
 
-    const amount =
-      parseFloat(
-        document.getElementById("amount").value
-      );
+    const amount = parseFloat(amountInput.value);
+    const from = fromUnit.value;
+    const to = toUnit.value;
 
-    const from =
-      document.getElementById("fromUnit").value;
+    error.style.display = "none";
+    error.textContent = "";
 
-    const to =
-      document.getElementById("toUnit").value;
+    if (!Number.isFinite(amount)) {
 
-    const result =
-      document.getElementById("result");
+      result.textContent = "Enter a valid value";
 
-
-    if (isNaN(amount)) {
-
-      result.textContent =
-        "Enter a valid value";
+      error.textContent = "Please enter a valid weight value.";
+      error.style.display = "block";
 
       return;
-
     }
-
 
     const valueInKilograms =
       amount * conversionFactors[from];
 
-
     const converted =
       valueInKilograms / conversionFactors[to];
-
 
     const formatted =
       Number(converted.toPrecision(12)).toLocaleString(
@@ -776,12 +852,21 @@
         }
       );
 
-
     result.textContent =
       formatted + " " + unitNames[to];
-
   }
 
+  convertBtn.addEventListener("click", convertWeight);
+
+  amountInput.addEventListener("input", convertWeight);
+  fromUnit.addEventListener("change", convertWeight);
+  toUnit.addEventListener("change", convertWeight);
+
+  amountInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      convertWeight();
+    }
+  });
 
   convertWeight();
 
