@@ -4,19 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Length Converter - Convert Meters, Feet, Miles & More | FreeToolsHub</title>
+  <title>Length Converter - Meters, Feet, Miles & More | FreeToolsHub</title>
 
-  <meta name="description" content="Free online length converter. Convert meters, kilometers, centimeters, millimeters, miles, yards, feet and inches quickly and accurately.">
+  <meta name="description" content="Free online length converter to convert meters, kilometers, centimeters, millimeters, miles, yards, feet and inches quickly and accurately.">
 
-  <meta name="keywords" content="length converter, length conversion, meter to feet, km to miles, feet to meter, inch to cm, online length converter">
+  <meta name="keywords" content="length converter, free length converter, meter to feet, km to miles, feet to meter, inch to cm, online length conversion">
 
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/length-converter.html">
 
+  <meta property="og:title" content="Free Length Converter | FreeToolsHub">
+  <meta property="og:description" content="Convert meters, kilometers, feet, inches, miles and other length units instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/length-converter.html">
+
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -86,12 +95,13 @@
       padding: 30px;
       text-align: center;
       margin-bottom: 25px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
     }
 
     .hero h1 {
       margin: 0 0 10px;
       font-size: 34px;
+      line-height: 1.2;
     }
 
     .hero p {
@@ -117,7 +127,7 @@
       background: white;
       border-radius: 14px;
       padding: 30px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
     }
 
     .calculator h2 {
@@ -151,6 +161,7 @@
     input:focus,
     select:focus {
       border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
 
     button {
@@ -168,6 +179,22 @@
 
     button:hover {
       background: #1d4ed8;
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.3);
+      outline-offset: 2px;
+    }
+
+    .error {
+      display: none;
+      margin-top: 15px;
+      padding: 12px 14px;
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      font-size: 14px;
     }
 
     .result {
@@ -216,7 +243,7 @@
       border-radius: 14px;
       padding: 30px;
       margin-top: 25px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
     }
 
     .content h2 {
@@ -274,6 +301,27 @@
       margin-top: 20px;
     }
 
+    .related-tools {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .related-tools a {
+      display: inline-block;
+      margin: 6px 8px 6px 0;
+      padding: 8px 12px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      text-decoration: none;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .related-tools a:hover {
+      background: #dbeafe;
+    }
+
     .back-link {
       display: inline-block;
       margin-top: 25px;
@@ -295,10 +343,17 @@
       margin: 0 8px;
     }
 
-    @media (max-width: 700px) {
+    footer a:hover {
+      color: white;
+    }
 
+    @media (max-width: 700px) {
       .header-inner {
         flex-direction: column;
+      }
+
+      nav {
+        text-align: center;
       }
 
       nav a {
@@ -326,29 +381,97 @@
       .result-value {
         font-size: 23px;
       }
+
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Length Converter",
+    "url": "https://itzajay43-collab.github.io/free-tools-hub/length-converter.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "description": "Free online length converter for meters, kilometers, centimeters, millimeters, miles, yards, feet and inches.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How many meters are in 1 kilometer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "There are exactly 1,000 meters in 1 kilometer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many feet are in 1 meter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1 meter equals approximately 3.28084 feet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many inches are in 1 foot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1 foot equals exactly 12 inches."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many kilometers are in 1 mile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "1 mile equals approximately 1.609344 kilometers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this length converter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The FreeToolsHub length converter is free to use on desktop, tablet and mobile devices."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
 <header>
-
   <div class="header-inner">
 
     <a class="logo" href="index.html">
       FreeToolsHub
     </a>
 
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#tools">Tools</a>
     </nav>
 
   </div>
-
 </header>
-
 
 <main class="container">
 
@@ -357,32 +480,29 @@
     Length Converter
   </div>
 
-
   <section class="hero">
 
-    <h1>Length Converter</h1>
+    <h1>Free Online Length Converter</h1>
 
     <p>
       Convert meters, kilometers, centimeters, millimeters, miles,
-      yards, feet and inches with this free online length converter.
+      yards, feet and inches quickly and accurately with this free
+      online length converter.
     </p>
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
+  <section class="calculator" aria-labelledby="calculator-title">
 
-  <section class="calculator">
-
-    <h2>Online Length Converter</h2>
+    <h2 id="calculator-title">Online Length Converter</h2>
 
     <div class="form-grid">
 
       <div>
-
         <label for="amount">
           Enter Value
         </label>
@@ -392,20 +512,18 @@
           id="amount"
           value="1"
           step="any"
+          inputmode="decimal"
           placeholder="Enter value"
-          oninput="convertLength()"
+          aria-describedby="error"
         >
-
       </div>
 
-
       <div>
-
         <label for="fromUnit">
           From
         </label>
 
-        <select id="fromUnit" onchange="convertLength()">
+        <select id="fromUnit" aria-label="Select source length unit">
 
           <option value="meter">Meter</option>
           <option value="kilometer">Kilometer</option>
@@ -417,17 +535,14 @@
           <option value="inch">Inch</option>
 
         </select>
-
       </div>
 
-
       <div>
-
         <label for="toUnit">
           Convert To
         </label>
 
-        <select id="toUnit" onchange="convertLength()">
+        <select id="toUnit" aria-label="Select destination length unit">
 
           <option value="meter">Meter</option>
           <option value="kilometer">Kilometer</option>
@@ -439,18 +554,22 @@
           <option value="inch">Inch</option>
 
         </select>
-
       </div>
 
     </div>
 
-
-    <button onclick="convertLength()">
+    <button type="button" id="convertButton">
       Convert Length
     </button>
 
+    <div
+      class="error"
+      id="error"
+      role="alert"
+      aria-live="polite">
+    </div>
 
-    <div class="result">
+    <div class="result" aria-live="polite">
 
       <div class="result-label">
         Conversion Result
@@ -461,7 +580,6 @@
       </div>
 
     </div>
-
 
     <div class="quick-conversions">
 
@@ -484,11 +602,9 @@
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
-
 
   <section class="content">
 
@@ -507,11 +623,9 @@
       factors.
     </p>
 
-
     <h3>Supported Length Units</h3>
 
     <ul>
-
       <li>Meter (m)</li>
       <li>Kilometer (km)</li>
       <li>Centimeter (cm)</li>
@@ -520,12 +634,9 @@
       <li>Yard (yd)</li>
       <li>Foot (ft)</li>
       <li>Inch (in)</li>
-
     </ul>
 
-
     <h3>Common Length Conversion Formulas</h3>
-
 
     <div class="formula">
       1 Kilometer = 1,000 Meters
@@ -555,128 +666,100 @@
       1 Inch = 0.0254 Meters
     </div>
 
-
     <h3>Length Conversion Examples</h3>
 
-
     <div class="example">
-
       <strong>Example 1: Kilometer to Meter</strong>
-
       <p>
-        5 kilometers × 1,000 = <strong>5,000 meters</strong>
+        5 kilometers × 1,000 =
+        <strong>5,000 meters</strong>
       </p>
-
     </div>
 
-
     <div class="example">
-
       <strong>Example 2: Meter to Feet</strong>
-
       <p>
         10 meters × 3.28084 =
         <strong>32.8084 feet</strong>
       </p>
-
     </div>
 
-
     <div class="example">
-
       <strong>Example 3: Feet to Inches</strong>
-
       <p>
         10 feet × 12 =
         <strong>120 inches</strong>
       </p>
-
     </div>
 
-
     <div class="example">
-
       <strong>Example 4: Miles to Kilometers</strong>
-
       <p>
         1 mile =
         <strong>1.609344 kilometers</strong>
       </p>
-
     </div>
 
-
     <div class="note">
-
       <strong>Tip:</strong>
       Enter your measurement, select the original unit and then choose
       the unit you want. The result updates automatically.
-
     </div>
-
 
     <div class="faq">
 
       <h2>Frequently Asked Questions</h2>
 
-
       <div class="faq-item">
-
         <h3>How many meters are in 1 kilometer?</h3>
-
         <p>
           There are exactly 1,000 meters in 1 kilometer.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>How many feet are in 1 meter?</h3>
-
         <p>
           1 meter equals approximately 3.28084 feet.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>How many inches are in 1 foot?</h3>
-
         <p>
           1 foot equals exactly 12 inches.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>How many kilometers are in 1 mile?</h3>
-
         <p>
           1 mile equals approximately 1.609344 kilometers.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>Is this length converter free?</h3>
-
         <p>
           Yes. The FreeToolsHub length converter is free to use on
           desktop, tablet and mobile devices.
         </p>
-
       </div>
 
     </div>
 
+    <div class="related-tools">
+
+      <h2>Related Free Tools</h2>
+
+      <a href="unit-converter.html">Unit Converter</a>
+      <a href="weight-converter.html">Weight Converter</a>
+      <a href="temperature-converter.html">Temperature Converter</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="discount-calculator.html">Discount Calculator</a>
+      <a href="gst-calculator.html">GST Calculator</a>
+
+    </div>
 
     <a class="back-link" href="index.html">
       ← Back to FreeToolsHub
@@ -684,13 +767,11 @@
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
 </main>
-
 
 <footer>
 
@@ -699,108 +780,150 @@
   </p>
 
   <p>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Disclaimer</a>
-    <a href="#">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
   </p>
 
 </footer>
-
 
 <script>
 
   const conversionFactors = {
 
     meter: 1,
-
     kilometer: 1000,
-
     centimeter: 0.01,
-
     millimeter: 0.001,
-
     mile: 1609.344,
-
     yard: 0.9144,
-
     foot: 0.3048,
-
     inch: 0.0254
 
   };
 
-
   const unitNames = {
 
     meter: "Meters",
-
     kilometer: "Kilometers",
-
     centimeter: "Centimeters",
-
     millimeter: "Millimeters",
-
     mile: "Miles",
-
     yard: "Yards",
-
     foot: "Feet",
-
     inch: "Inches"
 
   };
 
+  const amountInput = document.getElementById("amount");
+  const fromUnit = document.getElementById("fromUnit");
+  const toUnit = document.getElementById("toUnit");
+  const result = document.getElementById("result");
+  const error = document.getElementById("error");
+  const convertButton = document.getElementById("convertButton");
+
+  function clearError() {
+    error.textContent = "";
+    error.style.display = "none";
+  }
+
+  function showError(message) {
+    error.textContent = message;
+    error.style.display = "block";
+  }
+
+  function formatNumber(value) {
+
+    if (Object.is(value, -0)) {
+      value = 0;
+    }
+
+    const rounded =
+      Number(value.toPrecision(12));
+
+    return rounded.toLocaleString("en-IN", {
+      maximumFractionDigits: 10
+    });
+  }
 
   function convertLength() {
 
+    clearError();
+
     const amount =
-      parseFloat(
-        document.getElementById("amount").value
-      );
+      parseFloat(amountInput.value);
 
-    const from =
-      document.getElementById("fromUnit").value;
+    const from = fromUnit.value;
+    const to = toUnit.value;
 
-    const to =
-      document.getElementById("toUnit").value;
-
-    const result =
-      document.getElementById("result");
-
-
-    if (isNaN(amount)) {
-
-      result.textContent =
-        "Enter a valid value";
-
+    if (amountInput.value.trim() === "") {
+      result.textContent = "0";
+      showError("Please enter a value to convert.");
       return;
-
     }
 
+    if (!Number.isFinite(amount)) {
+      result.textContent = "0";
+      showError("Please enter a valid number.");
+      return;
+    }
+
+    if (
+      !conversionFactors[from] ||
+      !conversionFactors[to]
+    ) {
+      result.textContent = "Invalid conversion";
+      showError("Please select valid units.");
+      return;
+    }
 
     const valueInMeters =
       amount * conversionFactors[from];
 
-
     const converted =
       valueInMeters / conversionFactors[to];
 
-
-    const formatted =
-      Number(converted.toPrecision(12)).toLocaleString(
-        "en-IN",
-        {
-          maximumFractionDigits: 10
-        }
-      );
-
+    if (!Number.isFinite(converted)) {
+      result.textContent = "Invalid conversion";
+      showError("Unable to calculate this conversion.");
+      return;
+    }
 
     result.textContent =
-      formatted + " " + unitNames[to];
-
+      formatNumber(converted) +
+      " " +
+      unitNames[to];
   }
 
+  amountInput.addEventListener(
+    "input",
+    convertLength
+  );
+
+  fromUnit.addEventListener(
+    "change",
+    convertLength
+  );
+
+  toUnit.addEventListener(
+    "change",
+    convertLength
+  );
+
+  convertButton.addEventListener(
+    "click",
+    convertLength
+  );
+
+  amountInput.addEventListener(
+    "keydown",
+    function(event) {
+      if (event.key === "Enter") {
+        convertLength();
+      }
+    }
+  );
 
   convertLength();
 
