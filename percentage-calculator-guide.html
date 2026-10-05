@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Percentage Calculator Guide – How to Calculate Percentages | FreeToolsHub</title>
+
+  <meta name="description" content="Learn how to calculate percentages with simple formulas and examples. Understand percentage increase, decrease, and common percentage calculations.">
+
+  <meta name="keywords" content="percentage calculator guide, how to calculate percentage, percentage formula, percentage increase, percentage decrease">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/percentage-calculator-guide.html">
+
+  <meta property="og:title" content="Percentage Calculator Guide – How to Calculate Percentages">
+  <meta property="og:description" content="Learn percentage calculations, formulas, increase and decrease with simple examples.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/percentage-calculator-guide.html">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Percentage Calculator Guide">
+  <meta name="twitter:description" content="Simple guide to calculating percentages with formulas and examples.">
+
+  <meta name="google-site-verification" content="7wwhrIRRHKl2HYzCzbwHw34CGWp6c-qrMiaEol2_rUA">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      padding: 18px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 18px rgba(0,0,0,.12);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      opacity: .95;
+    }
+
+    .container {
+      width: min(100% - 32px, 900px);
+      margin: auto;
+    }
+
+    .hero {
+      margin-top: 34px;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      border: 1px solid #dbe4ff;
+      border-radius: 24px;
+      padding: 45px 30px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.15;
+      margin: 8px 0 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #536078;
+      font-size: 17px;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 24px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(37,99,235,.2);
+    }
+
+    .content {
+      background: white;
+      margin-top: 24px;
+      padding: 34px;
+      border-radius: 20px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 5px 20px rgba(15,23,42,.05);
+    }
+
+    h2 {
+      margin-top: 34px;
+      margin-bottom: 12px;
+      font-size: 26px;
+      color: #111827;
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    h3 {
+      margin-top: 24px;
+      color: #1f2937;
+    }
+
+    p {
+      color: #4b5563;
+    }
+
+    ul,
+    ol {
+      color: #4b5563;
+      padding-left: 25px;
+    }
+
+    .formula {
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      padding: 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-align: center;
+      color: #3730a3;
+      margin: 18px 0;
+    }
+
+    .example {
+      background: #f8fafc;
+      border-left: 4px solid #2563eb;
+      padding: 18px 20px;
+      border-radius: 10px;
+      margin: 18px 0;
+    }
+
+    .faq {
+      border-top: 1px solid #e5e7eb;
+      padding: 18px 0;
+    }
+
+    .faq h3 {
+      margin: 0 0 7px;
+      font-size: 18px;
+    }
+
+    .related {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .related a {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      padding: 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #1d4ed8;
+    }
+
+    .footer {
+      margin-top: 40px;
+      background: #111827;
+      color: #cbd5e1;
+      padding: 35px 20px;
+    }
+
+    .footer-inner {
+      width: min(100% - 32px, 900px);
+      margin: auto;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 15px 0;
+    }
+
+    .footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .copyright {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 35px 20px;
+      }
+
+      .content {
+        padding: 24px 18px;
+      }
+
+      h2 {
+        font-size: 23px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Percentage Calculator Guide – How to Calculate Percentages",
+    "description": "A simple guide explaining percentage calculations, percentage increase and percentage decrease.",
+    "author": {
+      "@type": "Organization",
+      "name": "FreeToolsHub"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FreeToolsHub"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://itzajay43-collab.github.io/free-tools-hub/percentage-calculator-guide.html"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do you calculate a percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To calculate a percentage, divide the part by the whole and multiply the result by 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the basic percentage formula?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The basic percentage formula is Percentage = (Part ÷ Whole) × 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate percentage increase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Percentage increase is calculated as ((New Value − Original Value) ÷ Original Value) × 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate percentage decrease?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Percentage decrease is calculated as ((Original Value − New Value) ÷ Original Value) × 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the FreeToolsHub Percentage Calculator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The FreeToolsHub Percentage Calculator is available online for free."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="logo" href="index.html">FreeToolsHub</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="discount-calculator.html">Discount</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <span class="badge">PERCENTAGE CALCULATOR GUIDE</span>
+
+    <h1>How to Calculate Percentages</h1>
+
+    <p>
+      Learn how to calculate percentages using simple formulas and examples.
+      Understand percentage increase, decrease and common percentage problems.
+    </p>
+
+    <a class="cta" href="percentage-calculator.html">
+      Calculate Percentage →
+    </a>
+  </section>
+
+  <article class="content">
+
+    <h2>What Is a Percentage?</h2>
+
+    <p>
+      A percentage is a way of expressing a number as a fraction of 100.
+      The word percentage means "per hundred" and the symbol used for
+      percentage is <strong>%</strong>.
+    </p>
+
+    <p>
+      Percentages are commonly used for discounts, exam marks, statistics,
+      business calculations, interest, price changes and many everyday
+      calculations.
+    </p>
+
+    <h2>Basic Percentage Formula</h2>
+
+    <p>
+      The basic formula for finding what percentage one number represents
+      of another number is:
+    </p>
+
+    <div class="formula">
+      Percentage = (Part ÷ Whole) × 100
+    </div>
+
+    <h2>Percentage Calculation Example</h2>
+
+    <p>
+      Suppose you scored <strong>45 marks out of 60</strong>. To find your
+      percentage:
+    </p>
+
+    <div class="example">
+      Percentage = (45 ÷ 60) × 100<br><br>
+      Percentage = 75%
+    </div>
+
+    <p>
+      Therefore, a score of 45 out of 60 is equal to <strong>75%</strong>.
+    </p>
+
+    <h2>How to Find a Percentage of a Number</h2>
+
+    <p>
+      Sometimes you may want to find a specific percentage of a number.
+      For example, to calculate 20% of 500:
+    </p>
+
+    <div class="formula">
+      20% of 500 = (20 ÷ 100) × 500 = 100
+    </div>
+
+    <p>
+      Therefore, <strong>20% of 500 is 100</strong>.
+    </p>
+
+    <h2>How to Calculate Percentage Increase</h2>
+
+    <p>
+      Percentage increase tells you how much a value has increased compared
+      with its original value.
+    </p>
+
+    <div class="formula">
+      Percentage Increase =
+      ((New Value − Original Value) ÷ Original Value) × 100
+    </div>
+
+    <div class="example">
+      <strong>Example:</strong><br><br>
+
+      Original value = 200<br>
+      New value = 250<br><br>
+
+      Increase = 250 − 200 = 50<br><br>
+
+      Percentage Increase = (50 ÷ 200) × 100<br>
+      <strong>= 25%</strong>
+    </div>
+
+    <p>
+      So, the value increased by <strong>25%</strong>.
+    </p>
+
+    <h2>How to Calculate Percentage Decrease</h2>
+
+    <p>
+      Percentage decrease tells you how much a value has decreased compared
+      with its original value.
+    </p>
+
+    <div class="formula">
+      Percentage Decrease =
+      ((Original Value − New Value) ÷ Original Value) × 100
+    </div>
+
+    <div class="example">
+      <strong>Example:</strong><br><br>
+
+      Original price = ₹1,000<br>
+      New price = ₹800<br><br>
+
+      Decrease = ₹1,000 − ₹800 = ₹200<br><br>
+
+      Percentage Decrease = (200 ÷ 1,000) × 100<br>
+      <strong>= 20%</strong>
+    </div>
+
+    <p>
+      Therefore, the price decreased by <strong>20%</strong>.
+    </p>
+
+    <h2>Where Are Percentages Used?</h2>
+
+    <ul>
+      <li>Exam marks and academic results</li>
+      <li>Shopping discounts</li>
+      <li>GST and other calculations</li>
+      <li>Business reports</li>
+      <li>Salary increases</li>
+      <li>Price increases and decreases</li>
+      <li>Statistics and surveys</li>
+      <li>Interest and financial calculations</li>
+    </ul>
+
+    <h2>Why Use an Online Percentage Calculator?</h2>
+
+    <p>
+      Simple percentages can be calculated manually, but an online
+      percentage calculator can save time when working with multiple
+      calculations or different types of percentage problems.
+    </p>
+
+    <p>
+      It can also reduce common arithmetic mistakes and provide quick
+      results without requiring you to remember every formula.
+    </p>
+
+    <h2>Calculate Percentages Online</h2>
+
+    <p>
+      Instead of calculating percentages manually, use the FreeToolsHub
+      Percentage Calculator to get quick results online.
+    </p>
+
+    <a class="cta" href="percentage-calculator.html">
+      Open Free Percentage Calculator →
+    </a>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+      <h3>How do you calculate a percentage?</h3>
+      <p>
+        Divide the part by the whole and multiply the result by 100.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>What is the basic percentage formula?</h3>
+      <p>
+        The basic formula is:
+        <strong>(Part ÷ Whole) × 100</strong>.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>How do you calculate percentage increase?</h3>
+      <p>
+        Subtract the original value from the new value, divide the difference
+        by the original value and multiply by 100.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>How do you calculate percentage decrease?</h3>
+      <p>
+        Subtract the new value from the original value, divide the difference
+        by the original value and multiply by 100.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Is the FreeToolsHub Percentage Calculator free?</h3>
+      <p>
+        Yes. You can use the FreeToolsHub Percentage Calculator online for
+        free.
+      </p>
+    </div>
+
+    <h2>Related Free Tools</h2>
+
+    <div class="related">
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="discount-calculator.html">Discount Calculator</a>
+      <a href="gst-calculator.html">GST Calculator</a>
+      <a href="emi-calculator.html">EMI Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="index.html">All Free Tools</a>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+
+    <strong>FreeToolsHub</strong>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="copyright">
+      © 2026 FreeToolsHub. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
