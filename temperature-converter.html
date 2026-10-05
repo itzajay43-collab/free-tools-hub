@@ -6,17 +6,92 @@
 
   <title>Temperature Converter - Celsius, Fahrenheit & Kelvin | FreeToolsHub</title>
 
-  <meta name="description" content="Free online temperature converter. Convert Celsius to Fahrenheit, Fahrenheit to Celsius, Celsius to Kelvin and more quickly and accurately.">
+  <meta name="description" content="Free online temperature converter to convert Celsius, Fahrenheit and Kelvin instantly. Fast, accurate and mobile-friendly temperature conversion tool.">
 
-  <meta name="keywords" content="temperature converter, Celsius to Fahrenheit, Fahrenheit to Celsius, Celsius to Kelvin, Kelvin to Celsius, temperature conversion">
+  <meta name="keywords" content="temperature converter, Celsius to Fahrenheit, Fahrenheit to Celsius, Celsius to Kelvin, Kelvin to Celsius, temperature conversion, C to F converter, F to C converter">
 
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/temperature-converter.html">
 
+  <meta property="og:title" content="Temperature Converter - Celsius, Fahrenheit & Kelvin">
+  <meta property="og:description" content="Convert Celsius, Fahrenheit and Kelvin quickly and accurately with this free online temperature converter.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/temperature-converter.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FreeToolsHub Temperature Converter",
+    "url": "https://itzajay43-collab.github.io/free-tools-hub/temperature-converter.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "description": "Free online temperature converter for Celsius, Fahrenheit and Kelvin.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is 0°C in Fahrenheit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "0°C equals 32°F."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is 100°C in Fahrenheit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "100°C equals 212°F."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is 25°C in Fahrenheit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "25°C equals 77°F."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is absolute zero?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolute zero is 0 Kelvin, which equals −273.15°C or approximately −459.67°F."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this temperature converter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The FreeToolsHub temperature converter is completely free to use on mobile and desktop devices."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -83,7 +158,7 @@
     .hero {
       background: white;
       border-radius: 14px;
-      padding: 30px;
+      padding: 32px 25px;
       text-align: center;
       margin-bottom: 25px;
       box-shadow: 0 3px 15px rgba(0,0,0,0.06);
@@ -92,6 +167,7 @@
     .hero h1 {
       margin: 0 0 10px;
       font-size: 34px;
+      line-height: 1.25;
     }
 
     .hero p {
@@ -131,6 +207,10 @@
       gap: 20px;
     }
 
+    .form-group {
+      min-width: 0;
+    }
+
     label {
       display: block;
       font-weight: 600;
@@ -151,6 +231,7 @@
     input:focus,
     select:focus {
       border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
     }
 
     button {
@@ -168,6 +249,21 @@
 
     button:hover {
       background: #1d4ed8;
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(37,99,235,0.3);
+      outline-offset: 2px;
+    }
+
+    .error {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
     }
 
     .result {
@@ -274,6 +370,38 @@
       color: #6b7280;
     }
 
+    .related {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .related h2 {
+      margin-bottom: 15px;
+    }
+
+    .related-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .related-links a {
+      display: block;
+      padding: 12px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .related-links a:hover {
+      background: #eff6ff;
+    }
+
     .back-link {
       display: inline-block;
       margin-top: 25px;
@@ -295,14 +423,27 @@
       margin: 0 8px;
     }
 
+    footer a:hover {
+      color: white;
+    }
+
     @media (max-width: 700px) {
+
+      header {
+        padding: 15px;
+      }
 
       .header-inner {
         flex-direction: column;
+        gap: 10px;
       }
 
       nav a {
         margin: 0 7px;
+      }
+
+      .container {
+        padding: 20px 15px 40px;
       }
 
       .hero h1 {
@@ -313,7 +454,8 @@
         grid-template-columns: 1fr;
       }
 
-      .quick-grid {
+      .quick-grid,
+      .related-links {
         grid-template-columns: 1fr;
       }
 
@@ -333,22 +475,19 @@
 <body>
 
 <header>
-
   <div class="header-inner">
 
-    <a class="logo" href="index.html">
+    <a class="logo" href="index.html" aria-label="FreeToolsHub Home">
       FreeToolsHub
     </a>
 
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#tools">Tools</a>
     </nav>
 
   </div>
-
 </header>
-
 
 <main class="container">
 
@@ -356,7 +495,6 @@
     <a href="index.html">Home</a> →
     Temperature Converter
   </div>
-
 
   <section class="hero">
 
@@ -369,19 +507,17 @@
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
+  <section class="calculator" aria-labelledby="calculator-title">
 
-  <section class="calculator">
-
-    <h2>Online Temperature Converter</h2>
+    <h2 id="calculator-title">Online Temperature Converter</h2>
 
     <div class="form-grid">
 
-      <div>
+      <div class="form-group">
 
         <label for="amount">
           Enter Temperature
@@ -392,20 +528,20 @@
           id="amount"
           value="0"
           step="any"
+          inputmode="decimal"
           placeholder="Enter temperature"
-          oninput="convertTemperature()"
+          aria-describedby="error"
         >
 
       </div>
 
-
-      <div>
+      <div class="form-group">
 
         <label for="fromUnit">
           From
         </label>
 
-        <select id="fromUnit" onchange="convertTemperature()">
+        <select id="fromUnit">
 
           <option value="celsius" selected>
             Celsius (°C)
@@ -423,14 +559,13 @@
 
       </div>
 
-
-      <div>
+      <div class="form-group">
 
         <label for="toUnit">
           Convert To
         </label>
 
-        <select id="toUnit" onchange="convertTemperature()">
+        <select id="toUnit">
 
           <option value="celsius">
             Celsius (°C)
@@ -450,13 +585,18 @@
 
     </div>
 
-
-    <button onclick="convertTemperature()">
+    <button type="button" id="convertBtn">
       Convert Temperature
     </button>
 
+    <div
+      class="error"
+      id="error"
+      role="alert"
+      aria-live="polite"
+    ></div>
 
-    <div class="result">
+    <div class="result" aria-live="polite">
 
       <div class="result-label">
         Conversion Result
@@ -468,44 +608,30 @@
 
     </div>
 
-
     <div class="quick-grid">
 
       <div class="quick-card">
-
         <strong>0°C</strong>
-
         32°F
-
       </div>
 
-
       <div class="quick-card">
-
         <strong>100°C</strong>
-
         212°F
-
       </div>
 
-
       <div class="quick-card">
-
         <strong>0°C</strong>
-
         273.15 K
-
       </div>
 
     </div>
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
-
 
   <section class="content">
 
@@ -517,7 +643,6 @@
       temperature scales are Celsius, Fahrenheit and Kelvin.
     </p>
 
-
     <h3>Celsius</h3>
 
     <p>
@@ -525,7 +650,6 @@
       temperature measurements. Water freezes at 0°C and boils at
       100°C under standard atmospheric pressure.
     </p>
-
 
     <h3>Fahrenheit</h3>
 
@@ -535,7 +659,6 @@
       boils at 212°F under standard atmospheric pressure.
     </p>
 
-
     <h3>Kelvin</h3>
 
     <p>
@@ -543,32 +666,25 @@
       science. Kelvin does not use the degree symbol.
     </p>
 
-
     <h3>Temperature Conversion Formulas</h3>
-
 
     <div class="formula">
       Fahrenheit = (Celsius × 9/5) + 32
     </div>
 
-
     <div class="formula">
       Celsius = (Fahrenheit − 32) × 5/9
     </div>
-
 
     <div class="formula">
       Kelvin = Celsius + 273.15
     </div>
 
-
     <div class="formula">
       Celsius = Kelvin − 273.15
     </div>
 
-
     <h3>Temperature Conversion Examples</h3>
-
 
     <div class="example">
 
@@ -581,7 +697,6 @@
 
     </div>
 
-
     <div class="example">
 
       <strong>Example 2: Fahrenheit to Celsius</strong>
@@ -592,7 +707,6 @@
       </p>
 
     </div>
-
 
     <div class="example">
 
@@ -605,7 +719,6 @@
 
     </div>
 
-
     <div class="example">
 
       <strong>Example 4: Kelvin to Celsius</strong>
@@ -617,7 +730,6 @@
 
     </div>
 
-
     <div class="note">
 
       <strong>Tip:</strong>
@@ -626,11 +738,9 @@
 
     </div>
 
-
     <div class="faq">
 
       <h2>Frequently Asked Questions</h2>
-
 
       <div class="faq-item">
 
@@ -642,7 +752,6 @@
 
       </div>
 
-
       <div class="faq-item">
 
         <h3>What is 100°C in Fahrenheit?</h3>
@@ -652,7 +761,6 @@
         </p>
 
       </div>
-
 
       <div class="faq-item">
 
@@ -664,7 +772,6 @@
 
       </div>
 
-
       <div class="faq-item">
 
         <h3>What is absolute zero?</h3>
@@ -675,7 +782,6 @@
         </p>
 
       </div>
-
 
       <div class="faq-item">
 
@@ -690,6 +796,27 @@
 
     </div>
 
+    <div class="related">
+
+      <h2>Related Free Tools</h2>
+
+      <div class="related-links">
+
+        <a href="unit-converter.html">
+          Unit Converter
+        </a>
+
+        <a href="length-converter.html">
+          Length Converter
+        </a>
+
+        <a href="weight-converter.html">
+          Weight Converter
+        </a>
+
+      </div>
+
+    </div>
 
     <a class="back-link" href="index.html">
       ← Back to FreeToolsHub
@@ -697,13 +824,11 @@
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
 </main>
-
 
 <footer>
 
@@ -712,46 +837,43 @@
   </p>
 
   <p>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Disclaimer</a>
-    <a href="#">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
   </p>
 
 </footer>
 
-
 <script>
+
+  const amountInput = document.getElementById("amount");
+  const fromUnit = document.getElementById("fromUnit");
+  const toUnit = document.getElementById("toUnit");
+  const result = document.getElementById("result");
+  const error = document.getElementById("error");
+  const convertBtn = document.getElementById("convertBtn");
 
   function convertTemperature() {
 
-    const amount =
-      parseFloat(
-        document.getElementById("amount").value
-      );
+    const amount = parseFloat(amountInput.value);
+    const from = fromUnit.value;
+    const to = toUnit.value;
 
-    const from =
-      document.getElementById("fromUnit").value;
+    error.style.display = "none";
+    error.textContent = "";
 
-    const to =
-      document.getElementById("toUnit").value;
+    if (!Number.isFinite(amount)) {
 
-    const result =
-      document.getElementById("result");
+      result.textContent = "Enter a valid temperature";
 
-
-    if (isNaN(amount)) {
-
-      result.textContent =
-        "Enter a valid temperature";
+      error.textContent = "Please enter a valid temperature.";
+      error.style.display = "block";
 
       return;
-
     }
 
-
     let celsius;
-
 
     // Convert source temperature to Celsius
 
@@ -761,21 +883,31 @@
 
     } else if (from === "fahrenheit") {
 
-      celsius =
-        (amount - 32) * 5 / 9;
+      celsius = (amount - 32) * 5 / 9;
 
     } else if (from === "kelvin") {
 
-      celsius =
-        amount - 273.15;
+      celsius = amount - 273.15;
 
     }
 
+    // Kelvin cannot be below absolute zero
+
+    if (celsius < -273.15) {
+
+      result.textContent = "Invalid temperature";
+
+      error.textContent =
+        "Temperature cannot be below absolute zero (-273.15°C / 0 K).";
+
+      error.style.display = "block";
+
+      return;
+    }
 
     // Convert Celsius to target temperature
 
     let converted;
-
 
     if (to === "celsius") {
 
@@ -783,27 +915,19 @@
 
     } else if (to === "fahrenheit") {
 
-      converted =
-        (celsius * 9 / 5) + 32;
+      converted = (celsius * 9 / 5) + 32;
 
     } else if (to === "kelvin") {
 
-      converted =
-        celsius + 273.15;
+      converted = celsius + 273.15;
 
     }
 
-
     const unitSymbols = {
-
       celsius: "°C",
-
       fahrenheit: "°F",
-
       kelvin: "K"
-
     };
-
 
     const formatted =
       Number(converted.toPrecision(12)).toLocaleString(
@@ -813,12 +937,26 @@
         }
       );
 
-
     result.textContent =
       formatted + " " + unitSymbols[to];
 
   }
 
+  convertBtn.addEventListener("click", convertTemperature);
+
+  amountInput.addEventListener("input", convertTemperature);
+
+  fromUnit.addEventListener("change", convertTemperature);
+
+  toUnit.addEventListener("change", convertTemperature);
+
+  amountInput.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+      convertTemperature();
+    }
+
+  });
 
   convertTemperature();
 
