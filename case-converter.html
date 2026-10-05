@@ -6,19 +6,94 @@
 
   <title>Case Converter - Uppercase, Lowercase & Title Case | FreeToolsHub</title>
 
-  <meta name="description" content="Free online case converter to change text to uppercase, lowercase, title case, sentence case, alternating case and inverse case instantly.">
+  <meta name="description" content="Free online case converter to change text to uppercase, lowercase, title case, sentence case, alternating case and inverse case instantly. Fast, simple and mobile-friendly.">
 
-  <meta name="keywords" content="case converter, uppercase converter, lowercase converter, title case converter, sentence case converter, text case converter">
+  <meta name="keywords" content="case converter, uppercase converter, lowercase converter, title case converter, sentence case converter, text case converter, online text converter">
 
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/case-converter.html">
+
+  <meta property="og:title" content="Case Converter - Free Online Text Case Tool">
+  <meta property="og:description" content="Convert text to uppercase, lowercase, title case, sentence case, alternating case and inverse case instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/case-converter.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FreeToolsHub Case Converter",
+    "url": "https://itzajay43-collab.github.io/free-tools-hub/case-converter.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "description": "Free online case converter for uppercase, lowercase, title case, sentence case, alternating case and inverse case conversion.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this case converter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. FreeToolsHub Case Converter is free to use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I convert text to uppercase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Click the UPPERCASE button to convert all letters to capital letters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Title Case?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Title Case generally capitalizes the first letter of each word. It can be useful for headings and titles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the tool work on mobile devices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The case converter is responsive and works on smartphones, tablets and desktop computers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I copy the converted text?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Use the Copy Text button after converting your text."
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -72,7 +147,7 @@
 
     .hero {
       text-align: center;
-      padding: 25px 0;
+      padding: 30px 0 25px;
     }
 
     .hero h1 {
@@ -102,7 +177,7 @@
       background: white;
       border-radius: 14px;
       padding: 25px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
     }
 
     textarea {
@@ -115,11 +190,12 @@
       font-size: 16px;
       font-family: Arial, sans-serif;
       outline: none;
+      line-height: 1.6;
     }
 
     textarea:focus {
       border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     .buttons {
@@ -131,17 +207,23 @@
 
     button {
       border: none;
-      padding: 11px 15px;
+      padding: 12px 15px;
       border-radius: 8px;
       background: #2563eb;
       color: white;
       cursor: pointer;
       font-size: 14px;
       font-weight: bold;
+      transition: 0.2s;
     }
 
     button:hover {
       background: #1d4ed8;
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.3);
+      outline-offset: 2px;
     }
 
     .secondary {
@@ -160,11 +242,20 @@
       background: #dc2626;
     }
 
+    .status {
+      min-height: 24px;
+      margin-top: 12px;
+      text-align: center;
+      color: #2563eb;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     .stat {
@@ -191,7 +282,7 @@
       margin-top: 25px;
       padding: 25px;
       border-radius: 14px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     }
 
     .info-section h2 {
@@ -216,6 +307,10 @@
       color: #4b5563;
     }
 
+    .info-section li {
+      margin-bottom: 7px;
+    }
+
     .faq {
       border-top: 1px solid #e5e7eb;
       padding: 15px 0;
@@ -224,6 +319,30 @@
     .faq strong {
       display: block;
       margin-bottom: 5px;
+    }
+
+    .related-tools {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .related-tools a {
+      display: block;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 12px;
+      border-radius: 8px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .related-tools a:hover {
+      background: #eff6ff;
+      border-color: #93c5fd;
     }
 
     footer {
@@ -238,6 +357,10 @@
       color: #d1d5db;
       text-decoration: none;
       margin: 0 8px;
+    }
+
+    footer a:hover {
+      color: white;
     }
 
     @media (max-width: 700px) {
@@ -265,6 +388,10 @@
       .info-section {
         padding: 18px;
       }
+
+      textarea {
+        min-height: 240px;
+      }
     }
 
     @media (max-width: 420px) {
@@ -274,6 +401,10 @@
 
       .stats {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .related-tools {
+        grid-template-columns: 1fr;
       }
 
       .stat h3 {
@@ -287,77 +418,88 @@
 
 <header>
   <div class="header-inner">
-
     <a href="index.html" class="logo">FreeToolsHub</a>
 
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#tools">All Tools</a>
     </nav>
-
   </div>
 </header>
 
 <main class="container">
 
   <section class="hero">
-
     <h1>Case Converter</h1>
-
     <p>
       Convert text to uppercase, lowercase, title case, sentence case,
       alternating case and inverse case instantly.
     </p>
-
   </section>
 
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
-  <section class="tool-card">
+  <section class="tool-card" aria-label="Case converter tool">
 
     <textarea
       id="textInput"
+      aria-label="Text to convert"
       placeholder="Type or paste your text here..."
       oninput="updateStats()"
     ></textarea>
 
     <div class="buttons">
 
-      <button onclick="convertUppercase()">
+      <button type="button" onclick="convertUppercase()">
         UPPERCASE
       </button>
 
-      <button onclick="convertLowercase()">
+      <button type="button" onclick="convertLowercase()">
         lowercase
       </button>
 
-      <button onclick="convertTitleCase()">
+      <button type="button" onclick="convertTitleCase()">
         Title Case
       </button>
 
-      <button onclick="convertSentenceCase()">
+      <button type="button" onclick="convertSentenceCase()">
         Sentence case
       </button>
 
-      <button onclick="convertAlternatingCase()">
+      <button type="button" onclick="convertAlternatingCase()">
         aLtErNaTiNg
       </button>
 
-      <button onclick="convertInverseCase()">
+      <button type="button" onclick="convertInverseCase()">
         iNVERSE cASE
       </button>
 
-      <button class="secondary" onclick="copyText()">
+      <button
+        type="button"
+        class="secondary"
+        onclick="copyText()"
+      >
         Copy Text
       </button>
 
-      <button class="clear-btn" onclick="clearText()">
+      <button
+        type="button"
+        class="clear-btn"
+        onclick="clearText()"
+      >
         Clear
       </button>
 
     </div>
+
+    <div
+      id="status"
+      class="status"
+      aria-live="polite"
+      role="status"
+    ></div>
 
     <div class="stats">
 
@@ -380,7 +522,7 @@
 
   </section>
 
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
@@ -398,7 +540,6 @@
     <h3>Available Text Case Options</h3>
 
     <ul>
-
       <li>
         <strong>UPPERCASE:</strong>
         Converts every letter to capital letters.
@@ -429,7 +570,6 @@
         Changes uppercase letters to lowercase and lowercase letters
         to uppercase.
       </li>
-
     </ul>
 
     <h3>How to Use the Case Converter</h3>
@@ -459,59 +599,53 @@
       content more efficiently.
     </p>
 
+    <h3>Related Free Tools</h3>
+
+    <div class="related-tools">
+      <a href="word-counter.html">Word Counter</a>
+      <a href="character-counter.html">Character Counter</a>
+      <a href="typing-speed-test.html">Typing Speed Test</a>
+      <a href="qr-code-generator.html">QR Code Generator</a>
+    </div>
+
     <h3>Frequently Asked Questions</h3>
 
     <div class="faq">
-
       <strong>Is this case converter free?</strong>
-
       <p>
         Yes. FreeToolsHub Case Converter is free to use.
       </p>
-
     </div>
 
     <div class="faq">
-
       <strong>Can I convert text to uppercase?</strong>
-
       <p>
         Yes. Click the UPPERCASE button to convert all letters to
         capital letters.
       </p>
-
     </div>
 
     <div class="faq">
-
       <strong>What is Title Case?</strong>
-
       <p>
         Title Case generally capitalizes the first letter of each word.
         This can be useful for headings and titles.
       </p>
-
     </div>
 
     <div class="faq">
-
       <strong>Does the tool work on mobile devices?</strong>
-
       <p>
         Yes. The case converter is responsive and works on smartphones,
         tablets and desktop computers.
       </p>
-
     </div>
 
     <div class="faq">
-
       <strong>Can I copy the converted text?</strong>
-
       <p>
         Yes. Use the Copy Text button after converting your text.
       </p>
-
     </div>
 
   </section>
@@ -523,96 +657,89 @@
   <p>© 2026 FreeToolsHub. All rights reserved.</p>
 
   <p>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Disclaimer</a>
-    <a href="#">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
   </p>
 
 </footer>
 
 <script>
+  const textInput = document.getElementById("textInput");
+  const statusBox = document.getElementById("status");
 
-const textInput = document.getElementById("textInput");
+  function showStatus(message, isError = false) {
+    statusBox.textContent = message;
+    statusBox.style.color = isError ? "#dc2626" : "#2563eb";
 
+    clearTimeout(window.statusTimer);
 
-function updateStats() {
+    window.statusTimer = setTimeout(() => {
+      statusBox.textContent = "";
+    }, 2500);
+  }
 
-  const text = textInput.value;
+  function updateStats() {
+    const text = textInput.value;
 
-  const words = text.trim()
-    ? text.trim().split(/\s+/).length
-    : 0;
+    const words = text.trim()
+      ? text.trim().split(/\s+/).length
+      : 0;
 
-  const characters = text.length;
+    const characters = text.length;
 
-  const lines = text
-    ? text.split(/\r\n|\r|\n/).length
-    : 0;
+    const lines = text
+      ? text.split(/\r\n|\r|\n/).length
+      : 0;
 
-  document.getElementById("wordCount").textContent =
-    words;
+    document.getElementById("wordCount").textContent = words;
+    document.getElementById("characterCount").textContent = characters;
+    document.getElementById("lineCount").textContent = lines;
+  }
 
-  document.getElementById("characterCount").textContent =
-    characters;
+  function convertUppercase() {
+    textInput.value = textInput.value.toUpperCase();
+    updateStats();
+    showStatus("Converted to uppercase.");
+  }
 
-  document.getElementById("lineCount").textContent =
-    lines;
-}
+  function convertLowercase() {
+    textInput.value = textInput.value.toLowerCase();
+    updateStats();
+    showStatus("Converted to lowercase.");
+  }
 
+  function convertTitleCase() {
+    const text = textInput.value.toLowerCase();
 
-function convertUppercase() {
+    textInput.value = text.replace(
+      /\b\w/g,
+      letter => letter.toUpperCase()
+    );
 
-  textInput.value =
-    textInput.value.toUpperCase();
+    updateStats();
+    showStatus("Converted to Title Case.");
+  }
 
-  updateStats();
-}
+  function convertSentenceCase() {
+    let text = textInput.value.toLowerCase();
 
+    text = text.replace(
+      /(^\s*[a-z])|([.!?]\s+[a-z])/g,
+      match => match.toUpperCase()
+    );
 
-function convertLowercase() {
+    textInput.value = text;
 
-  textInput.value =
-    textInput.value.toLowerCase();
+    updateStats();
+    showStatus("Converted to sentence case.");
+  }
 
-  updateStats();
-}
+  function convertAlternatingCase() {
+    let index = 0;
 
-
-function convertTitleCase() {
-
-  const text = textInput.value.toLowerCase();
-
-  textInput.value = text.replace(
-    /\b\w/g,
-    letter => letter.toUpperCase()
-  );
-
-  updateStats();
-}
-
-
-function convertSentenceCase() {
-
-  let text = textInput.value.toLowerCase();
-
-  text = text.replace(
-    /(^\s*[a-z])|([.!?]\s+[a-z])/g,
-    match => match.toUpperCase()
-  );
-
-  textInput.value = text;
-
-  updateStats();
-}
-
-
-function convertAlternatingCase() {
-
-  let index = 0;
-
-  textInput.value =
-    textInput.value
+    textInput.value = textInput.value
       .toLowerCase()
       .split("")
       .map(char => {
@@ -634,14 +761,12 @@ function convertAlternatingCase() {
       })
       .join("");
 
-  updateStats();
-}
+    updateStats();
+    showStatus("Converted to alternating case.");
+  }
 
-
-function convertInverseCase() {
-
-  textInput.value =
-    textInput.value
+  function convertInverseCase() {
+    textInput.value = textInput.value
       .split("")
       .map(char => {
 
@@ -658,38 +783,47 @@ function convertInverseCase() {
       })
       .join("");
 
-  updateStats();
-}
-
-
-function copyText() {
-
-  const text = textInput.value;
-
-  if (!text) {
-    alert("There is no text to copy.");
-    return;
+    updateStats();
+    showStatus("Converted to inverse case.");
   }
 
-  navigator.clipboard.writeText(text)
-    .then(() => {
-      alert("Text copied successfully!");
-    })
-    .catch(() => {
-      alert("Unable to copy text.");
-    });
+  async function copyText() {
+    const text = textInput.value;
 
-}
+    if (!text) {
+      showStatus("There is no text to copy.", true);
+      textInput.focus();
+      return;
+    }
 
+    try {
+      await navigator.clipboard.writeText(text);
+      showStatus("Text copied successfully!");
+    } catch (error) {
 
-function clearText() {
+      textInput.select();
+      textInput.setSelectionRange(0, textInput.value.length);
 
-  textInput.value = "";
+      try {
+        document.execCommand("copy");
+        showStatus("Text copied successfully!");
+      } catch (fallbackError) {
+        showStatus(
+          "Unable to copy automatically. Please copy manually.",
+          true
+        );
+      }
+    }
+  }
+
+  function clearText() {
+    textInput.value = "";
+    updateStats();
+    showStatus("Text cleared.");
+    textInput.focus();
+  }
 
   updateStats();
-
-}
-
 </script>
 
 </body>
