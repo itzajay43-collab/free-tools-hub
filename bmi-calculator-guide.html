@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BMI Calculator Guide – How to Calculate BMI | FreeToolsHub</title>
+
+  <meta name="description" content="Learn how to calculate BMI using height and weight. Understand the BMI formula, BMI categories, examples, metric and imperial calculations.">
+
+  <meta name="keywords" content="BMI calculator guide, how to calculate BMI, BMI formula, BMI categories, body mass index calculator">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/bmi-calculator-guide.html">
+
+  <meta property="og:title" content="BMI Calculator Guide – How to Calculate BMI">
+  <meta property="og:description" content="Learn the BMI formula, how BMI is calculated, BMI categories and examples using height and weight.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/bmi-calculator-guide.html">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BMI Calculator Guide">
+  <meta name="twitter:description" content="Learn how to calculate BMI with simple formulas and examples.">
+
+  <meta name="google-site-verification" content="7wwhrIRRHKl2HYzCzbwHw34CGWp6c-qrMiaEol2_rUA">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      padding: 18px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 18px rgba(0,0,0,.12);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      opacity: .95;
+    }
+
+    .container {
+      width: min(100% - 32px, 900px);
+      margin: auto;
+    }
+
+    .hero {
+      margin-top: 34px;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      border: 1px solid #dbe4ff;
+      border-radius: 24px;
+      padding: 45px 30px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.15;
+      margin: 8px 0 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #536078;
+      font-size: 17px;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 24px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(37,99,235,.2);
+    }
+
+    .content {
+      background: white;
+      margin-top: 24px;
+      padding: 34px;
+      border-radius: 20px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 5px 20px rgba(15,23,42,.05);
+    }
+
+    h2 {
+      margin-top: 34px;
+      margin-bottom: 12px;
+      font-size: 26px;
+      color: #111827;
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    h3 {
+      margin-top: 24px;
+      color: #1f2937;
+    }
+
+    p {
+      color: #4b5563;
+    }
+
+    ul,
+    ol {
+      color: #4b5563;
+      padding-left: 25px;
+    }
+
+    .formula {
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      padding: 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-align: center;
+      color: #3730a3;
+      margin: 18px 0;
+      overflow-x: auto;
+    }
+
+    .example {
+      background: #f8fafc;
+      border-left: 4px solid #2563eb;
+      padding: 18px 20px;
+      border-radius: 10px;
+      margin: 18px 0;
+    }
+
+    .note {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 18px;
+      border-radius: 12px;
+      margin: 18px 0;
+      color: #7c2d12;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 500px;
+    }
+
+    th,
+    td {
+      border: 1px solid #e5e7eb;
+      padding: 12px 14px;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: #1f2937;
+    }
+
+    .faq {
+      border-top: 1px solid #e5e7eb;
+      padding: 18px 0;
+    }
+
+    .faq h3 {
+      margin: 0 0 7px;
+      font-size: 18px;
+    }
+
+    .related {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .related a {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      padding: 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #1d4ed8;
+    }
+
+    .footer {
+      margin-top: 40px;
+      background: #111827;
+      color: #cbd5e1;
+      padding: 35px 20px;
+    }
+
+    .footer-inner {
+      width: min(100% - 32px, 900px);
+      margin: auto;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 15px 0;
+    }
+
+    .footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .copyright {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 35px 20px;
+      }
+
+      .content {
+        padding: 24px 18px;
+      }
+
+      h2 {
+        font-size: 23px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "BMI Calculator Guide – How to Calculate BMI",
+    "description": "A simple guide explaining BMI, the BMI formula, BMI categories and examples.",
+    "author": {
+      "@type": "Organization",
+      "name": "FreeToolsHub"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FreeToolsHub"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://itzajay43-collab.github.io/free-tools-hub/bmi-calculator-guide.html"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is BMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMI stands for Body Mass Index. It is a screening measure calculated using a person's weight and height."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is BMI calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For metric measurements, BMI is calculated by dividing weight in kilograms by height in metres squared."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the BMI formula?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The metric BMI formula is BMI = weight in kilograms divided by height in metres squared."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the common adult BMI categories?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common adult BMI categories are underweight below 18.5, healthy weight from 18.5 to below 25, overweight from 25 to below 30, and obesity at 30 or above."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is BMI a complete measure of health?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. BMI is a screening measure and does not directly measure body fat or fully describe an individual's health."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="logo" href="index.html">FreeToolsHub</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="bmi-calculator.html">BMI Calculator</a>
+      <a href="age-calculator.html">Age</a>
+      <a href="unit-converter.html">Unit Converter</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <span class="badge">BMI CALCULATOR GUIDE</span>
+
+    <h1>How to Calculate BMI</h1>
+
+    <p>
+      Learn what BMI means, how to calculate it using height and weight,
+      understand common adult BMI categories, and see simple examples.
+    </p>
+
+    <a class="cta" href="bmi-calculator.html">
+      Calculate Your BMI →
+    </a>
+  </section>
+
+  <article class="content">
+
+    <h2>What Is BMI?</h2>
+
+    <p>
+      BMI stands for <strong>Body Mass Index</strong>. It is a screening
+      measure that uses a person's weight and height to produce a numerical
+      value.
+    </p>
+
+    <p>
+      BMI can provide a quick way to compare a person's weight with their
+      height, but it should not be treated as a complete assessment of
+      individual health.
+    </p>
+
+    <div class="note">
+      <strong>Important:</strong> BMI is a screening measure. It does not
+      directly measure body fat and may not accurately represent health for
+      every person, including people with high muscle mass or certain
+      individual circumstances.
+    </div>
+
+    <h2>BMI Formula</h2>
+
+    <p>
+      When using kilograms and metres, BMI is calculated using the following
+      formula:
+    </p>
+
+    <div class="formula">
+      BMI = Weight (kg) ÷ [Height (m) × Height (m)]
+    </div>
+
+    <p>
+      In other words, divide your weight in kilograms by your height in
+      metres squared.
+    </p>
+
+    <h2>Example of BMI Calculation</h2>
+
+    <p>
+      Suppose a person weighs <strong>70 kg</strong> and is
+      <strong>1.75 metres</strong> tall.
+    </p>
+
+    <div class="example">
+      BMI = 70 ÷ (1.75 × 1.75)<br><br>
+
+      BMI = 70 ÷ 3.0625<br><br>
+
+      BMI ≈ <strong>22.86</strong>
+    </div>
+
+    <p>
+      The calculated BMI is approximately <strong>22.86</strong>.
+    </p>
+
+    <h2>Common Adult BMI Categories</h2>
+
+    <p>
+      The following are commonly used BMI categories for adults:
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>BMI Range</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Below 18.5</td>
+            <td>Underweight</td>
+          </tr>
+
+          <tr>
+            <td>18.5 – 24.9</td>
+            <td>Healthy weight</td>
+          </tr>
+
+          <tr>
+            <td>25.0 – 29.9</td>
+            <td>Overweight</td>
+          </tr>
+
+          <tr>
+            <td>30.0 or above</td>
+            <td>Obesity</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      These categories are general adult screening ranges and should not be
+      interpreted as a diagnosis.
+    </p>
+
+    <h2>How to Calculate BMI Using Pounds and Inches</h2>
+
+    <p>
+      BMI can also be calculated using weight in pounds and height in
+      inches.
+    </p>
+
+    <div class="formula">
+      BMI = 703 × Weight (lb) ÷ [Height (in) × Height (in)]
+    </div>
+
+    <p>
+      For example, if someone weighs 154 pounds and is 68 inches tall:
+    </p>
+
+    <div class="example">
+      BMI = 703 × 154 ÷ (68 × 68)<br><br>
+
+      BMI ≈ <strong>23.39</strong>
+    </div>
+
+    <h2>Why Calculate BMI?</h2>
+
+    <p>
+      BMI can be useful as a quick screening measurement and can help people
+      understand how their weight relates to their height.
+    </p>
+
+    <ul>
+      <li>Quickly calculate a BMI value.</li>
+      <li>Compare weight with height.</li>
+      <li>Understand common adult BMI categories.</li>
+      <li>Use the result as a starting point for further discussion.</li>
+    </ul>
+
+    <h2>Limitations of BMI</h2>
+
+    <p>
+      BMI does not directly measure body fat. Two people can have the same
+      BMI while having different amounts of muscle and body fat.
+    </p>
+
+    <p>
+      Factors such as muscle mass, body composition, age and individual
+      circumstances can affect how meaningful a BMI value is.
+    </p>
+
+    <p>
+      For children and teenagers, BMI interpretation is different and
+      generally takes age and sex into account rather than simply applying
+      adult categories.
+    </p>
+
+    <h2>Calculate BMI Online</h2>
+
+    <p>
+      You can use the FreeToolsHub BMI Calculator to calculate BMI quickly
+      using either metric or imperial measurements.
+    </p>
+
+    <a class="cta" href="bmi-calculator.html">
+      Open Free BMI Calculator →
+    </a>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+      <h3>What is BMI?</h3>
+      <p>
+        BMI stands for Body Mass Index. It is a screening measure calculated
+        using weight and height.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>How is BMI calculated?</h3>
+      <p>
+        With metric measurements, divide weight in kilograms by height in
+        metres squared.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>What is the BMI formula?</h3>
+      <p>
+        The metric formula is
+        <strong>BMI = weight (kg) ÷ height (m)²</strong>.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>What are the common adult BMI categories?</h3>
+      <p>
+        Common adult categories are underweight below 18.5, healthy weight
+        from 18.5 to below 25, overweight from 25 to below 30, and obesity
+        at 30 or above.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Is BMI a complete measure of health?</h3>
+      <p>
+        No. BMI is a screening measure and does not directly measure body
+        fat or fully describe an individual's health.
+      </p>
+    </div>
+
+    <h2>Related Free Tools</h2>
+
+    <div class="related">
+      <a href="bmi-calculator.html">BMI Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="unit-converter.html">Unit Converter</a>
+      <a href="weight-converter.html">Weight Converter</a>
+      <a href="index.html">All Free Tools</a>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+
+    <strong>FreeToolsHub</strong>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="copyright">
+      © 2026 FreeToolsHub. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
