@@ -2,18 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Word Counter - Count Words, Characters & Sentences | FreeToolsHub</title>
+  <title>Word Counter Online - Count Words, Characters & Sentences | FreeToolsHub</title>
 
-  <meta name="description" content="Free online word counter to count words, characters, sentences and paragraphs. Get reading time instantly with our fast and simple word counting tool.">
-
+  <meta name="description" content="Free online word counter to count words, characters, sentences and paragraphs instantly. Check reading time and text length with FreeToolsHub.">
   <meta name="keywords" content="word counter, online word counter, word count tool, character counter, sentence counter, paragraph counter, reading time calculator">
-
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/word-counter.html">
+
+  <meta property="og:title" content="Free Online Word Counter - FreeToolsHub">
+  <meta property="og:description" content="Count words, characters, sentences and paragraphs instantly with this free online word counter.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/word-counter.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FreeToolsHub Word Counter",
+    "url": "https://itzajay43-collab.github.io/free-tools-hub/word-counter.html",
+    "description": "Free online word counter for counting words, characters, sentences and paragraphs.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this word counter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The FreeToolsHub Word Counter is completely free to use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the word count update automatically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The statistics update instantly while you type or paste text."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it count characters with spaces?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The tool provides both total characters and characters excluding spaces."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is reading time calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Reading time is estimated using approximately 200 words per minute. Actual reading speed varies from person to person."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this tool for essays and assignments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can paste your essay, assignment, article or any other text to quickly check its length."
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     * {
@@ -83,7 +151,7 @@
 
     .hero p {
       color: #6b7280;
-      max-width: 700px;
+      max-width: 720px;
       margin: auto;
     }
 
@@ -116,6 +184,7 @@
       font-size: 16px;
       font-family: Arial, sans-serif;
       outline: none;
+      line-height: 1.6;
     }
 
     textarea:focus {
@@ -155,7 +224,7 @@
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 15px;
       margin-top: 20px;
     }
@@ -203,9 +272,14 @@
       margin-bottom: 12px;
     }
 
-    .info-section ul {
+    .info-section ul,
+    .info-section ol {
       padding-left: 20px;
       color: #4b5563;
+    }
+
+    .info-section li {
+      margin-bottom: 6px;
     }
 
     .faq {
@@ -216,6 +290,37 @@
     .faq strong {
       display: block;
       margin-bottom: 5px;
+    }
+
+    .related-tools {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .related-tools a {
+      display: block;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #1d4ed8;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .related-tools a:hover {
+      background: #eff6ff;
+    }
+
+    .status {
+      margin-top: 10px;
+      min-height: 22px;
+      color: #2563eb;
+      font-size: 14px;
+      font-weight: bold;
     }
 
     footer {
@@ -232,9 +337,18 @@
       margin: 0 8px;
     }
 
+    footer a:hover {
+      color: white;
+    }
+
     @media (max-width: 700px) {
+
       .header-inner {
         flex-direction: column;
+      }
+
+      nav {
+        text-align: center;
       }
 
       nav a {
@@ -249,20 +363,41 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .related-tools {
+        grid-template-columns: 1fr;
+      }
+
       .tool-card,
       .info-section {
         padding: 18px;
       }
+
+      textarea {
+        min-height: 240px;
+      }
     }
 
     @media (max-width: 400px) {
+
       .stats {
         grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
 
+      .stat {
+        padding: 14px 8px;
+      }
+
       .stat h3 {
         font-size: 23px;
+      }
+
+      .stat p {
+        font-size: 13px;
+      }
+
+      button {
+        width: 100%;
       }
     }
   </style>
@@ -272,41 +407,73 @@
 
 <header>
   <div class="header-inner">
-    <a href="index.html" class="logo">FreeToolsHub</a>
 
-    <nav>
+    <a href="index.html" class="logo" aria-label="FreeToolsHub Home">
+      FreeToolsHub
+    </a>
+
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#tools">All Tools</a>
     </nav>
+
   </div>
 </header>
 
 <main class="container">
 
   <section class="hero">
-    <h1>Word Counter</h1>
+    <h1>Free Online Word Counter</h1>
+
     <p>
       Count words, characters, sentences and paragraphs instantly.
-      Get reading time with this free online word counter.
+      Get estimated reading time with this free online word counter.
     </p>
   </section>
 
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
-  <section class="tool-card">
+  <section class="tool-card" aria-label="Word Counter Tool">
+
+    <label for="textInput">
+      <strong>Enter or paste your text</strong>
+    </label>
 
     <textarea
       id="textInput"
       placeholder="Type or paste your text here..."
-      oninput="countText()"
+      aria-label="Text to count"
+      spellcheck="true"
     ></textarea>
 
     <div class="buttons">
-      <button onclick="copyText()">Copy Text</button>
-      <button class="clear-btn" onclick="clearText()">Clear</button>
+
+      <button
+        type="button"
+        id="copyButton"
+        onclick="copyText()"
+      >
+        Copy Text
+      </button>
+
+      <button
+        type="button"
+        class="clear-btn"
+        onclick="clearText()"
+      >
+        Clear
+      </button>
+
     </div>
+
+    <div
+      class="status"
+      id="statusMessage"
+      role="status"
+      aria-live="polite"
+    ></div>
 
     <div class="stats">
 
@@ -344,7 +511,7 @@
 
   </section>
 
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
@@ -366,18 +533,42 @@
       <li>The word count will update automatically.</li>
       <li>Check characters, sentences and paragraphs.</li>
       <li>Use the reading time to estimate how long your text takes to read.</li>
+      <li>Click Copy Text if you want to copy your text.</li>
       <li>Click Clear to remove the text and start again.</li>
     </ol>
 
     <h3>What Does This Word Counter Calculate?</h3>
 
     <ul>
-      <li><strong>Words:</strong> Total number of words in your text.</li>
-      <li><strong>Characters:</strong> Total characters including spaces.</li>
-      <li><strong>Characters Without Spaces:</strong> Characters excluding whitespace.</li>
-      <li><strong>Sentences:</strong> Approximate number of sentences based on punctuation.</li>
-      <li><strong>Paragraphs:</strong> Number of non-empty paragraphs.</li>
-      <li><strong>Reading Time:</strong> Estimated reading time based on approximately 200 words per minute.</li>
+      <li>
+        <strong>Words:</strong>
+        Total number of words in your text.
+      </li>
+
+      <li>
+        <strong>Characters:</strong>
+        Total characters including spaces.
+      </li>
+
+      <li>
+        <strong>Characters Without Spaces:</strong>
+        Characters excluding whitespace.
+      </li>
+
+      <li>
+        <strong>Sentences:</strong>
+        Approximate number of sentences based on punctuation.
+      </li>
+
+      <li>
+        <strong>Paragraphs:</strong>
+        Number of non-empty paragraphs.
+      </li>
+
+      <li>
+        <strong>Reading Time:</strong>
+        Estimated reading time based on approximately 200 words per minute.
+      </li>
     </ul>
 
     <h3>Who Can Use a Word Counter?</h3>
@@ -392,12 +583,16 @@
 
     <div class="faq">
       <strong>Is this word counter free?</strong>
-      <p>Yes. The FreeToolsHub Word Counter is completely free to use.</p>
+      <p>
+        Yes. The FreeToolsHub Word Counter is completely free to use.
+      </p>
     </div>
 
     <div class="faq">
       <strong>Does the word count update automatically?</strong>
-      <p>Yes. The statistics update instantly while you type or paste text.</p>
+      <p>
+        Yes. The statistics update instantly while you type or paste text.
+      </p>
     </div>
 
     <div class="faq">
@@ -424,105 +619,168 @@
       </p>
     </div>
 
+    <h3>Related Free Tools</h3>
+
+    <div class="related-tools">
+
+      <a href="character-counter.html">
+        Character Counter
+      </a>
+
+      <a href="case-converter.html">
+        Case Converter
+      </a>
+
+      <a href="typing-speed-test.html">
+        Typing Speed Test
+      </a>
+
+      <a href="percentage-calculator.html">
+        Percentage Calculator
+      </a>
+
+      <a href="date-calculator.html">
+        Date Calculator
+      </a>
+
+      <a href="index.html#tools">
+        View All Tools
+      </a>
+
+    </div>
+
   </section>
 
 </main>
 
 <footer>
 
-  <p>© 2026 FreeToolsHub. All rights reserved.</p>
+  <p>
+    © 2026 FreeToolsHub. All rights reserved.
+  </p>
 
   <p>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Disclaimer</a>
-    <a href="#">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
   </p>
 
 </footer>
 
 <script>
 
-function countText() {
+  const textInput = document.getElementById("textInput");
 
-  const text = document.getElementById("textInput").value;
+  textInput.addEventListener("input", countText);
 
-  // Word count
-  const words = text.trim()
-    ? text.trim().split(/\s+/).length
-    : 0;
+  function countText() {
 
-  // Character count
-  const characters = text.length;
+    const text = textInput.value;
+    const trimmedText = text.trim();
 
-  // Characters without spaces
-  const charactersNoSpace = text.replace(/\s/g, "").length;
+    /* Word Count */
+    const words = trimmedText
+      ? trimmedText.split(/\s+/).length
+      : 0;
 
-  // Sentence count
-  const sentenceMatches = text
-    .trim()
-    .match(/[^.!?]+[.!?]+(?=\s|$)/g);
+    /* Character Count */
+    const characters = text.length;
 
-  const sentences = sentenceMatches
-    ? sentenceMatches.length
-    : (text.trim() ? 1 : 0);
+    /* Characters Without Spaces */
+    const charactersNoSpace =
+      text.replace(/\s/g, "").length;
 
-  // Paragraph count
-  const paragraphs = text.trim()
-    ? text.trim().split(/\n\s*\n/).filter(p => p.trim()).length
-    : 0;
+    /* Sentence Count */
+    const sentenceMatches = trimmedText
+      .match(/[^.!?]+[.!?]+(?=\s|$)/g);
 
-  // Reading time
-  const readingMinutes = words > 0
-    ? Math.max(1, Math.ceil(words / 200))
-    : 0;
+    const sentences = sentenceMatches
+      ? sentenceMatches.length
+      : (trimmedText ? 1 : 0);
 
-  document.getElementById("wordCount").textContent = words;
+    /* Paragraph Count */
+    const paragraphs = trimmedText
+      ? trimmedText
+          .split(/\n\s*\n/)
+          .filter(p => p.trim())
+          .length
+      : 0;
 
-  document.getElementById("characterCount").textContent =
-    characters;
+    /* Reading Time */
+    const readingMinutes = words > 0
+      ? Math.max(1, Math.ceil(words / 200))
+      : 0;
 
-  document.getElementById("characterNoSpace").textContent =
-    charactersNoSpace;
+    /* Update UI */
+    document.getElementById("wordCount").textContent =
+      words;
 
-  document.getElementById("sentenceCount").textContent =
-    sentences;
+    document.getElementById("characterCount").textContent =
+      characters;
 
-  document.getElementById("paragraphCount").textContent =
-    paragraphs;
+    document.getElementById("characterNoSpace").textContent =
+      charactersNoSpace;
 
-  document.getElementById("readingTime").textContent =
-    readingMinutes + " min";
-}
+    document.getElementById("sentenceCount").textContent =
+      sentences;
 
+    document.getElementById("paragraphCount").textContent =
+      paragraphs;
 
-function clearText() {
-
-  document.getElementById("textInput").value = "";
-
-  countText();
-
-}
-
-
-function copyText() {
-
-  const text = document.getElementById("textInput").value;
-
-  if (!text) {
-    alert("There is no text to copy.");
-    return;
+    document.getElementById("readingTime").textContent =
+      readingMinutes + " min";
   }
 
-  navigator.clipboard.writeText(text)
-    .then(() => {
-      alert("Text copied successfully!");
-    })
-    .catch(() => {
-      alert("Unable to copy text.");
-    });
 
-}
+  function clearText() {
+
+    textInput.value = "";
+
+    countText();
+
+    showStatus("Text cleared.");
+  }
+
+
+  async function copyText() {
+
+    const text = textInput.value;
+
+    if (!text) {
+      showStatus("There is no text to copy.");
+      return;
+    }
+
+    try {
+
+      await navigator.clipboard.writeText(text);
+
+      showStatus("Text copied successfully!");
+
+    } catch (error) {
+
+      showStatus("Unable to copy text. Please copy it manually.");
+
+    }
+  }
+
+
+  function showStatus(message) {
+
+    const status = document.getElementById("statusMessage");
+
+    status.textContent = message;
+
+    clearTimeout(window.statusTimer);
+
+    window.statusTimer = setTimeout(() => {
+      status.textContent = "";
+    }, 2500);
+  }
+
+
+  countText();
 
 </script>
 
