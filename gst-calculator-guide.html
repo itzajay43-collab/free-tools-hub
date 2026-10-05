@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>GST Calculator Guide – How to Calculate GST | FreeToolsHub</title>
+
+  <meta name="description" content="Learn how to calculate GST with simple formulas and examples. Understand GST inclusive and exclusive prices, adding GST and removing GST.">
+
+  <meta name="keywords" content="GST calculator guide, how to calculate GST, GST formula, GST inclusive, GST exclusive, remove GST">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/gst-calculator-guide.html">
+
+  <meta property="og:title" content="GST Calculator Guide – How to Calculate GST">
+  <meta property="og:description" content="Learn GST calculation, GST inclusive and exclusive prices with simple formulas and examples.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/gst-calculator-guide.html">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="GST Calculator Guide">
+  <meta name="twitter:description" content="Learn how to calculate GST with simple examples and formulas.">
+
+  <meta name="google-site-verification" content="7wwhrIRRHKl2HYzCzbwHw34CGWp6c-qrMiaEol2_rUA">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      padding: 18px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 18px rgba(0,0,0,.12);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      opacity: .95;
+    }
+
+    .container {
+      width: min(100% - 32px, 900px);
+      margin: auto;
+    }
+
+    .hero {
+      margin-top: 34px;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      border: 1px solid #dbe4ff;
+      border-radius: 24px;
+      padding: 45px 30px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.15;
+      margin: 8px 0 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #536078;
+      font-size: 17px;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 24px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(37,99,235,.2);
+    }
+
+    .content {
+      background: white;
+      margin-top: 24px;
+      padding: 34px;
+      border-radius: 20px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 5px 20px rgba(15,23,42,.05);
+    }
+
+    h2 {
+      margin-top: 34px;
+      margin-bottom: 12px;
+      font-size: 26px;
+      color: #111827;
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    h3 {
+      margin-top: 24px;
+      color: #1f2937;
+    }
+
+    p {
+      color: #4b5563;
+    }
+
+    ul,
+    ol {
+      color: #4b5563;
+      padding-left: 25px;
+    }
+
+    .formula {
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      padding: 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-align: center;
+      color: #3730a3;
+      margin: 18px 0;
+      overflow-x: auto;
+    }
+
+    .example {
+      background: #f8fafc;
+      border-left: 4px solid #2563eb;
+      padding: 18px 20px;
+      border-radius: 10px;
+      margin: 18px 0;
+    }
+
+    .note {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 18px;
+      border-radius: 12px;
+      margin: 18px 0;
+      color: #7c2d12;
+    }
+
+    .faq {
+      border-top: 1px solid #e5e7eb;
+      padding: 18px 0;
+    }
+
+    .faq h3 {
+      margin: 0 0 7px;
+      font-size: 18px;
+    }
+
+    .related {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .related a {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      padding: 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #1d4ed8;
+    }
+
+    .footer {
+      margin-top: 40px;
+      background: #111827;
+      color: #cbd5e1;
+      padding: 35px 20px;
+    }
+
+    .footer-inner {
+      width: min(100% - 32px, 900px);
+      margin: auto;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 15px 0;
+    }
+
+    .footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .copyright {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 35px 20px;
+      }
+
+      .content {
+        padding: 24px 18px;
+      }
+
+      h2 {
+        font-size: 23px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "GST Calculator Guide – How to Calculate GST",
+    "description": "A simple guide explaining GST calculation, GST inclusive and exclusive prices, and GST formulas.",
+    "author": {
+      "@type": "Organization",
+      "name": "FreeToolsHub"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "FreeToolsHub"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://itzajay43-collab.github.io/free-tools-hub/gst-calculator-guide.html"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is GST?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GST stands for Goods and Services Tax. It is an indirect tax applied to many goods and services."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you calculate GST on a price?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GST can be calculated by multiplying the original taxable amount by the applicable GST rate and dividing by 100."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you add GST to a price?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GST amount = Original Price × GST Rate ÷ 100. The final price is the original price plus the GST amount."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you remove GST from an inclusive price?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a GST-inclusive amount, the original taxable value can be calculated as Inclusive Amount × 100 ÷ (100 + GST Rate)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the FreeToolsHub GST Calculator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The FreeToolsHub GST Calculator is available online for free."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="logo" href="index.html">FreeToolsHub</a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gst-calculator.html">GST Calculator</a>
+      <a href="percentage-calculator.html">Percentage</a>
+      <a href="discount-calculator.html">Discount</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <span class="badge">GST CALCULATOR GUIDE</span>
+
+    <h1>How to Calculate GST</h1>
+
+    <p>
+      Learn how GST is calculated, how to add GST to a price and how to
+      calculate the original price from a GST-inclusive amount.
+    </p>
+
+    <a class="cta" href="gst-calculator.html">
+      Calculate GST →
+    </a>
+  </section>
+
+  <article class="content">
+
+    <h2>What Is GST?</h2>
+
+    <p>
+      GST stands for <strong>Goods and Services Tax</strong>. It is an
+      indirect tax applied to many goods and services.
+    </p>
+
+    <p>
+      The applicable GST rate can vary depending on the product or service.
+      Therefore, you should use the rate applicable to your particular
+      transaction when performing a GST calculation.
+    </p>
+
+    <div class="note">
+      <strong>Important:</strong> This guide explains the mathematical
+      calculation of GST. It does not determine which GST rate applies to
+      a particular product or service.
+    </div>
+
+    <h2>How to Calculate GST</h2>
+
+    <p>
+      If you know the original taxable price and the applicable GST rate,
+      the GST amount can be calculated using:
+    </p>
+
+    <div class="formula">
+      GST Amount = Original Price × GST Rate ÷ 100
+    </div>
+
+    <p>
+      The GST-inclusive price can then be calculated by adding the GST
+      amount to the original price.
+    </p>
+
+    <div class="formula">
+      Final Price = Original Price + GST Amount
+    </div>
+
+    <h2>Example: Adding GST to a Price</h2>
+
+    <p>
+      Suppose the taxable price of a product is <strong>₹1,000</strong> and
+      the applicable GST rate is <strong>18%</strong>.
+    </p>
+
+    <div class="example">
+      GST Amount = ₹1,000 × 18 ÷ 100<br><br>
+
+      GST Amount = <strong>₹180</strong><br><br>
+
+      Final Price = ₹1,000 + ₹180<br>
+
+      Final Price = <strong>₹1,180</strong>
+    </div>
+
+    <p>
+      So, at an 18% GST rate, a taxable price of ₹1,000 becomes ₹1,180
+      after adding GST.
+    </p>
+
+    <h2>What Is a GST-Inclusive Price?</h2>
+
+    <p>
+      A GST-inclusive price already contains the GST amount. If you only
+      know the final GST-inclusive amount, you can calculate the original
+      taxable value using the applicable GST rate.
+    </p>
+
+    <div class="formula">
+      Original Price = Inclusive Price × 100 ÷ (100 + GST Rate)
+    </div>
+
+    <h2>Example: Removing GST From an Inclusive Price</h2>
+
+    <p>
+      Suppose the final price is <strong>₹1,180</strong> and it includes
+      GST at <strong>18%</strong>.
+    </p>
+
+    <div class="example">
+      Original Price = ₹1,180 × 100 ÷ 118<br><br>
+
+      Original Price = <strong>₹1,000</strong><br><br>
+
+      GST Amount = ₹1,180 − ₹1,000<br>
+
+      GST Amount = <strong>₹180</strong>
+    </div>
+
+    <p>
+      Therefore, when ₹1,180 includes 18% GST, the taxable value is ₹1,000
+      and the GST component is ₹180.
+    </p>
+
+    <h2>GST Exclusive vs GST Inclusive</h2>
+
+    <ul>
+      <li>
+        <strong>GST Exclusive:</strong> The displayed price does not include
+        GST. GST is added separately.
+      </li>
+      <li>
+        <strong>GST Inclusive:</strong> The displayed price already includes
+        GST.
+      </li>
+    </ul>
+
+    <h2>Why Is GST Calculation Useful?</h2>
+
+    <p>
+      GST calculations can be useful when checking invoices, estimating
+      final prices, comparing taxable and tax-inclusive amounts, or
+      calculating the tax component of a transaction.
+    </p>
+
+    <ul>
+      <li>Calculate GST on a taxable amount.</li>
+      <li>Find the final price after adding GST.</li>
+      <li>Find the taxable value from a GST-inclusive amount.</li>
+      <li>Estimate the GST component of a price.</li>
+      <li>Check basic invoice calculations.</li>
+    </ul>
+
+    <h2>Calculate GST Online</h2>
+
+    <p>
+      Instead of calculating GST manually, you can use the FreeToolsHub GST
+      Calculator to quickly calculate GST amounts and prices.
+    </p>
+
+    <a class="cta" href="gst-calculator.html">
+      Open Free GST Calculator →
+    </a>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+      <h3>What is GST?</h3>
+      <p>
+        GST means Goods and Services Tax. It is an indirect tax applied to
+        many goods and services.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>How do you calculate GST on a price?</h3>
+      <p>
+        Multiply the original taxable amount by the applicable GST rate and
+        divide by 100.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>How do you add GST to a price?</h3>
+      <p>
+        First calculate the GST amount using
+        <strong>Price × Rate ÷ 100</strong>, then add that amount to the
+        original price.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>How do you remove GST from an inclusive price?</h3>
+      <p>
+        Use the formula:
+        <strong>Inclusive Price × 100 ÷ (100 + GST Rate)</strong>
+        to calculate the original taxable value.
+      </p>
+    </div>
+
+    <div class="faq">
+      <h3>Is the FreeToolsHub GST Calculator free?</h3>
+      <p>
+        Yes. The FreeToolsHub GST Calculator is available online for free.
+      </p>
+    </div>
+
+    <h2>Related Free Tools</h2>
+
+    <div class="related">
+      <a href="gst-calculator.html">GST Calculator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="discount-calculator.html">Discount Calculator</a>
+      <a href="emi-calculator.html">EMI Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="index.html">All Free Tools</a>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+
+    <strong>FreeToolsHub</strong>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="copyright">
+      © 2026 FreeToolsHub. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
