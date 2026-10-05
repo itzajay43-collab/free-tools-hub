@@ -4,15 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Character Counter - Count Characters, Words & Lines | FreeToolsHub</title>
+  <title>Character Counter Online - Count Characters, Words & Lines | FreeToolsHub</title>
 
   <meta name="description" content="Free online character counter to count characters with and without spaces, letters, numbers, special characters, words and lines instantly.">
-
   <meta name="keywords" content="character counter, online character counter, character count tool, letter counter, word counter, text counter">
-
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/character-counter.html">
+
+  <meta property="og:title" content="Free Online Character Counter - FreeToolsHub">
+  <meta property="og:description" content="Count characters, words, letters, numbers, special characters and lines instantly with this free online character counter.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/character-counter.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "FreeToolsHub Character Counter",
+    "url": "https://itzajay43-collab.github.io/free-tools-hub/character-counter.html",
+    "description": "Free online character counter for counting characters, letters, numbers, words and lines.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this character counter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can use the FreeToolsHub Character Counter for free."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it count spaces?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The tool provides separate counts for characters with spaces and without spaces."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I count numbers and special characters?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The tool separately displays numbers and special characters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the counter work while typing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All statistics update instantly as you type or paste text."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use it for social media captions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can use the tool to quickly check the character length of captions, posts and other short-form content."
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     * {
@@ -82,7 +151,7 @@
 
     .hero p {
       color: #6b7280;
-      max-width: 700px;
+      max-width: 720px;
       margin: auto;
     }
 
@@ -114,6 +183,7 @@
       border-radius: 10px;
       font-size: 16px;
       font-family: Arial, sans-serif;
+      line-height: 1.6;
       outline: none;
     }
 
@@ -178,6 +248,14 @@
       font-size: 14px;
     }
 
+    .status {
+      min-height: 22px;
+      margin-top: 10px;
+      color: #2563eb;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
     .info-section {
       background: white;
       margin-top: 25px;
@@ -208,6 +286,10 @@
       color: #4b5563;
     }
 
+    .info-section li {
+      margin-bottom: 6px;
+    }
+
     .faq {
       border-top: 1px solid #e5e7eb;
       padding: 15px 0;
@@ -216,6 +298,29 @@
     .faq strong {
       display: block;
       margin-bottom: 5px;
+    }
+
+    .related-tools {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .related-tools a {
+      display: block;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #1d4ed8;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .related-tools a:hover {
+      background: #eff6ff;
     }
 
     footer {
@@ -232,9 +337,18 @@
       margin: 0 8px;
     }
 
+    footer a:hover {
+      color: white;
+    }
+
     @media (max-width: 700px) {
+
       .header-inner {
         flex-direction: column;
+      }
+
+      nav {
+        text-align: center;
       }
 
       nav a {
@@ -249,15 +363,36 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .related-tools {
+        grid-template-columns: 1fr;
+      }
+
       .tool-card,
       .info-section {
         padding: 18px;
       }
+
+      textarea {
+        min-height: 240px;
+      }
     }
 
     @media (max-width: 400px) {
+
+      .stat {
+        padding: 14px 8px;
+      }
+
       .stat h3 {
         font-size: 23px;
+      }
+
+      .stat p {
+        font-size: 13px;
+      }
+
+      button {
+        width: 100%;
       }
     }
   </style>
@@ -267,42 +402,74 @@
 
 <header>
   <div class="header-inner">
-    <a href="index.html" class="logo">FreeToolsHub</a>
 
-    <nav>
+    <a href="index.html" class="logo" aria-label="FreeToolsHub Home">
+      FreeToolsHub
+    </a>
+
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#tools">All Tools</a>
     </nav>
+
   </div>
 </header>
 
 <main class="container">
 
   <section class="hero">
-    <h1>Character Counter</h1>
+
+    <h1>Free Online Character Counter</h1>
 
     <p>
       Count characters, letters, numbers, words and lines instantly
       with this free online character counter.
     </p>
+
   </section>
 
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
-  <section class="tool-card">
+  <section class="tool-card" aria-label="Character Counter Tool">
+
+    <label for="textInput">
+      <strong>Enter or paste your text</strong>
+    </label>
 
     <textarea
       id="textInput"
       placeholder="Type or paste your text here..."
-      oninput="countCharacters()"
+      aria-label="Text to count"
+      spellcheck="true"
     ></textarea>
 
     <div class="buttons">
-      <button onclick="copyText()">Copy Text</button>
-      <button class="clear-btn" onclick="clearText()">Clear</button>
+
+      <button
+        type="button"
+        onclick="copyText()"
+      >
+        Copy Text
+      </button>
+
+      <button
+        type="button"
+        class="clear-btn"
+        onclick="clearText()"
+      >
+        Clear
+      </button>
+
     </div>
+
+    <div
+      id="statusMessage"
+      class="status"
+      role="status"
+      aria-live="polite"
+    ></div>
 
     <div class="stats">
 
@@ -350,7 +517,7 @@
 
   </section>
 
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
@@ -379,6 +546,7 @@
     <h3>What Does This Character Counter Calculate?</h3>
 
     <ul>
+
       <li>
         <strong>Total Characters:</strong>
         Total number of characters in the text.
@@ -418,6 +586,7 @@
         <strong>Lines:</strong>
         Number of lines in the entered text.
       </li>
+
     </ul>
 
     <h3>Who Can Use a Character Counter?</h3>
@@ -475,116 +644,182 @@
       </p>
     </div>
 
+    <h3>Related Free Tools</h3>
+
+    <div class="related-tools">
+
+      <a href="word-counter.html">
+        Word Counter
+      </a>
+
+      <a href="case-converter.html">
+        Case Converter
+      </a>
+
+      <a href="typing-speed-test.html">
+        Typing Speed Test
+      </a>
+
+      <a href="password-generator.html">
+        Password Generator
+      </a>
+
+      <a href="qr-code-generator.html">
+        QR Code Generator
+      </a>
+
+      <a href="index.html#tools">
+        View All Tools
+      </a>
+
+    </div>
+
   </section>
 
 </main>
 
 <footer>
 
-  <p>© 2026 FreeToolsHub. All rights reserved.</p>
+  <p>
+    © 2026 FreeToolsHub. All rights reserved.
+  </p>
 
   <p>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Disclaimer</a>
-    <a href="#">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
   </p>
 
 </footer>
 
 <script>
 
-function countCharacters() {
+  const textInput = document.getElementById("textInput");
 
-  const text = document.getElementById("textInput").value;
-
-  // Total characters including spaces and line breaks
-  const total = text.length;
-
-  // Characters excluding whitespace
-  const noSpaces = text.replace(/\s/g, "").length;
-
-  // Letters
-  const letterMatches = text.match(/[A-Za-z]/g);
-  const letterCount = letterMatches
-    ? letterMatches.length
-    : 0;
-
-  // Numbers
-  const numberMatches = text.match(/[0-9]/g);
-  const numberCount = numberMatches
-    ? numberMatches.length
-    : 0;
-
-  // Special characters
-  const specialMatches = text.match(/[^A-Za-z0-9\s]/g);
-  const specialCount = specialMatches
-    ? specialMatches.length
-    : 0;
-
-  // Words
-  const wordCount = text.trim()
-    ? text.trim().split(/\s+/).length
-    : 0;
-
-  // Lines
-  const lineCount = text.length
-    ? text.split(/\r\n|\r|\n/).length
-    : 0;
-
-  document.getElementById("totalCharacters").textContent =
-    total;
-
-  document.getElementById("withSpaces").textContent =
-    total;
-
-  document.getElementById("withoutSpaces").textContent =
-    noSpaces;
-
-  document.getElementById("letters").textContent =
-    letterCount;
-
-  document.getElementById("numbers").textContent =
-    numberCount;
-
-  document.getElementById("specialCharacters").textContent =
-    specialCount;
-
-  document.getElementById("words").textContent =
-    wordCount;
-
-  document.getElementById("lines").textContent =
-    lineCount;
-}
+  textInput.addEventListener("input", countCharacters);
 
 
-function clearText() {
+  function countCharacters() {
 
-  document.getElementById("textInput").value = "";
+    const text = textInput.value;
 
-  countCharacters();
+    /* Total characters including spaces and line breaks */
+    const total = text.length;
 
-}
+    /* Characters excluding whitespace */
+    const noSpaces = text.replace(/\s/g, "").length;
 
+    /* Letters */
+    const letterMatches = text.match(/[A-Za-z]/g);
 
-function copyText() {
+    const letterCount = letterMatches
+      ? letterMatches.length
+      : 0;
 
-  const text = document.getElementById("textInput").value;
+    /* Numbers */
+    const numberMatches = text.match(/[0-9]/g);
 
-  if (!text) {
-    alert("There is no text to copy.");
-    return;
+    const numberCount = numberMatches
+      ? numberMatches.length
+      : 0;
+
+    /* Special characters */
+    const specialMatches =
+      text.match(/[^A-Za-z0-9\s]/g);
+
+    const specialCount = specialMatches
+      ? specialMatches.length
+      : 0;
+
+    /* Words */
+    const wordCount = text.trim()
+      ? text.trim().split(/\s+/).length
+      : 0;
+
+    /* Lines */
+    const lineCount = text.length
+      ? text.split(/\r\n|\r|\n/).length
+      : 0;
+
+    /* Update statistics */
+    document.getElementById("totalCharacters").textContent =
+      total;
+
+    document.getElementById("withSpaces").textContent =
+      total;
+
+    document.getElementById("withoutSpaces").textContent =
+      noSpaces;
+
+    document.getElementById("letters").textContent =
+      letterCount;
+
+    document.getElementById("numbers").textContent =
+      numberCount;
+
+    document.getElementById("specialCharacters").textContent =
+      specialCount;
+
+    document.getElementById("words").textContent =
+      wordCount;
+
+    document.getElementById("lines").textContent =
+      lineCount;
   }
 
-  navigator.clipboard.writeText(text)
-    .then(() => {
-      alert("Text copied successfully!");
-    })
-    .catch(() => {
-      alert("Unable to copy text.");
-    });
 
-}
+  function clearText() {
+
+    textInput.value = "";
+
+    countCharacters();
+
+    showStatus("Text cleared.");
+  }
+
+
+  async function copyText() {
+
+    const text = textInput.value;
+
+    if (!text) {
+      showStatus("There is no text to copy.");
+      return;
+    }
+
+    try {
+
+      await navigator.clipboard.writeText(text);
+
+      showStatus("Text copied successfully!");
+
+    } catch (error) {
+
+      showStatus(
+        "Unable to copy text. Please copy it manually."
+      );
+
+    }
+  }
+
+
+  function showStatus(message) {
+
+    const status =
+      document.getElementById("statusMessage");
+
+    status.textContent = message;
+
+    clearTimeout(window.statusTimer);
+
+    window.statusTimer = setTimeout(() => {
+      status.textContent = "";
+    }, 2500);
+  }
+
+
+  countCharacters();
 
 </script>
 
