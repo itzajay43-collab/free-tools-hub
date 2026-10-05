@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Word Counter - Count Words, Characters & Sentences | FreeToolsHub</title>
+
+  <meta name="description" content="Free online word counter to count words, characters, sentences and paragraphs. Get reading time instantly with our fast and simple word counting tool.">
+
+  <meta name="keywords" content="word counter, online word counter, word count tool, character counter, sentence counter, paragraph counter, reading time calculator">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/word-counter.html">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 25px 20px 50px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 25px 0;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #6b7280;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .ad {
+      background: #e5e7eb;
+      border: 1px dashed #9ca3af;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .tool-card {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 280px;
+      resize: vertical;
+      padding: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      padding: 11px 20px;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .clear-btn {
+      background: #ef4444;
+    }
+
+    .clear-btn:hover {
+      background: #dc2626;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .stat h3 {
+      font-size: 28px;
+      color: #2563eb;
+      margin-bottom: 5px;
+    }
+
+    .stat p {
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    .info-section {
+      background: white;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .info-section h2 {
+      margin-bottom: 12px;
+      font-size: 25px;
+    }
+
+    .info-section h3 {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .info-section p {
+      color: #4b5563;
+      margin-bottom: 12px;
+    }
+
+    .info-section ul {
+      padding-left: 20px;
+      color: #4b5563;
+    }
+
+    .faq {
+      border-top: 1px solid #e5e7eb;
+      padding: 15px 0;
+    }
+
+    .faq strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tool-card,
+      .info-section {
+        padding: 18px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .stat h3 {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo">FreeToolsHub</a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#tools">All Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>Word Counter</h1>
+    <p>
+      Count words, characters, sentences and paragraphs instantly.
+      Get reading time with this free online word counter.
+    </p>
+  </section>
+
+  <div class="ad">
+    Advertisement
+  </div>
+
+  <section class="tool-card">
+
+    <textarea
+      id="textInput"
+      placeholder="Type or paste your text here..."
+      oninput="countText()"
+    ></textarea>
+
+    <div class="buttons">
+      <button onclick="copyText()">Copy Text</button>
+      <button class="clear-btn" onclick="clearText()">Clear</button>
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <h3 id="wordCount">0</h3>
+        <p>Words</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="characterCount">0</h3>
+        <p>Characters</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="characterNoSpace">0</h3>
+        <p>Characters Without Spaces</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="sentenceCount">0</h3>
+        <p>Sentences</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="paragraphCount">0</h3>
+        <p>Paragraphs</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="readingTime">0 min</h3>
+        <p>Reading Time</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="ad">
+    Advertisement
+  </div>
+
+  <section class="info-section">
+
+    <h2>Free Online Word Counter</h2>
+
+    <p>
+      FreeToolsHub Word Counter is a simple and fast online tool that helps
+      you count words, characters, sentences and paragraphs in your text.
+      It is useful for students, writers, bloggers, content creators,
+      marketers and anyone who needs to check text length.
+    </p>
+
+    <h3>How to Use the Word Counter</h3>
+
+    <ol>
+      <li>Type or paste your text into the text box.</li>
+      <li>The word count will update automatically.</li>
+      <li>Check characters, sentences and paragraphs.</li>
+      <li>Use the reading time to estimate how long your text takes to read.</li>
+      <li>Click Clear to remove the text and start again.</li>
+    </ol>
+
+    <h3>What Does This Word Counter Calculate?</h3>
+
+    <ul>
+      <li><strong>Words:</strong> Total number of words in your text.</li>
+      <li><strong>Characters:</strong> Total characters including spaces.</li>
+      <li><strong>Characters Without Spaces:</strong> Characters excluding whitespace.</li>
+      <li><strong>Sentences:</strong> Approximate number of sentences based on punctuation.</li>
+      <li><strong>Paragraphs:</strong> Number of non-empty paragraphs.</li>
+      <li><strong>Reading Time:</strong> Estimated reading time based on approximately 200 words per minute.</li>
+    </ul>
+
+    <h3>Who Can Use a Word Counter?</h3>
+
+    <p>
+      This tool can be useful for students writing assignments, bloggers
+      checking article length, social media creators preparing captions,
+      copywriters, SEO professionals, teachers and writers.
+    </p>
+
+    <h3>Frequently Asked Questions</h3>
+
+    <div class="faq">
+      <strong>Is this word counter free?</strong>
+      <p>Yes. The FreeToolsHub Word Counter is completely free to use.</p>
+    </div>
+
+    <div class="faq">
+      <strong>Does the word count update automatically?</strong>
+      <p>Yes. The statistics update instantly while you type or paste text.</p>
+    </div>
+
+    <div class="faq">
+      <strong>Does it count characters with spaces?</strong>
+      <p>
+        Yes. The tool provides both total characters and characters
+        excluding spaces.
+      </p>
+    </div>
+
+    <div class="faq">
+      <strong>How is reading time calculated?</strong>
+      <p>
+        Reading time is estimated using approximately 200 words per minute.
+        Actual reading speed varies from person to person.
+      </p>
+    </div>
+
+    <div class="faq">
+      <strong>Can I use this tool for essays and assignments?</strong>
+      <p>
+        Yes. You can paste your essay, assignment, article or any other
+        text to quickly check its length.
+      </p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <p>© 2026 FreeToolsHub. All rights reserved.</p>
+
+  <p>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Contact</a>
+  </p>
+
+</footer>
+
+<script>
+
+function countText() {
+
+  const text = document.getElementById("textInput").value;
+
+  // Word count
+  const words = text.trim()
+    ? text.trim().split(/\s+/).length
+    : 0;
+
+  // Character count
+  const characters = text.length;
+
+  // Characters without spaces
+  const charactersNoSpace = text.replace(/\s/g, "").length;
+
+  // Sentence count
+  const sentenceMatches = text
+    .trim()
+    .match(/[^.!?]+[.!?]+(?=\s|$)/g);
+
+  const sentences = sentenceMatches
+    ? sentenceMatches.length
+    : (text.trim() ? 1 : 0);
+
+  // Paragraph count
+  const paragraphs = text.trim()
+    ? text.trim().split(/\n\s*\n/).filter(p => p.trim()).length
+    : 0;
+
+  // Reading time
+  const readingMinutes = words > 0
+    ? Math.max(1, Math.ceil(words / 200))
+    : 0;
+
+  document.getElementById("wordCount").textContent = words;
+
+  document.getElementById("characterCount").textContent =
+    characters;
+
+  document.getElementById("characterNoSpace").textContent =
+    charactersNoSpace;
+
+  document.getElementById("sentenceCount").textContent =
+    sentences;
+
+  document.getElementById("paragraphCount").textContent =
+    paragraphs;
+
+  document.getElementById("readingTime").textContent =
+    readingMinutes + " min";
+}
+
+
+function clearText() {
+
+  document.getElementById("textInput").value = "";
+
+  countText();
+
+}
+
+
+function copyText() {
+
+  const text = document.getElementById("textInput").value;
+
+  if (!text) {
+    alert("There is no text to copy.");
+    return;
+  }
+
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      alert("Text copied successfully!");
+    })
+    .catch(() => {
+      alert("Unable to copy text.");
+    });
+
+}
+
+</script>
+
+</body>
+</html>
