@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>QR Code Generator - Free Online QR Maker | FreeToolsHub</title>
+
+  <meta name="description" content="Create QR codes online for free. Generate QR codes for URLs, text, phone numbers, email addresses and Wi-Fi details. Download your QR code instantly.">
+
+  <meta name="keywords" content="QR code generator, free QR code generator, QR maker, online QR generator, URL QR code, WiFi QR code, text QR code">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/qr-code-generator.html">
+
+  <!-- QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 25px 20px 50px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 25px 0;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #6b7280;
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .ad {
+      background: #e5e7eb;
+      border: 1px dashed #9ca3af;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .tool-card {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    }
+
+    .type-buttons {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .type-btn {
+      background: #f3f4f6;
+      color: #374151;
+      border: 1px solid #d1d5db;
+      padding: 11px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .type-btn:hover {
+      background: #e5e7eb;
+    }
+
+    .type-btn.active {
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      font-family: Arial, sans-serif;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    .wifi-fields {
+      display: none;
+    }
+
+    .email-fields {
+      display: none;
+    }
+
+    .phone-fields {
+      display: none;
+    }
+
+    .qr-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      padding: 11px 20px;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .clear-btn {
+      background: #ef4444;
+    }
+
+    .clear-btn:hover {
+      background: #dc2626;
+    }
+
+    .qr-result {
+      margin-top: 25px;
+      padding: 25px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      text-align: center;
+      display: none;
+    }
+
+    #qrcode {
+      display: inline-block;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #16a34a;
+      color: white;
+      padding: 11px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .download-btn:hover {
+      background: #15803d;
+    }
+
+    .info-section {
+      background: white;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .info-section h2 {
+      margin-bottom: 12px;
+      font-size: 25px;
+    }
+
+    .info-section h3 {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .info-section p {
+      color: #4b5563;
+      margin-bottom: 12px;
+    }
+
+    .info-section ul,
+    .info-section ol {
+      padding-left: 20px;
+      color: #4b5563;
+    }
+
+    .faq {
+      border-top: 1px solid #e5e7eb;
+      padding: 15px 0;
+    }
+
+    .faq strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 800px) {
+      .type-buttons {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .type-buttons {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .qr-options {
+        grid-template-columns: 1fr;
+      }
+
+      .tool-card,
+      .info-section {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <a href="index.html" class="logo">FreeToolsHub</a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#tools">All Tools</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+
+    <h1>QR Code Generator</h1>
+
+    <p>
+      Create free QR codes for URLs, text, phone numbers, emails and
+      Wi-Fi networks. Generate and download your QR code instantly.
+    </p>
+
+  </section>
+
+  <div class="ad">
+    Advertisement
+  </div>
+
+  <section class="tool-card">
+
+    <div class="type-buttons">
+
+      <button class="type-btn active" onclick="selectType('url', this)">
+        URL
+      </button>
+
+      <button class="type-btn" onclick="selectType('text', this)">
+        Text
+      </button>
+
+      <button class="type-btn" onclick="selectType('phone', this)">
+        Phone
+      </button>
+
+      <button class="type-btn" onclick="selectType('email', this)">
+        Email
+      </button>
+
+      <button class="type-btn" onclick="selectType('wifi', this)">
+        Wi-Fi
+      </button>
+
+    </div>
+
+    <!-- URL -->
+    <div id="urlFields">
+
+      <div class="field">
+        <label for="urlInput">Website URL</label>
+
+        <input
+          type="url"
+          id="urlInput"
+          placeholder="https://example.com"
+        >
+      </div>
+
+    </div>
+
+    <!-- Text -->
+    <div id="textFields" style="display:none;">
+
+      <div class="field">
+        <label for="textInput">Text</label>
+
+        <textarea
+          id="textInput"
+          placeholder="Enter your text here..."
+        ></textarea>
+      </div>
+
+    </div>
+
+    <!-- Phone -->
+    <div id="phoneFields" class="phone-fields">
+
+      <div class="field">
+        <label for="phoneInput">Phone Number</label>
+
+        <input
+          type="tel"
+          id="phoneInput"
+          placeholder="+919876543210"
+        >
+      </div>
+
+    </div>
+
+    <!-- Email -->
+    <div id="emailFields" class="email-fields">
+
+      <div class="field">
+        <label for="emailAddress">Email Address</label>
+
+        <input
+          type="email"
+          id="emailAddress"
+          placeholder="example@email.com"
+        >
+      </div>
+
+      <div class="field">
+        <label for="emailSubject">Subject</label>
+
+        <input
+          type="text"
+          id="emailSubject"
+          placeholder="Email subject"
+        >
+      </div>
+
+      <div class="field">
+        <label for="emailBody">Message</label>
+
+        <textarea
+          id="emailBody"
+          placeholder="Your email message..."
+        ></textarea>
+      </div>
+
+    </div>
+
+    <!-- Wi-Fi -->
+    <div id="wifiFields" class="wifi-fields">
+
+      <div class="field">
+        <label for="wifiName">Wi-Fi Network Name (SSID)</label>
+
+        <input
+          type="text"
+          id="wifiName"
+          placeholder="My WiFi"
+        >
+      </div>
+
+      <div class="field">
+        <label for="wifiPassword">Wi-Fi Password</label>
+
+        <input
+          type="text"
+          id="wifiPassword"
+          placeholder="WiFi password"
+        >
+      </div>
+
+      <div class="field">
+        <label for="wifiSecurity">Security Type</label>
+
+        <select id="wifiSecurity">
+
+          <option value="WPA">
+            WPA/WPA2
+          </option>
+
+          <option value="WEP">
+            WEP
+          </option>
+
+          <option value="nopass">
+            No Password
+          </option>
+
+        </select>
+
+      </div>
+
+      <div class="field">
+
+        <label>
+          <input
+            type="checkbox"
+            id="wifiHidden"
+            style="width:auto; margin-right:6px;"
+          >
+          Hidden Network
+        </label>
+
+      </div>
+
+    </div>
+
+    <div class="qr-options">
+
+      <div class="field">
+
+        <label for="qrSize">QR Code Size</label>
+
+        <select id="qrSize">
+
+          <option value="128">128 × 128</option>
+          <option value="180">180 × 180</option>
+          <option value="256" selected>256 × 256</option>
+          <option value="300">300 × 300</option>
+          <option value="400">400 × 400</option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+    <div class="buttons">
+
+      <button onclick="generateQR()">
+        Generate QR Code
+      </button>
+
+      <button class="clear-btn" onclick="clearAll()">
+        Clear
+      </button>
+
+    </div>
+
+    <div class="qr-result" id="qrResult">
+
+      <div id="qrcode"></div>
+
+      <br>
+
+      <a
+        id="downloadBtn"
+        class="download-btn"
+        href="#"
+        download="qrcode.png"
+      >
+        Download QR Code
+      </a>
+
+    </div>
+
+  </section>
+
+  <div class="ad">
+    Advertisement
+  </div>
+
+  <section class="info-section">
+
+    <h2>Free Online QR Code Generator</h2>
+
+    <p>
+      FreeToolsHub QR Code Generator lets you create QR codes quickly
+      and easily. You can generate QR codes for websites, plain text,
+      phone numbers, email messages and Wi-Fi networks.
+    </p>
+
+    <h3>How to Create a QR Code</h3>
+
+    <ol>
+
+      <li>Select the type of QR code you want.</li>
+
+      <li>Enter the required information.</li>
+
+      <li>Select your preferred QR code size.</li>
+
+      <li>Click Generate QR Code.</li>
+
+      <li>Download the generated QR code as a PNG image.</li>
+
+    </ol>
+
+    <h3>What Can You Put in a QR Code?</h3>
+
+    <ul>
+
+      <li>Website URLs</li>
+
+      <li>Plain text</li>
+
+      <li>Phone numbers</li>
+
+      <li>Email addresses</li>
+
+      <li>Email subject and message</li>
+
+      <li>Wi-Fi network details</li>
+
+    </ul>
+
+    <h3>Where Can QR Codes Be Used?</h3>
+
+    <p>
+      QR codes can be useful for business cards, restaurant menus,
+      websites, product packaging, event invitations, Wi-Fi sharing,
+      marketing materials and printed documents.
+    </p>
+
+    <h3>Frequently Asked Questions</h3>
+
+    <div class="faq">
+
+      <strong>Is this QR code generator free?</strong>
+
+      <p>
+        Yes. You can create QR codes for free using FreeToolsHub.
+      </p>
+
+    </div>
+
+    <div class="faq">
+
+      <strong>Can I create a QR code for a website?</strong>
+
+      <p>
+        Yes. Select URL, enter your website address and click Generate
+        QR Code.
+      </p>
+
+    </div>
+
+    <div class="faq">
+
+      <strong>Can I create a Wi-Fi QR code?</strong>
+
+      <p>
+        Yes. Select Wi-Fi and enter your network name, password and
+        security type.
+      </p>
+
+    </div>
+
+    <div class="faq">
+
+      <strong>Can I download the QR code?</strong>
+
+      <p>
+        Yes. After generating the QR code, click Download QR Code to
+        save it as a PNG image.
+      </p>
+
+    </div>
+
+    <div class="faq">
+
+      <strong>Does the QR code expire?</strong>
+
+      <p>
+        A QR code generated by this tool contains the information
+        encoded in it. For a normal static QR code, it does not depend
+        on a subscription or expiration service.
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <p>© 2026 FreeToolsHub. All rights reserved.</p>
+
+  <p>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Contact</a>
+  </p>
+
+</footer>
+
+<script>
+
+let currentType = "url";
+
+
+function selectType(type, button) {
+
+  currentType = type;
+
+  document
+    .querySelectorAll(".type-btn")
+    .forEach(btn => btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  document.getElementById("urlFields").style.display = "none";
+
+  document.getElementById("textFields").style.display = "none";
+
+  document.getElementById("phoneFields").style.display = "none";
+
+  document.getElementById("emailFields").style.display = "none";
+
+  document.getElementById("wifiFields").style.display = "none";
+
+  if (type === "url") {
+    document.getElementById("urlFields").style.display = "block";
+  }
+
+  if (type === "text") {
+    document.getElementById("textFields").style.display = "block";
+  }
+
+  if (type === "phone") {
+    document.getElementById("phoneFields").style.display = "block";
+  }
+
+  if (type === "email") {
+    document.getElementById("emailFields").style.display = "block";
+  }
+
+  if (type === "wifi") {
+    document.getElementById("wifiFields").style.display = "block";
+  }
+
+  document.getElementById("qrResult").style.display = "none";
+}
+
+
+function escapeWifi(value) {
+
+  return value
+    .replace(/\\/g, "\\\\")
+    .replace(/;/g, "\\;")
+    .replace(/,/g, "\\,")
+    .replace(/:/g, "\\:");
+
+}
+
+
+function generateQR() {
+
+  let data = "";
+
+  if (currentType === "url") {
+
+    const url =
+      document.getElementById("urlInput").value.trim();
+
+    if (!url) {
+      alert("Please enter a website URL.");
+      return;
+    }
+
+    data = url;
+
+  }
+
+
+  if (currentType === "text") {
+
+    const text =
+      document.getElementById("textInput").value.trim();
+
+    if (!text) {
+      alert("Please enter some text.");
+      return;
+    }
+
+    data = text;
+
+  }
+
+
+  if (currentType === "phone") {
+
+    const phone =
+      document.getElementById("phoneInput").value.trim();
+
+    if (!phone) {
+      alert("Please enter a phone number.");
+      return;
+    }
+
+    data = "tel:" + phone;
+
+  }
+
+
+  if (currentType === "email") {
+
+    const email =
+      document.getElementById("emailAddress").value.trim();
+
+    const subject =
+      document.getElementById("emailSubject").value;
+
+    const body =
+      document.getElementById("emailBody").value;
+
+    if (!email) {
+      alert("Please enter an email address.");
+      return;
+    }
+
+    data =
+      "mailto:" +
+      email +
+      "?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
+
+  }
+
+
+  if (currentType === "wifi") {
+
+    const ssid =
+      document.getElementById("wifiName").value;
+
+    const password =
+      document.getElementById("wifiPassword").value;
+
+    const security =
+      document.getElementById("wifiSecurity").value;
+
+    const hidden =
+      document.getElementById("wifiHidden").checked;
+
+    if (!ssid) {
+      alert("Please enter the Wi-Fi network name.");
+      return;
+    }
+
+    if (security !== "nopass" && !password) {
+      alert("Please enter the Wi-Fi password.");
+      return;
+    }
+
+    data =
+      "WIFI:" +
+      "T:" + security +
+      ";" +
+      "S:" + escapeWifi(ssid) +
+      ";" +
+      "P:" + escapeWifi(password) +
+      ";" +
+      "H:" + (hidden ? "true" : "false") +
+      ";;";
+
+  }
+
+
+  const size =
+    parseInt(document.getElementById("qrSize").value);
+
+
+  const qrContainer =
+    document.getElementById("qrcode");
+
+  qrContainer.innerHTML = "";
+
+
+  new QRCode(qrContainer, {
+
+    text: data,
+
+    width: size,
+
+    height: size,
+
+    colorDark: "#111827",
+
+    colorLight: "#ffffff",
+
+    correctLevel: QRCode.CorrectLevel.H
+
+  });
+
+
+  document.getElementById("qrResult").style.display =
+    "block";
+
+
+  setTimeout(() => {
+
+    const canvas =
+      qrContainer.querySelector("canvas");
+
+    const image =
+      qrContainer.querySelector("img");
+
+    const downloadBtn =
+      document.getElementById("downloadBtn");
+
+
+    if (canvas) {
+
+      downloadBtn.href =
+        canvas.toDataURL("image/png");
+
+    } else if (image) {
+
+      downloadBtn.href =
+        image.src;
+
+    }
+
+  }, 200);
+
+}
+
+
+function clearAll() {
+
+  document.getElementById("urlInput").value = "";
+
+  document.getElementById("textInput").value = "";
+
+  document.getElementById("phoneInput").value = "";
+
+  document.getElementById("emailAddress").value = "";
+
+  document.getElementById("emailSubject").value = "";
+
+  document.getElementById("emailBody").value = "";
+
+  document.getElementById("wifiName").value = "";
+
+  document.getElementById("wifiPassword").value = "";
+
+  document.getElementById("wifiHidden").checked = false;
+
+  document.getElementById("qrcode").innerHTML = "";
+
+  document.getElementById("qrResult").style.display =
+    "none";
+
+}
+
+</script>
+
+</body>
+</html>
