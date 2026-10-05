@@ -5,31 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Time Zone Converter - Convert Time Between Countries | FreeToolsHub</title>
+
   <meta name="description" content="Free Time Zone Converter to convert date and time between India, USA, UK, France, Portugal, Japan, Australia, UAE and other time zones.">
   <meta name="keywords" content="time zone converter, timezone converter, time converter, India time to USA, UTC converter, IST converter, world time converter">
   <meta name="robots" content="index, follow">
+
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/time-zone-converter.html">
+
+  <meta property="og:title" content="Time Zone Converter - FreeToolsHub">
+  <meta property="og:description" content="Convert date and time between different countries and time zones instantly for free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/time-zone-converter.html">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Time Zone Converter - FreeToolsHub">
+  <meta name="twitter:description" content="Free online time zone converter for India, USA, UK, Europe, Japan and more.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Time Zone Converter",
+    "url": "https://itzajay43-collab.github.io/free-tools-hub/time-zone-converter.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "description": "Free online tool to convert date and time between different time zones.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this Time Zone Converter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can use the Time Zone Converter for free without creating an account."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I convert India time to USA time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Select India IST as the source time zone and choose the required USA time zone as the destination."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the converter account for daylight saving time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Modern browsers use built-in IANA time-zone data when formatting supported time zones."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is IST?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "IST stands for India Standard Time. India Standard Time is UTC+5:30."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I convert UTC to local time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Select UTC as the source time zone and choose any supported destination time zone."
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: #f3f4f6;
       color: #111827;
       line-height: 1.6;
     }
 
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
     header {
       background: #111827;
-      color: white;
-      padding: 16px 20px;
+      color: #fff;
+      padding: 15px 20px;
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,.12);
     }
 
     .header-inner {
@@ -42,21 +130,27 @@
     }
 
     .logo {
-      color: white;
+      color: #fff;
       text-decoration: none;
       font-size: 22px;
-      font-weight: bold;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
     }
 
     nav a {
       color: #d1d5db;
       text-decoration: none;
-      margin-left: 18px;
       font-size: 14px;
     }
 
-    nav a:hover {
-      color: white;
+    nav a:hover,
+    nav a:focus {
+      color: #fff;
     }
 
     .container {
@@ -72,19 +166,21 @@
 
     .hero h1 {
       font-size: 34px;
-      margin-bottom: 8px;
+      line-height: 1.2;
+      margin: 0 0 10px;
     }
 
     .hero p {
       color: #6b7280;
-      margin: 0;
+      margin: 0 auto;
+      max-width: 700px;
     }
 
     .card {
-      background: white;
+      background: #fff;
       border-radius: 14px;
       padding: 25px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      box-shadow: 0 4px 18px rgba(0,0,0,.07);
       margin-bottom: 25px;
     }
 
@@ -100,7 +196,7 @@
 
     label {
       display: block;
-      font-weight: bold;
+      font-weight: 700;
       margin-bottom: 7px;
     }
 
@@ -111,23 +207,30 @@
       border: 1px solid #d1d5db;
       border-radius: 8px;
       font-size: 15px;
-      background: white;
+      background: #fff;
+      color: #111827;
     }
 
     input:focus,
     select:focus {
-      outline: none;
+      outline: 3px solid rgba(37,99,235,.15);
       border-color: #2563eb;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     button {
       border: none;
       background: #2563eb;
-      color: white;
+      color: #fff;
       padding: 13px 22px;
       border-radius: 8px;
       font-size: 15px;
-      font-weight: bold;
+      font-weight: 700;
       cursor: pointer;
     }
 
@@ -135,13 +238,32 @@
       background: #1d4ed8;
     }
 
+    button:focus-visible {
+      outline: 3px solid rgba(37,99,235,.3);
+      outline-offset: 2px;
+    }
+
     .secondary {
       background: #6b7280;
-      margin-left: 8px;
     }
 
     .secondary:hover {
       background: #4b5563;
+    }
+
+    .status {
+      display: none;
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    .status.show {
+      display: block;
     }
 
     .result {
@@ -153,19 +275,26 @@
       border: 1px solid #bfdbfe;
     }
 
+    .result.show {
+      display: block;
+    }
+
     .result h2 {
-      margin-top: 0;
+      margin: 0 0 10px;
       color: #1d4ed8;
+      font-size: 21px;
     }
 
     .result-main {
       font-size: 26px;
-      font-weight: bold;
-      margin: 10px 0;
+      font-weight: 700;
+      margin: 10px 0 14px;
+      overflow-wrap: anywhere;
     }
 
     .result-info {
       color: #4b5563;
+      margin-top: 4px;
     }
 
     .ad {
@@ -178,6 +307,7 @@
       align-items: center;
       color: #9ca3af;
       border-radius: 10px;
+      text-align: center;
     }
 
     .quick-zones {
@@ -201,7 +331,7 @@
 
     .zone-time {
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 700;
     }
 
     .content h2 {
@@ -210,6 +340,10 @@
 
     .content h3 {
       margin-top: 25px;
+    }
+
+    .content li {
+      margin-bottom: 7px;
     }
 
     .faq {
@@ -222,6 +356,28 @@
       margin-bottom: 5px;
     }
 
+    .related {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .related a {
+      display: block;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 14px;
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .related a:hover {
+      background: #eff6ff;
+    }
+
     footer {
       background: #111827;
       color: #9ca3af;
@@ -230,23 +386,46 @@
       margin-top: 40px;
     }
 
+    footer p {
+      margin: 0 0 12px;
+    }
+
     footer a {
       color: #d1d5db;
       text-decoration: none;
-      margin: 0 8px;
+      margin: 0 7px;
+      font-size: 14px;
+    }
+
+    footer a:hover {
+      color: #fff;
     }
 
     @media (max-width: 700px) {
-      .header-inner {
-        flex-direction: column;
+      header {
+        padding: 13px 15px;
       }
 
-      nav a {
-        margin: 0 7px;
+      .header-inner {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      nav {
+        gap: 14px;
+      }
+
+      .container {
+        margin-top: 25px;
+        padding: 0 13px;
       }
 
       .hero h1 {
         font-size: 28px;
+      }
+
+      .card {
+        padding: 18px;
       }
 
       .form-grid {
@@ -261,15 +440,30 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .secondary {
-        margin-left: 0;
-        margin-top: 8px;
+      .related {
+        grid-template-columns: 1fr;
+      }
+
+      .result-main {
+        font-size: 22px;
+      }
+
+      button {
+        width: 100%;
       }
     }
 
     @media (max-width: 450px) {
       .quick-zones {
         grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 25px;
+      }
+
+      .logo {
+        font-size: 20px;
       }
     }
   </style>
@@ -279,9 +473,11 @@
 
 <header>
   <div class="header-inner">
-    <a class="logo" href="index.html">FreeToolsHub</a>
+    <a class="logo" href="index.html" aria-label="FreeToolsHub Home">
+      FreeToolsHub
+    </a>
 
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#tools">All Tools</a>
     </nav>
@@ -292,23 +488,35 @@
 
   <section class="hero">
     <h1>Time Zone Converter</h1>
-    <p>Convert date and time between different countries and time zones instantly.</p>
+    <p>
+      Convert date and time between different countries and time zones instantly.
+    </p>
   </section>
 
-  <div class="card">
+  <section class="card" aria-labelledby="converter-heading">
+
+    <h2 id="converter-heading" style="margin-top:0;">
+      Convert Time Between Time Zones
+    </h2>
 
     <div class="form-grid">
 
       <div class="full">
-        <label for="dateTime">Date & Time</label>
-        <input type="datetime-local" id="dateTime">
+        <label for="dateTime">Date &amp; Time</label>
+        <input
+          type="datetime-local"
+          id="dateTime"
+          aria-describedby="status"
+        >
       </div>
 
       <div>
         <label for="fromZone">From Time Zone</label>
         <select id="fromZone">
           <option value="UTC">UTC</option>
-          <option value="Asia/Kolkata" selected>India — IST (Kolkata)</option>
+          <option value="Asia/Kolkata" selected>
+            India — IST (Kolkata)
+          </option>
           <option value="America/New_York">USA — Eastern Time</option>
           <option value="America/Chicago">USA — Central Time</option>
           <option value="America/Denver">USA — Mountain Time</option>
@@ -329,7 +537,9 @@
         <select id="toZone">
           <option value="UTC">UTC</option>
           <option value="Asia/Kolkata">India — IST (Kolkata)</option>
-          <option value="America/New_York" selected>USA — Eastern Time</option>
+          <option value="America/New_York" selected>
+            USA — Eastern Time
+          </option>
           <option value="America/Chicago">USA — Central Time</option>
           <option value="America/Denver">USA — Mountain Time</option>
           <option value="America/Los_Angeles">USA — Pacific Time</option>
@@ -344,33 +554,48 @@
         </select>
       </div>
 
-      <div class="full">
-        <button onclick="convertTime()">Convert Time</button>
-        <button class="secondary" onclick="setNow()">Use Current Time</button>
+      <div class="full button-row">
+        <button type="button" id="convertBtn">
+          Convert Time
+        </button>
+
+        <button type="button" class="secondary" id="nowBtn">
+          Use Current Time
+        </button>
       </div>
 
     </div>
 
-    <div class="result" id="result">
+    <div
+      class="status"
+      id="status"
+      role="alert"
+      aria-live="polite"
+    ></div>
 
-      <h2>Converted Time</h2>
+    <div
+      class="result"
+      id="result"
+      aria-live="polite"
+      aria-labelledby="resultHeading"
+    >
+      <h2 id="resultHeading">Converted Time</h2>
 
       <div class="result-main" id="convertedTime"></div>
 
       <div class="result-info" id="sourceInfo"></div>
       <div class="result-info" id="targetInfo"></div>
-
     </div>
 
-  </div>
+  </section>
 
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
-  <div class="card">
+  <section class="card" aria-labelledby="popular-heading">
 
-    <h2>Current Time in Popular Time Zones</h2>
+    <h2 id="popular-heading">Current Time in Popular Time Zones</h2>
 
     <div class="quick-zones">
 
@@ -406,9 +631,9 @@
 
     </div>
 
-  </div>
+  </section>
 
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
@@ -417,10 +642,10 @@
     <h2>What is a Time Zone Converter?</h2>
 
     <p>
-      A Time Zone Converter helps you convert a specific date and time from
-      one time zone to another. It is useful when scheduling meetings,
-      online classes, international calls, travel plans and events across
-      different countries.
+      A Time Zone Converter helps you convert a specific date and time
+      from one time zone to another. It is useful when scheduling
+      meetings, online classes, international calls, travel plans
+      and events across different countries.
     </p>
 
     <h3>How to Use This Time Zone Converter</h3>
@@ -450,11 +675,15 @@
     <h3>Why Do Time Zones Change?</h3>
 
     <p>
-      Different regions of the world use different local times. Some
-      countries also observe daylight saving time, which can change the
-      difference between two time zones during parts of the year.
-      This converter uses your browser's built-in international time-zone
-      data to calculate the displayed conversion.
+      Different regions of the world use different local times.
+      Some countries also observe daylight saving time, which can
+      change the difference between two time zones during parts of
+      the year.
+    </p>
+
+    <p>
+      This converter uses your browser's built-in international
+      time-zone data to calculate and display the conversion.
     </p>
 
     <h3>Frequently Asked Questions</h3>
@@ -466,8 +695,8 @@
 
     <div class="faq">
       <strong>Can I convert India time to USA time?</strong>
-      Yes. Select India — IST as the source time zone and the required USA
-      time zone as the destination.
+      Yes. Select India — IST as the source time zone and the required
+      USA time zone as the destination.
     </div>
 
     <div class="faq">
@@ -489,39 +718,78 @@
 
   </section>
 
+  <section class="card">
+    <h2>Related Free Tools</h2>
+
+    <div class="related">
+      <a href="date-calculator.html">Date Calculator</a>
+      <a href="unit-converter.html">Unit Converter</a>
+      <a href="temperature-converter.html">Temperature Converter</a>
+    </div>
+  </section>
+
 </main>
 
 <footer>
   <p>© 2026 FreeToolsHub. All rights reserved.</p>
 
   <div>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Disclaimer</a>
-    <a href="#">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
   </div>
 </footer>
 
 <script>
+  "use strict";
 
   const dateTimeInput = document.getElementById("dateTime");
+  const fromZoneInput = document.getElementById("fromZone");
+  const toZoneInput = document.getElementById("toZone");
+
+  const resultBox = document.getElementById("result");
+  const statusBox = document.getElementById("status");
+
+  const convertedTime = document.getElementById("convertedTime");
+  const sourceInfo = document.getElementById("sourceInfo");
+  const targetInfo = document.getElementById("targetInfo");
+
+  const convertBtn = document.getElementById("convertBtn");
+  const nowBtn = document.getElementById("nowBtn");
 
   function pad(number) {
     return String(number).padStart(2, "0");
+  }
+
+  function showError(message) {
+    statusBox.textContent = message;
+    statusBox.classList.add("show");
+    resultBox.classList.remove("show");
+  }
+
+  function clearError() {
+    statusBox.textContent = "";
+    statusBox.classList.remove("show");
   }
 
   function setNow() {
     const now = new Date();
 
     const localValue =
-      now.getFullYear() + "-" +
-      pad(now.getMonth() + 1) + "-" +
-      pad(now.getDate()) + "T" +
-      pad(now.getHours()) + ":" +
+      now.getFullYear() +
+      "-" +
+      pad(now.getMonth() + 1) +
+      "-" +
+      pad(now.getDate()) +
+      "T" +
+      pad(now.getHours()) +
+      ":" +
       pad(now.getMinutes());
 
     dateTimeInput.value = localValue;
 
+    clearError();
     convertTime();
   }
 
@@ -530,19 +798,35 @@
       /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/
     );
 
-    if (!match) return null;
+    if (!match) {
+      return null;
+    }
 
-    return {
+    const parts = {
       year: Number(match[1]),
       month: Number(match[2]),
       day: Number(match[3]),
       hour: Number(match[4]),
       minute: Number(match[5])
     };
+
+    if (
+      parts.month < 1 ||
+      parts.month > 12 ||
+      parts.day < 1 ||
+      parts.day > 31 ||
+      parts.hour < 0 ||
+      parts.hour > 23 ||
+      parts.minute < 0 ||
+      parts.minute > 59
+    ) {
+      return null;
+    }
+
+    return parts;
   }
 
   function getTimeZoneOffset(date, timeZone) {
-
     const formatter = new Intl.DateTimeFormat("en-US", {
       timeZone: timeZone,
       timeZoneName: "longOffset",
@@ -560,7 +844,9 @@
       part => part.type === "timeZoneName"
     );
 
-    if (!offsetPart) return 0;
+    if (!offsetPart) {
+      return 0;
+    }
 
     const value = offsetPart.value;
 
@@ -572,7 +858,9 @@
       /GMT([+-])(\d{1,2})(?::(\d{2}))?/
     );
 
-    if (!match) return 0;
+    if (!match) {
+      return 0;
+    }
 
     const sign = match[1] === "+" ? 1 : -1;
     const hours = Number(match[2]);
@@ -591,6 +879,12 @@
       parts.minute
     );
 
+    /*
+      Iteratively determine the UTC instant for the selected
+      local time in the selected IANA time zone.
+      This keeps daylight-saving transitions handled by the
+      browser's Intl timezone database.
+    */
     for (let i = 0; i < 4; i++) {
 
       const offset = getTimeZoneOffset(
@@ -605,14 +899,14 @@
           parts.day,
           parts.hour,
           parts.minute
-        ) - offset * 60000;
+        ) -
+        offset * 60000;
     }
 
     return new Date(utcMillis);
   }
 
   function formatDate(date, timeZone) {
-
     return new Intl.DateTimeFormat("en-IN", {
       timeZone: timeZone,
       dateStyle: "full",
@@ -644,57 +938,80 @@
 
   function convertTime() {
 
+    clearError();
+
     const value = dateTimeInput.value;
 
     if (!value) {
-      alert("Please select a date and time.");
+      showError("Please select a date and time.");
+      dateTimeInput.focus();
       return;
     }
 
     const parts = parseDateTime(value);
 
     if (!parts) {
-      alert("Please enter a valid date and time.");
+      showError("Please enter a valid date and time.");
+      dateTimeInput.focus();
       return;
     }
 
-    const fromZone =
-      document.getElementById("fromZone").value;
+    const fromZone = fromZoneInput.value;
+    const toZone = toZoneInput.value;
 
-    const toZone =
-      document.getElementById("toZone").value;
+    try {
 
-    const sourceDate = getUtcFromZone(
-      parts,
-      fromZone
-    );
+      const sourceDate = getUtcFromZone(
+        parts,
+        fromZone
+      );
 
-    const converted = formatDate(
-      sourceDate,
-      toZone
-    );
+      if (Number.isNaN(sourceDate.getTime())) {
+        showError("Unable to convert this date and time.");
+        return;
+      }
 
-    const sourceOffset =
-      getShortOffset(sourceDate, fromZone);
+      const converted = formatDate(
+        sourceDate,
+        toZone
+      );
 
-    const targetOffset =
-      getShortOffset(sourceDate, toZone);
+      const sourceOffset = getShortOffset(
+        sourceDate,
+        fromZone
+      );
 
-    document.getElementById("convertedTime").textContent =
-      converted;
+      const targetOffset = getShortOffset(
+        sourceDate,
+        toZone
+      );
 
-    document.getElementById("sourceInfo").textContent =
-      "From: " + getZoneName(
-        document.getElementById("fromZone")
-      ) + " (" + sourceOffset + ")";
+      convertedTime.textContent = converted;
 
-    document.getElementById("targetInfo").textContent =
-      "To: " + getZoneName(
-        document.getElementById("toZone")
-      ) + " (" + targetOffset + ")";
+      sourceInfo.textContent =
+        "From: " +
+        getZoneName(fromZoneInput) +
+        " (" +
+        sourceOffset +
+        ")";
 
-    document.getElementById("result").style.display =
-      "block";
+      targetInfo.textContent =
+        "To: " +
+        getZoneName(toZoneInput) +
+        " (" +
+        targetOffset +
+        ")";
+
+      resultBox.classList.add("show");
+
+    } catch (error) {
+
+      console.error(error);
+
+      showError(
+        "This browser could not process the selected time zone. Please try another supported time zone."
+      );
+    }
   }
 
   function updateCurrentTimes() {
@@ -712,25 +1029,60 @@
 
     Object.keys(zones).forEach(function(id) {
 
-      const formatted =
-        new Intl.DateTimeFormat("en-IN", {
-          timeZone: zones[id],
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: true
-        }).format(now);
+      try {
 
-      document.getElementById(id).textContent =
-        formatted;
+        const formatted =
+          new Intl.DateTimeFormat("en-IN", {
+            timeZone: zones[id],
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: true
+          }).format(now);
+
+        const element = document.getElementById(id);
+
+        if (element) {
+          element.textContent = formatted;
+        }
+
+      } catch (error) {
+        const element = document.getElementById(id);
+
+        if (element) {
+          element.textContent = "--:--";
+        }
+      }
     });
   }
+
+  convertBtn.addEventListener("click", convertTime);
+
+  nowBtn.addEventListener("click", setNow);
+
+  dateTimeInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      convertTime();
+    }
+  });
+
+  fromZoneInput.addEventListener("change", function() {
+    if (dateTimeInput.value) {
+      convertTime();
+    }
+  });
+
+  toZoneInput.addEventListener("change", function() {
+    if (dateTimeInput.value) {
+      convertTime();
+    }
+  });
 
   setNow();
   updateCurrentTimes();
 
   setInterval(updateCurrentTimes, 1000);
-
 </script>
 
 </body>
