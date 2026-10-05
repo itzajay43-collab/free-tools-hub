@@ -4,19 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Age Calculator - Calculate Your Exact Age Online | FreeToolsHub</title>
+  <title>Age Calculator - Calculate Your Exact Age | FreeToolsHub</title>
 
-  <meta name="description" content="Use our free age calculator to calculate your exact age in years, months and days. Fast, accurate and easy to use on mobile and desktop.">
+  <meta name="description" content="Calculate your exact age in years, months and days with our free online Age Calculator. Find your next birthday and total days lived instantly.">
 
   <meta name="robots" content="index, follow">
 
-  <link rel="canonical" href="age-calculator.html">
+  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/age-calculator.html">
 
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -27,17 +31,21 @@
     }
 
     header {
-      background: #fff;
+      background: #ffffff;
       border-bottom: 1px solid #e8eaf0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .nav {
       max-width: 1100px;
       margin: auto;
-      padding: 16px 20px;
+      padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 15px;
     }
 
     .logo {
@@ -60,7 +68,7 @@
     .container {
       max-width: 850px;
       margin: auto;
-      padding: 50px 20px;
+      padding: 50px 20px 20px;
     }
 
     .hero {
@@ -70,17 +78,20 @@
 
     .hero h1 {
       font-size: clamp(32px, 6vw, 48px);
+      line-height: 1.15;
       color: #111827;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .hero p {
       color: #667085;
       font-size: 17px;
+      max-width: 650px;
+      margin: auto;
     }
 
     .calculator {
-      background: white;
+      background: #ffffff;
       border: 1px solid #e5e7eb;
       border-radius: 18px;
       padding: 30px;
@@ -95,19 +106,23 @@
       display: block;
       font-weight: 700;
       margin-bottom: 8px;
+      color: #172033;
     }
 
-    input {
+    input[type="date"] {
       width: 100%;
       padding: 14px;
       border: 1px solid #d0d5dd;
       border-radius: 10px;
       font-size: 16px;
       outline: none;
+      background: #ffffff;
+      color: #172033;
     }
 
-    input:focus {
+    input[type="date"]:focus {
       border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     button {
@@ -116,7 +131,7 @@
       border: none;
       border-radius: 10px;
       background: #2563eb;
-      color: white;
+      color: #ffffff;
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
@@ -125,6 +140,10 @@
 
     button:hover {
       background: #1d4ed8;
+    }
+
+    button:focus {
+      outline: 3px solid rgba(37, 99, 235, 0.25);
     }
 
     .result {
@@ -138,13 +157,13 @@
 
     .result h2 {
       color: #1d4ed8;
-      margin-bottom: 10px;
-      font-size: 26px;
+      margin-bottom: 12px;
+      font-size: clamp(22px, 5vw, 30px);
     }
 
     .result p {
       color: #475467;
-      margin: 5px 0;
+      margin: 7px 0;
     }
 
     .error {
@@ -156,7 +175,7 @@
     }
 
     .ad-box {
-      height: 90px;
+      min-height: 90px;
       margin: 35px auto;
       background: #f0f1f4;
       border: 1px dashed #c9ccd4;
@@ -166,10 +185,11 @@
       color: #8a8f9c;
       font-size: 13px;
       max-width: 728px;
+      border-radius: 8px;
     }
 
     .content {
-      background: white;
+      background: #ffffff;
       border-top: 1px solid #e8eaf0;
       margin-top: 20px;
       padding: 45px 20px;
@@ -181,31 +201,96 @@
     }
 
     .content h2 {
-      margin: 25px 0 10px;
+      margin: 28px 0 12px;
       color: #111827;
+      font-size: 25px;
+    }
+
+    .content h2:first-child {
+      margin-top: 0;
+    }
+
+    .content h3 {
+      margin: 22px 0 8px;
+      color: #172033;
+      font-size: 19px;
     }
 
     .content p {
       color: #667085;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .content ul {
-      margin: 10px 0 15px 25px;
+      margin: 10px 0 18px 25px;
       color: #667085;
+    }
+
+    .content li {
+      margin-bottom: 7px;
+    }
+
+    .related-tools {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .related-tools a {
+      display: block;
+      padding: 13px 15px;
+      background: #f7f8fc;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .related-tools a:hover {
+      background: #eef4ff;
+      border-color: #bfdbfe;
     }
 
     footer {
       background: #111827;
       color: #9ca3af;
       text-align: center;
-      padding: 25px 20px;
+      padding: 28px 20px;
       font-size: 14px;
     }
 
+    .footer-links {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin: 0 7px;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
     @media (max-width: 600px) {
+
+      .nav {
+        padding: 14px 16px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .home {
+        font-size: 14px;
+      }
+
       .container {
-        padding-top: 35px;
+        padding: 35px 15px 15px;
       }
 
       .calculator {
@@ -213,10 +298,66 @@
       }
 
       .ad-box {
-        height: 70px;
+        min-height: 70px;
+        margin: 28px auto;
+      }
+
+      .content {
+        padding: 35px 15px;
+      }
+
+      .related-tools {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links a {
+        display: inline-block;
+        margin: 4px 5px;
       }
     }
   </style>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this age calculator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. FreeToolsHub's age calculator is free to use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the age calculator work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter your date of birth and click Calculate Age. The calculator determines your age in years, months and days based on the current date."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use the age calculator on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The age calculator is designed to work on smartphones, tablets and desktop computers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can this calculator show my next birthday?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. After entering your date of birth, the calculator shows approximately how many days remain until your next birthday."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -234,36 +375,56 @@
 
     <div class="hero">
       <h1>Age Calculator</h1>
-      <p>Calculate your exact age in years, months and days.</p>
+      <p>
+        Calculate your exact age in years, months and days.
+        Find your next birthday and total days lived instantly.
+      </p>
     </div>
 
     <div class="calculator">
 
       <div class="input-group">
         <label for="birthDate">Enter your date of birth</label>
-        <input type="date" id="birthDate">
+
+        <input
+          type="date"
+          id="birthDate"
+          aria-label="Enter your date of birth"
+        >
       </div>
 
-      <button onclick="calculateAge()">Calculate Age</button>
+      <button type="button" onclick="calculateAge()">
+        Calculate Age
+      </button>
 
-      <div class="error" id="error">
+      <div
+        class="error"
+        id="error"
+        role="alert"
+      >
         Please enter a valid date of birth.
       </div>
 
-      <div class="result" id="result">
+      <div
+        class="result"
+        id="result"
+        aria-live="polite"
+      >
         <h2 id="ageText"></h2>
 
         <p id="nextBirthday"></p>
+
         <p id="totalDays"></p>
       </div>
 
     </div>
 
-    <div class="ad-box">
+    <div class="ad-box" aria-label="Advertisement">
       Advertisement
     </div>
 
   </section>
+
 
   <section class="content">
 
@@ -272,35 +433,80 @@
       <h2>What is an Age Calculator?</h2>
 
       <p>
-        An age calculator is a simple online tool that calculates
-        a person's age based on their date of birth. It can show
-        your age in years, months and days.
+        An age calculator is a free online tool that calculates
+        a person's age from their date of birth. Instead of
+        calculating the difference between dates manually, you can
+        enter your birth date and get your age in years, months
+        and days instantly.
       </p>
-
-      <h2>How to use this Age Calculator</h2>
-
-      <p>Using the calculator is simple:</p>
-
-      <ul>
-        <li>Enter your date of birth.</li>
-        <li>Click the "Calculate Age" button.</li>
-        <li>Your exact age will be displayed instantly.</li>
-      </ul>
-
-      <h2>Why use an online age calculator?</h2>
 
       <p>
-        Calculating age manually can be inconvenient, especially
-        when you want the exact number of months and days.
-        This free tool performs the calculation instantly.
+        The calculator can also show the approximate number of
+        days until your next birthday and the approximate total
+        number of days you have been alive.
       </p>
+
+
+      <h2>How to Use This Age Calculator</h2>
+
+      <p>
+        You can calculate your age in just a few simple steps:
+      </p>
+
+      <ul>
+        <li>Enter your date of birth in the date field.</li>
+        <li>Click the "Calculate Age" button.</li>
+        <li>Your age will be displayed in years, months and days.</li>
+        <li>You can also see information about your next birthday.</li>
+      </ul>
+
+
+      <h2>Why Use an Online Age Calculator?</h2>
+
+      <p>
+        Calculating an exact age manually can be difficult because
+        months have different numbers of days and leap years can
+        affect date calculations. An online age calculator makes
+        the process faster and easier.
+      </p>
+
+      <p>
+        This tool is useful when you want to quickly calculate your
+        current age for everyday purposes, forms, applications,
+        planning or general information.
+      </p>
+
+
+      <h2>How Age Is Calculated</h2>
+
+      <p>
+        Your age is calculated by comparing your date of birth with
+        the current date. The calculator first determines the
+        difference in years, then accounts for the remaining months
+        and days.
+      </p>
+
+      <p>
+        The result is displayed in the format of years, months and
+        days so that you can understand your exact age more easily.
+      </p>
+
 
       <h2>Frequently Asked Questions</h2>
 
       <h3>Is this age calculator free?</h3>
 
       <p>
-        Yes. FreeToolsHub's age calculator is free to use.
+        Yes. FreeToolsHub's age calculator is free to use and does
+        not require registration.
+      </p>
+
+      <h3>How does the age calculator work?</h3>
+
+      <p>
+        Enter your date of birth and click "Calculate Age".
+        The calculator compares your birth date with the current
+        date and calculates your age in years, months and days.
       </p>
 
       <h3>Does the calculator work on mobile?</h3>
@@ -310,28 +516,85 @@
         tablets and desktop computers.
       </p>
 
+      <h3>Can I calculate the date of my next birthday?</h3>
+
+      <p>
+        Yes. The result includes an approximate number of days
+        remaining until your next birthday.
+      </p>
+
+
+      <h2>Related Free Tools</h2>
+
+      <p>
+        You may also find these free tools useful:
+      </p>
+
+      <div class="related-tools">
+
+        <a href="percentage-calculator.html">
+          Percentage Calculator
+        </a>
+
+        <a href="date-calculator.html">
+          Date Calculator
+        </a>
+
+        <a href="time-zone-converter.html">
+          Time Zone Converter
+        </a>
+
+        <a href="unit-converter.html">
+          Unit Converter
+        </a>
+
+      </div>
+
     </div>
 
   </section>
 
 </main>
 
+
 <footer>
-  © 2026 FreeToolsHub. All rights reserved.
+
+  <div class="footer-links">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div>
+    © 2026 FreeToolsHub. All rights reserved.
+  </div>
+
 </footer>
+
 
 <script>
 
 function calculateAge() {
 
   const birthInput = document.getElementById("birthDate");
-  const birthDate = new Date(birthInput.value);
-  const today = new Date();
-
   const error = document.getElementById("error");
   const result = document.getElementById("result");
 
-  if (!birthInput.value || birthDate > today) {
+  if (!birthInput.value) {
+    error.textContent = "Please enter your date of birth.";
+    error.style.display = "block";
+    result.style.display = "none";
+    return;
+  }
+
+  const birthDate = new Date(birthInput.value + "T00:00:00");
+  const today = new Date();
+
+  today.setHours(0, 0, 0, 0);
+
+  if (isNaN(birthDate.getTime()) || birthDate > today) {
+    error.textContent = "Please enter a valid date of birth.";
     error.style.display = "block";
     result.style.display = "none";
     return;
@@ -339,66 +602,140 @@ function calculateAge() {
 
   error.style.display = "none";
 
-  let years = today.getFullYear() - birthDate.getFullYear();
-  let months = today.getMonth() - birthDate.getMonth();
-  let days = today.getDate() - birthDate.getDate();
+  let years =
+    today.getFullYear() - birthDate.getFullYear();
+
+  let months =
+    today.getMonth() - birthDate.getMonth();
+
+  let days =
+    today.getDate() - birthDate.getDate();
+
 
   if (days < 0) {
+
     months--;
 
     const previousMonth =
-      new Date(today.getFullYear(), today.getMonth(), 0);
+      new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        0
+      );
 
     days += previousMonth.getDate();
   }
 
+
   if (months < 0) {
+
     years--;
+
     months += 12;
   }
 
-  const birthThisYear =
-    new Date(
-      today.getFullYear(),
-      birthDate.getMonth(),
-      birthDate.getDate()
-    );
 
-  let nextBirthday = birthThisYear;
+  /*
+    Calculate next birthday.
+    Special handling for February 29 birthdays
+    in non-leap years.
+  */
 
-  if (birthThisYear < today) {
+  let birthdayYear = today.getFullYear();
+
+  let nextBirthday;
+
+  if (
+    birthDate.getMonth() === 1 &&
+    birthDate.getDate() === 29
+  ) {
+
+    nextBirthday =
+      new Date(birthdayYear, 1, 29);
+
+    if (nextBirthday.getMonth() !== 1) {
+      nextBirthday =
+        new Date(birthdayYear, 2, 1);
+    }
+
+  } else {
+
     nextBirthday =
       new Date(
-        today.getFullYear() + 1,
+        birthdayYear,
         birthDate.getMonth(),
         birthDate.getDate()
       );
   }
 
-  const milliseconds =
+
+  if (nextBirthday <= today) {
+
+    birthdayYear++;
+
+    if (
+      birthDate.getMonth() === 1 &&
+      birthDate.getDate() === 29
+    ) {
+
+      nextBirthday =
+        new Date(birthdayYear, 1, 29);
+
+      if (nextBirthday.getMonth() !== 1) {
+        nextBirthday =
+          new Date(birthdayYear, 2, 1);
+      }
+
+    } else {
+
+      nextBirthday =
+        new Date(
+          birthdayYear,
+          birthDate.getMonth(),
+          birthDate.getDate()
+        );
+    }
+  }
+
+
+  const millisecondsUntilBirthday =
     nextBirthday.getTime() - today.getTime();
 
   const daysUntilBirthday =
-    Math.ceil(milliseconds / (1000 * 60 * 60 * 24));
+    Math.ceil(
+      millisecondsUntilBirthday /
+      (1000 * 60 * 60 * 24)
+    );
+
 
   const totalMilliseconds =
     today.getTime() - birthDate.getTime();
 
   const totalDays =
     Math.floor(
-      totalMilliseconds / (1000 * 60 * 60 * 24)
+      totalMilliseconds /
+      (1000 * 60 * 60 * 24)
     );
+
 
   document.getElementById("ageText").textContent =
     `${years} Years, ${months} Months, ${days} Days`;
 
+
   document.getElementById("nextBirthday").textContent =
-    `Next birthday: ${daysUntilBirthday} day(s) from now`;
+    `Next birthday: ${daysUntilBirthday.toLocaleString()} day(s) from now`;
+
 
   document.getElementById("totalDays").textContent =
     `You have been alive for approximately ${totalDays.toLocaleString()} days.`;
 
+
   result.style.display = "block";
+
+  result.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
 }
 
 </script>
