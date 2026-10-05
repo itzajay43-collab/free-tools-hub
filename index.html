@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FreeToolsHub - Free Online Tools</title>
+  <title>FreeToolsHub - Free Online Tools & Calculators</title>
 
   <meta name="description" content="Free online calculators, converters, text tools and useful everyday tools. Fast, simple and mobile-friendly.">
 
-  <meta name="keywords" content="free online tools, calculator, converter, age calculator, percentage calculator, word counter">
+  <meta name="keywords" content="free online tools, calculators, converters, age calculator, percentage calculator, EMI calculator, word counter">
 
   <meta name="robots" content="index, follow">
 
@@ -94,7 +94,6 @@
     .search-box {
       max-width: 620px;
       margin: 30px auto 0;
-      position: relative;
     }
 
     .search-box input {
@@ -247,6 +246,10 @@
       font-size: 14px;
     }
 
+    .footer-links a:hover {
+      color: white;
+    }
+
     .copyright {
       max-width: 1150px;
       margin: 25px auto 0;
@@ -263,6 +266,7 @@
     }
 
     @media (max-width: 650px) {
+
       .nav-links {
         display: none;
       }
@@ -304,182 +308,561 @@
 <body>
 
 <header>
+
   <nav class="nav">
-    <a href="index.html" class="logo">FreeToolsHub</a>
+
+    <a href="index.html" class="logo">
+      FreeToolsHub
+    </a>
 
     <div class="nav-links">
       <a href="#tools">Tools</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
+
   </nav>
+
 </header>
+
 
 <main>
 
+  <!-- HERO -->
+
   <section class="hero">
-    <h1>Free Online <span>Tools</span> for Everyone</h1>
+
+    <h1>
+      Free Online <span>Tools</span> for Everyone
+    </h1>
 
     <p>
-      Fast, simple and free tools for calculations, conversions,
-      text editing and everyday tasks.
+      Fast, simple and free tools for calculations,
+      conversions, text editing and everyday tasks.
     </p>
 
     <div class="search-box">
+
       <input
         type="text"
         id="searchInput"
         placeholder="Search for a tool..."
         onkeyup="searchTools()"
       >
+
     </div>
+
   </section>
+
+
+  <!-- AD PLACEHOLDER -->
 
   <div class="ad-box">
     Advertisement
   </div>
+
+
+  <!-- TOOLS -->
 
   <section class="container" id="tools">
 
     <div class="section-title">
-      <h2>Popular Tools</h2>
-      <p>Useful tools you can use instantly — no registration required.</p>
+
+      <h2>
+        Popular Tools
+      </h2>
+
+      <p>
+        Useful tools you can use instantly — no registration required.
+      </p>
+
     </div>
+
 
     <div class="tools-grid" id="toolsGrid">
 
-      <a href="age-calculator.html" class="tool-card" data-name="age calculator">
-        <div class="tool-icon">🎂</div>
-        <h3>Age Calculator</h3>
-        <p>Calculate your exact age in years, months and days.</p>
+
+      <!-- AGE CALCULATOR -->
+
+      <a
+        href="age-calculator.html"
+        class="tool-card"
+        data-name="age calculator"
+      >
+
+        <div class="tool-icon">
+          🎂
+        </div>
+
+        <h3>
+          Age Calculator
+        </h3>
+
+        <p>
+          Calculate your exact age in years, months and days.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="percentage calculator">
-        <div class="tool-icon">％</div>
-        <h3>Percentage Calculator</h3>
-        <p>Calculate percentages quickly and easily.</p>
+
+      <!-- PERCENTAGE -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="percentage calculator"
+      >
+
+        <div class="tool-icon">
+          %
+        </div>
+
+        <h3>
+          Percentage Calculator
+        </h3>
+
+        <p>
+          Calculate percentages quickly and easily.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="emi calculator">
-        <div class="tool-icon">💰</div>
-        <h3>EMI Calculator</h3>
-        <p>Calculate your monthly loan EMI and total interest.</p>
+
+      <!-- EMI -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="emi calculator"
+      >
+
+        <div class="tool-icon">
+          💰
+        </div>
+
+        <h3>
+          EMI Calculator
+        </h3>
+
+        <p>
+          Calculate your monthly loan EMI and total interest.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="bmi calculator">
-        <div class="tool-icon">⚖️</div>
-        <h3>BMI Calculator</h3>
-        <p>Calculate your Body Mass Index easily.</p>
+
+      <!-- BMI -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="bmi calculator"
+      >
+
+        <div class="tool-icon">
+          ⚖️
+        </div>
+
+        <h3>
+          BMI Calculator
+        </h3>
+
+        <p>
+          Calculate your Body Mass Index easily.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="discount calculator">
-        <div class="tool-icon">🏷️</div>
-        <h3>Discount Calculator</h3>
-        <p>Find the final price after applying a discount.</p>
+
+      <!-- DISCOUNT -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="discount calculator"
+      >
+
+        <div class="tool-icon">
+          🏷️
+        </div>
+
+        <h3>
+          Discount Calculator
+        </h3>
+
+        <p>
+          Find the final price after applying a discount.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="gst calculator">
-        <div class="tool-icon">🧾</div>
-        <h3>GST Calculator</h3>
-        <p>Calculate GST amount and final price instantly.</p>
+
+      <!-- GST -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="gst calculator"
+      >
+
+        <div class="tool-icon">
+          🧾
+        </div>
+
+        <h3>
+          GST Calculator
+        </h3>
+
+        <p>
+          Calculate GST amount and final price instantly.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="unit converter">
-        <div class="tool-icon">📏</div>
-        <h3>Unit Converter</h3>
-        <p>Convert common units quickly and easily.</p>
+
+      <!-- UNIT -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="unit converter"
+      >
+
+        <div class="tool-icon">
+          📏
+        </div>
+
+        <h3>
+          Unit Converter
+        </h3>
+
+        <p>
+          Convert common units quickly and easily.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="length converter">
-        <div class="tool-icon">📐</div>
-        <h3>Length Converter</h3>
-        <p>Convert meters, feet, inches, kilometers and more.</p>
+
+      <!-- LENGTH -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="length converter"
+      >
+
+        <div class="tool-icon">
+          📐
+        </div>
+
+        <h3>
+          Length Converter
+        </h3>
+
+        <p>
+          Convert meters, feet, inches, kilometers and more.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="weight converter">
-        <div class="tool-icon">⚖️</div>
-        <h3>Weight Converter</h3>
-        <p>Convert kilograms, pounds, grams and more.</p>
+
+      <!-- WEIGHT -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="weight converter"
+      >
+
+        <div class="tool-icon">
+          ⚖️
+        </div>
+
+        <h3>
+          Weight Converter
+        </h3>
+
+        <p>
+          Convert kilograms, pounds, grams and more.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="temperature converter">
-        <div class="tool-icon">🌡️</div>
-        <h3>Temperature Converter</h3>
-        <p>Convert Celsius, Fahrenheit and Kelvin.</p>
+
+      <!-- TEMPERATURE -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="temperature converter"
+      >
+
+        <div class="tool-icon">
+          🌡️
+        </div>
+
+        <h3>
+          Temperature Converter
+        </h3>
+
+        <p>
+          Convert Celsius, Fahrenheit and Kelvin.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="word counter">
-        <div class="tool-icon">📝</div>
-        <h3>Word Counter</h3>
-        <p>Count words and characters in your text.</p>
+
+      <!-- WORD COUNTER -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="word counter"
+      >
+
+        <div class="tool-icon">
+          📝
+        </div>
+
+        <h3>
+          Word Counter
+        </h3>
+
+        <p>
+          Count words and characters in your text.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="character counter">
-        <div class="tool-icon">🔤</div>
-        <h3>Character Counter</h3>
-        <p>Count characters, spaces and words instantly.</p>
+
+      <!-- CHARACTER -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="character counter"
+      >
+
+        <div class="tool-icon">
+          🔤
+        </div>
+
+        <h3>
+          Character Counter
+        </h3>
+
+        <p>
+          Count characters, spaces and words instantly.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="case converter">
-        <div class="tool-icon">Aa</div>
-        <h3>Case Converter</h3>
-        <p>Convert text to uppercase, lowercase and more.</p>
+
+      <!-- CASE -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="case converter"
+      >
+
+        <div class="tool-icon">
+          Aa
+        </div>
+
+        <h3>
+          Case Converter
+        </h3>
+
+        <p>
+          Convert text to uppercase, lowercase and more.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="qr code generator">
-        <div class="tool-icon">▦</div>
-        <h3>QR Code Generator</h3>
-        <p>Create QR codes quickly from text or links.</p>
+
+      <!-- QR -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="qr code generator"
+      >
+
+        <div class="tool-icon">
+          ▦
+        </div>
+
+        <h3>
+          QR Code Generator
+        </h3>
+
+        <p>
+          Create QR codes quickly from text or links.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="random number generator">
-        <div class="tool-icon">🎲</div>
-        <h3>Random Number Generator</h3>
-        <p>Generate random numbers within any range.</p>
+
+      <!-- RANDOM -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="random number generator"
+      >
+
+        <div class="tool-icon">
+          🎲
+        </div>
+
+        <h3>
+          Random Number Generator
+        </h3>
+
+        <p>
+          Generate random numbers within any range.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="password generator">
-        <div class="tool-icon">🔐</div>
-        <h3>Password Generator</h3>
-        <p>Create strong random passwords instantly.</p>
+
+      <!-- PASSWORD -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="password generator"
+      >
+
+        <div class="tool-icon">
+          🔐
+        </div>
+
+        <h3>
+          Password Generator
+        </h3>
+
+        <p>
+          Create strong random passwords instantly.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="tip calculator">
-        <div class="tool-icon">💵</div>
-        <h3>Tip Calculator</h3>
-        <p>Calculate tips and split bills easily.</p>
+
+      <!-- TIP -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="tip calculator"
+      >
+
+        <div class="tool-icon">
+          💵
+        </div>
+
+        <h3>
+          Tip Calculator
+        </h3>
+
+        <p>
+          Calculate tips and split bills easily.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="date calculator">
-        <div class="tool-icon">📅</div>
-        <h3>Date Calculator</h3>
-        <p>Calculate the difference between two dates.</p>
+
+      <!-- DATE -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="date calculator"
+      >
+
+        <div class="tool-icon">
+          📅
+        </div>
+
+        <h3>
+          Date Calculator
+        </h3>
+
+        <p>
+          Calculate the difference between two dates.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="typing speed test">
-        <div class="tool-icon">⌨️</div>
-        <h3>Typing Speed Test</h3>
-        <p>Test your typing speed and accuracy.</p>
+
+      <!-- TYPING -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="typing speed test"
+      >
+
+        <div class="tool-icon">
+          ⌨️
+        </div>
+
+        <h3>
+          Typing Speed Test
+        </h3>
+
+        <p>
+          Test your typing speed and accuracy.
+        </p>
+
       </a>
 
-      <a href="#" class="tool-card" data-name="time zone converter">
-        <div class="tool-icon">🌎</div>
-        <h3>Time Zone Converter</h3>
-        <p>Convert time between different countries.</p>
+
+      <!-- TIME ZONE -->
+
+      <a
+        href="#"
+        class="tool-card"
+        data-name="time zone converter"
+      >
+
+        <div class="tool-icon">
+          🌎
+        </div>
+
+        <h3>
+          Time Zone Converter
+        </h3>
+
+        <p>
+          Convert time between different countries.
+        </p>
+
       </a>
+
 
     </div>
 
   </section>
 
+
+  <!-- SECOND AD -->
+
   <div class="ad-box">
     Advertisement
   </div>
 
+
+  <!-- ABOUT -->
+
   <section class="about" id="about">
 
     <div class="about-inner">
-      <h2>Simple Tools. Free for Everyone.</h2>
+
+      <h2>
+        Simple Tools. Free for Everyone.
+      </h2>
 
       <p>
         FreeToolsHub provides simple and useful online tools
@@ -490,11 +873,15 @@
         Our tools are fast, easy to use and work across
         desktop and mobile devices.
       </p>
+
     </div>
 
   </section>
 
 </main>
+
+
+<!-- FOOTER -->
 
 <footer id="contact">
 
@@ -505,43 +892,76 @@
     </div>
 
     <div class="footer-links">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms</a>
-      <a href="#">Disclaimer</a>
-      <a href="#">Contact</a>
+
+      <a href="#">
+        Privacy Policy
+      </a>
+
+      <a href="#">
+        Terms
+      </a>
+
+      <a href="#">
+        Disclaimer
+      </a>
+
+      <a href="#">
+        Contact
+      </a>
+
     </div>
 
   </div>
 
+
   <div class="copyright">
+
     © 2026 FreeToolsHub. All rights reserved.
+
   </div>
 
 </footer>
 
+
 <script>
-  function searchTools() {
 
-    const input =
-      document.getElementById("searchInput").value.toLowerCase();
+function searchTools() {
 
-    const cards =
-      document.querySelectorAll(".tool-card");
+  const input =
+    document
+      .getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
 
-    cards.forEach(card => {
+  const cards =
+    document.querySelectorAll(".tool-card");
 
-      const name =
-        card.getAttribute("data-name").toLowerCase();
 
-      if (name.includes(input)) {
-        card.style.display = "";
-      } else {
-        card.style.display = "none";
-      }
+  cards.forEach(card => {
 
-    });
-  }
+    const name =
+      card
+        .getAttribute("data-name")
+        .toLowerCase();
+
+
+    if (name.includes(input)) {
+
+      card.style.display = "";
+
+    } else {
+
+      card.style.display = "none";
+
+    }
+
+  });
+
+}
+
 </script>
+
 
 </body>
 </html>
