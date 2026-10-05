@@ -4,15 +4,86 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Random Number Generator - Generate Random Numbers | FreeToolsHub</title>
+  <title>Random Number Generator - Free Online Random Number Picker | FreeToolsHub</title>
 
-  <meta name="description" content="Free online random number generator. Generate one or multiple random numbers between any minimum and maximum range with optional no-repeat mode.">
+  <meta name="description" content="Free online random number generator. Generate one or multiple random integers between any minimum and maximum range with optional unique number mode. Fast, simple and mobile-friendly.">
 
-  <meta name="keywords" content="random number generator, random number picker, random numbers online, number generator, random number tool">
+  <meta name="keywords" content="random number generator, random number picker, random numbers online, random integer generator, number generator, random number tool">
 
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/random-number-generator.html">
+
+  <meta property="og:title" content="Random Number Generator - Free Online Tool">
+  <meta property="og:description" content="Generate random numbers between any minimum and maximum range with optional no-repeat mode.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/random-number-generator.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Random Number Generator",
+    "url": "https://itzajay43-collab.github.io/free-tools-hub/random-number-generator.html",
+    "description": "Free online random number generator for generating one or multiple random integers within a selected range.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this random number generator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. FreeToolsHub Random Number Generator is completely free to use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I generate multiple random numbers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Enter the number of results you want and click Generate Numbers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I generate random numbers without repetition?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Enable the unique numbers option to prevent duplicate results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use negative numbers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Negative minimum and maximum values can be used as long as the range is valid."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this random number generator suitable for cryptographic security?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. This tool is intended for general-purpose random number selection and should not be used for passwords, encryption keys, security tokens or other security-sensitive applications."
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     * {
@@ -107,7 +178,7 @@
 
     .input-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 15px;
     }
 
@@ -121,8 +192,7 @@
       margin-bottom: 6px;
     }
 
-    input,
-    select {
+    input {
       width: 100%;
       padding: 12px 14px;
       border: 1px solid #d1d5db;
@@ -131,8 +201,7 @@
       outline: none;
     }
 
-    input:focus,
-    select:focus {
+    input:focus {
       border-color: #2563eb;
       box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
     }
@@ -168,6 +237,11 @@
 
     button:hover {
       background: #1d4ed8;
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(37,99,235,0.3);
+      outline-offset: 2px;
     }
 
     .copy-btn {
@@ -226,6 +300,23 @@
       font-size: 18px;
     }
 
+    .status {
+      min-height: 24px;
+      margin-top: 12px;
+      color: #374151;
+      font-size: 14px;
+    }
+
+    .error {
+      color: #dc2626;
+      font-weight: bold;
+    }
+
+    .success {
+      color: #15803d;
+      font-weight: bold;
+    }
+
     .info-section {
       background: white;
       margin-top: 25px;
@@ -266,6 +357,39 @@
       margin-bottom: 5px;
     }
 
+    .related-tools {
+      background: white;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .related-tools h2 {
+      margin-bottom: 15px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .related-grid a {
+      display: block;
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+      background: #f9fafb;
+    }
+
+    .related-grid a:hover {
+      background: #eff6ff;
+    }
+
     footer {
       background: #111827;
       color: #9ca3af;
@@ -278,6 +402,10 @@
       color: #d1d5db;
       text-decoration: none;
       margin: 0 8px;
+    }
+
+    footer a:hover {
+      color: white;
     }
 
     @media (max-width: 700px) {
@@ -299,12 +427,21 @@
       }
 
       .tool-card,
-      .info-section {
+      .info-section,
+      .related-tools {
         padding: 18px;
       }
 
       #result {
         font-size: 34px;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        width: 100%;
       }
     }
   </style>
@@ -314,31 +451,26 @@
 
 <header>
   <div class="header-inner">
-
     <a href="index.html" class="logo">FreeToolsHub</a>
 
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#tools">All Tools</a>
     </nav>
-
   </div>
 </header>
 
 <main class="container">
 
   <section class="hero">
-
     <h1>Random Number Generator</h1>
-
     <p>
       Generate one or multiple random numbers between any minimum
       and maximum range with this free online random number generator.
     </p>
-
   </section>
 
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
@@ -347,77 +479,69 @@
     <div class="input-grid">
 
       <div class="field">
-
-        <label for="minNumber">
-          Minimum Number
-        </label>
-
+        <label for="minNumber">Minimum Number</label>
         <input
           type="number"
           id="minNumber"
           value="1"
+          step="1"
+          inputmode="numeric"
         >
-
       </div>
 
       <div class="field">
-
-        <label for="maxNumber">
-          Maximum Number
-        </label>
-
+        <label for="maxNumber">Maximum Number</label>
         <input
           type="number"
           id="maxNumber"
           value="100"
+          step="1"
+          inputmode="numeric"
         >
-
       </div>
 
       <div class="field">
-
-        <label for="quantity">
-          Number of Results
-        </label>
-
+        <label for="quantity">Number of Results</label>
         <input
           type="number"
           id="quantity"
           value="1"
           min="1"
           max="1000"
+          step="1"
+          inputmode="numeric"
         >
-
       </div>
 
     </div>
 
     <label class="checkbox-row">
-
       <input
         type="checkbox"
         id="noRepeat"
       >
-
       Generate unique numbers without repetition
-
     </label>
 
     <div class="buttons">
-
-      <button onclick="generateNumbers()">
+      <button type="button" onclick="generateNumbers()">
         Generate Numbers
       </button>
 
-      <button class="copy-btn" onclick="copyResult()">
+      <button type="button" class="copy-btn" onclick="copyResult()">
         Copy Result
       </button>
 
-      <button class="clear-btn" onclick="clearAll()">
+      <button type="button" class="clear-btn" onclick="clearAll()">
         Clear
       </button>
-
     </div>
+
+    <div
+      class="status"
+      id="status"
+      aria-live="polite"
+    ></div>
 
     <div class="result-box" id="resultBox">
 
@@ -438,7 +562,7 @@
 
   </section>
 
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
@@ -447,109 +571,96 @@
     <h2>Free Online Random Number Generator</h2>
 
     <p>
-      FreeToolsHub Random Number Generator is a simple tool for generating
-      random integers within a range. Enter a minimum number, maximum
-      number and the number of results you need, then click Generate
-      Numbers.
+      FreeToolsHub Random Number Generator is a simple online tool
+      for generating random integers within a selected range. Enter
+      a minimum number, maximum number and the number of results you
+      need, then click Generate Numbers.
     </p>
 
     <h3>How to Generate Random Numbers</h3>
 
     <ol>
-
       <li>Enter the minimum number.</li>
-
       <li>Enter the maximum number.</li>
-
       <li>Select how many random numbers you want.</li>
-
-      <li>Enable the unique numbers option if you do not want repetitions.</li>
-
+      <li>Enable unique numbers if you do not want repetitions.</li>
       <li>Click Generate Numbers.</li>
-
     </ol>
 
     <h3>What Is a Random Number Generator?</h3>
 
     <p>
-      A random number generator produces numbers selected from a specified
-      range. It can be useful for simple games, classroom activities,
+      A random number generator produces numbers selected from a
+      specified range. It can be useful for games, classroom activities,
       testing, demonstrations, simulations and selecting numbers randomly.
     </p>
 
     <h3>Random Number Generator Features</h3>
 
     <ul>
-
       <li>Generate numbers between custom minimum and maximum values.</li>
-
-      <li>Generate one or multiple numbers.</li>
-
+      <li>Generate one or multiple random numbers.</li>
       <li>Optional unique number mode.</li>
-
       <li>Copy generated results easily.</li>
-
       <li>Works on desktop, tablet and mobile devices.</li>
-
+      <li>Supports positive and negative whole numbers.</li>
+      <li>Free to use without registration.</li>
     </ul>
 
     <h3>Frequently Asked Questions</h3>
 
     <div class="faq">
-
       <strong>Is this random number generator free?</strong>
-
       <p>
-        Yes. FreeToolsHub Random Number Generator is free to use.
+        Yes. FreeToolsHub Random Number Generator is completely free to use.
       </p>
-
     </div>
 
     <div class="faq">
-
       <strong>Can I generate multiple random numbers?</strong>
-
       <p>
-        Yes. Enter the number of results you need and click Generate
-        Numbers.
+        Yes. Enter the number of results you need and click Generate Numbers.
       </p>
-
     </div>
 
     <div class="faq">
-
       <strong>Can I generate numbers without repetition?</strong>
-
       <p>
-        Yes. Enable the unique numbers option to prevent duplicate
-        results. The requested quantity must fit within the selected range.
+        Yes. Enable the unique numbers option to prevent duplicate results.
+        The requested quantity must fit within the selected range.
       </p>
-
     </div>
 
     <div class="faq">
-
       <strong>Can I use negative numbers?</strong>
-
       <p>
         Yes. You can enter negative values as the minimum or maximum
         number as long as the range is valid.
       </p>
-
     </div>
 
     <div class="faq">
-
       <strong>Are the generated numbers suitable for cryptographic security?</strong>
-
       <p>
         No. This tool is intended for general-purpose random number
         selection and should not be used for passwords, encryption keys,
         security tokens or other security-sensitive applications.
       </p>
-
     </div>
 
+  </section>
+
+  <section class="related-tools">
+    <h2>Related Free Tools</h2>
+
+    <div class="related-grid">
+      <a href="password-generator.html">Password Generator</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="date-calculator.html">Date Calculator</a>
+      <a href="age-calculator.html">Age Calculator</a>
+      <a href="qr-code-generator.html">QR Code Generator</a>
+      <a href="unit-converter.html">Unit Converter</a>
+    </div>
   </section>
 
 </main>
@@ -559,232 +670,254 @@
   <p>© 2026 FreeToolsHub. All rights reserved.</p>
 
   <p>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Disclaimer</a>
-    <a href="#">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
   </p>
 
 </footer>
 
 <script>
 
-let generatedNumbers = [];
+  let generatedNumbers = [];
 
-
-function generateNumbers() {
-
-  const min =
-    Number(document.getElementById("minNumber").value);
-
-  const max =
-    Number(document.getElementById("maxNumber").value);
-
-  const quantity =
-    Number(document.getElementById("quantity").value);
-
-  const noRepeat =
-    document.getElementById("noRepeat").checked;
-
-
-  if (
-    !Number.isFinite(min) ||
-    !Number.isFinite(max)
-  ) {
-    alert("Please enter valid minimum and maximum numbers.");
-    return;
+  function setStatus(message, type = "") {
+    const status = document.getElementById("status");
+    status.textContent = message;
+    status.className = "status " + type;
   }
 
+  function generateNumbers() {
 
-  if (min > max) {
-    alert("Minimum number cannot be greater than maximum number.");
-    return;
-  }
-
-
-  if (
-    !Number.isInteger(min) ||
-    !Number.isInteger(max)
-  ) {
-    alert("Please enter whole numbers.");
-    return;
-  }
-
-
-  if (
-    !Number.isInteger(quantity) ||
-    quantity < 1 ||
-    quantity > 1000
-  ) {
-    alert("Number of results must be between 1 and 1000.");
-    return;
-  }
-
-
-  const rangeSize = max - min + 1;
-
-
-  if (noRepeat && quantity > rangeSize) {
-    alert(
-      "You cannot generate more unique numbers than the size of the selected range."
+    const min = Number(
+      document.getElementById("minNumber").value
     );
-    return;
-  }
 
+    const max = Number(
+      document.getElementById("maxNumber").value
+    );
 
-  generatedNumbers = [];
+    const quantity = Number(
+      document.getElementById("quantity").value
+    );
 
+    const noRepeat =
+      document.getElementById("noRepeat").checked;
 
-  if (noRepeat) {
-
-    const availableNumbers = [];
-
-    for (let i = min; i <= max; i++) {
-      availableNumbers.push(i);
-    }
-
-
-    // Fisher-Yates shuffle
-    for (
-      let i = availableNumbers.length - 1;
-      i > 0;
-      i--
+    if (
+      !Number.isFinite(min) ||
+      !Number.isFinite(max)
     ) {
+      setStatus(
+        "Please enter valid minimum and maximum numbers.",
+        "error"
+      );
+      return;
+    }
 
-      const j =
-        Math.floor(Math.random() * (i + 1));
+    if (min > max) {
+      setStatus(
+        "Minimum number cannot be greater than maximum number.",
+        "error"
+      );
+      return;
+    }
 
-      [
-        availableNumbers[i],
-        availableNumbers[j]
-      ] = [
-        availableNumbers[j],
-        availableNumbers[i]
-      ];
+    if (
+      !Number.isInteger(min) ||
+      !Number.isInteger(max)
+    ) {
+      setStatus(
+        "Please enter whole numbers.",
+        "error"
+      );
+      return;
+    }
+
+    if (
+      !Number.isInteger(quantity) ||
+      quantity < 1 ||
+      quantity > 1000
+    ) {
+      setStatus(
+        "Number of results must be between 1 and 1000.",
+        "error"
+      );
+      return;
+    }
+
+    const rangeSize = max - min + 1;
+
+    if (noRepeat && quantity > rangeSize) {
+      setStatus(
+        "You cannot generate more unique numbers than the size of the selected range.",
+        "error"
+      );
+      return;
+    }
+
+    generatedNumbers = [];
+
+    if (noRepeat) {
+
+      const availableNumbers = [];
+
+      for (let i = min; i <= max; i++) {
+        availableNumbers.push(i);
+      }
+
+      // Fisher-Yates shuffle
+      for (
+        let i = availableNumbers.length - 1;
+        i > 0;
+        i--
+      ) {
+
+        const j =
+          Math.floor(Math.random() * (i + 1));
+
+        [
+          availableNumbers[i],
+          availableNumbers[j]
+        ] = [
+          availableNumbers[j],
+          availableNumbers[i]
+        ];
+
+      }
+
+      generatedNumbers =
+        availableNumbers.slice(0, quantity);
+
+    } else {
+
+      for (let i = 0; i < quantity; i++) {
+
+        const randomNumber =
+          Math.floor(
+            Math.random() * (max - min + 1)
+          ) + min;
+
+        generatedNumbers.push(randomNumber);
+
+      }
 
     }
 
+    displayResults();
 
-    generatedNumbers =
-      availableNumbers.slice(0, quantity);
+    setStatus(
+      `${generatedNumbers.length} random number${generatedNumbers.length === 1 ? "" : "s"} generated successfully.`,
+      "success"
+    );
+  }
 
-  } else {
+  function displayResults() {
 
-    for (let i = 0; i < quantity; i++) {
+    const resultBox =
+      document.getElementById("resultBox");
 
-      const randomNumber =
-        Math.floor(
-          Math.random() * (max - min + 1)
-        ) + min;
+    const result =
+      document.getElementById("result");
 
-      generatedNumbers.push(randomNumber);
+    const resultList =
+      document.getElementById("resultList");
+
+    resultBox.style.display = "block";
+
+    if (generatedNumbers.length === 1) {
+
+      result.textContent =
+        generatedNumbers[0];
+
+    } else {
+
+      result.textContent =
+        generatedNumbers.join(", ");
 
     }
 
-  }
+    resultList.innerHTML = "";
 
+    generatedNumbers.forEach(number => {
 
-  displayResults();
+      const item =
+        document.createElement("div");
 
-}
+      item.className = "number-item";
 
+      item.textContent = number;
 
-function displayResults() {
-
-  const resultBox =
-    document.getElementById("resultBox");
-
-  const result =
-    document.getElementById("result");
-
-  const resultList =
-    document.getElementById("resultList");
-
-
-  resultBox.style.display = "block";
-
-
-  if (generatedNumbers.length === 1) {
-
-    result.textContent =
-      generatedNumbers[0];
-
-  } else {
-
-    result.textContent =
-      generatedNumbers.join(", ");
-
-  }
-
-
-  resultList.innerHTML = "";
-
-
-  generatedNumbers.forEach(number => {
-
-    const item =
-      document.createElement("div");
-
-    item.className = "number-item";
-
-    item.textContent = number;
-
-    resultList.appendChild(item);
-
-  });
-
-}
-
-
-function copyResult() {
-
-  if (generatedNumbers.length === 0) {
-
-    alert("Generate some numbers first.");
-
-    return;
-
-  }
-
-
-  const text =
-    generatedNumbers.join(", ");
-
-
-  navigator.clipboard.writeText(text)
-    .then(() => {
-
-      alert("Result copied successfully!");
-
-    })
-    .catch(() => {
-
-      alert("Unable to copy result.");
+      resultList.appendChild(item);
 
     });
 
-}
+  }
 
+  async function copyResult() {
 
-function clearAll() {
+    if (generatedNumbers.length === 0) {
 
-  document.getElementById("minNumber").value = 1;
+      setStatus(
+        "Generate some numbers first.",
+        "error"
+      );
 
-  document.getElementById("maxNumber").value = 100;
+      return;
+    }
 
-  document.getElementById("quantity").value = 1;
+    const text =
+      generatedNumbers.join(", ");
 
-  document.getElementById("noRepeat").checked = false;
+    try {
 
-  generatedNumbers = [];
+      await navigator.clipboard.writeText(text);
 
-  document.getElementById("result").textContent = "0";
+      setStatus(
+        "Result copied successfully!",
+        "success"
+      );
 
-  document.getElementById("resultList").innerHTML = "";
+    } catch (error) {
 
-  document.getElementById("resultBox").style.display = "none";
+      setStatus(
+        "Unable to copy result. Please copy it manually.",
+        "error"
+      );
 
-}
+    }
+
+  }
+
+  function clearAll() {
+
+    document.getElementById("minNumber").value = 1;
+    document.getElementById("maxNumber").value = 100;
+    document.getElementById("quantity").value = 1;
+    document.getElementById("noRepeat").checked = false;
+
+    generatedNumbers = [];
+
+    document.getElementById("result").textContent = "0";
+    document.getElementById("resultList").innerHTML = "";
+    document.getElementById("resultBox").style.display = "none";
+
+    setStatus("");
+
+  }
+
+  document.querySelectorAll("input").forEach(input => {
+
+    input.addEventListener("keydown", function(event) {
+
+      if (event.key === "Enter") {
+        generateNumbers();
+      }
+
+    });
+
+  });
 
 </script>
 
