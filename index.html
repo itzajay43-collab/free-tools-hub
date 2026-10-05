@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>FreeToolsHub - Free Online Tools & Calculators</title>
 
-  <meta name="description" content="Free online calculators, converters, text tools and useful everyday tools. Fast, simple and mobile-friendly.">
-  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/">
+  <meta name="description" content="Free online tools and calculators including age, percentage, EMI, BMI, GST, unit conversion, text tools, generators and more. Fast, simple and mobile-friendly.">
 
-  <meta name="keywords" content="free online tools, calculators, converters, age calculator, percentage calculator, EMI calculator, word counter">
+  <meta name="keywords" content="free online tools, online calculators, age calculator, percentage calculator, EMI calculator, BMI calculator, GST calculator, unit converter, word counter, QR code generator">
 
   <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/">
 
   <style>
     * {
@@ -20,65 +22,81 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7f8fc;
-      color: #172033;
+      background: #f7f9fc;
+      color: #1f2937;
       line-height: 1.6;
     }
 
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #e8eaf0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    a {
+      text-decoration: none;
     }
 
-    .nav {
-      max-width: 1150px;
+    /* HEADER */
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1200px;
       margin: auto;
       padding: 16px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      gap: 20px;
     }
 
     .logo {
-      font-size: 23px;
+      font-size: 25px;
       font-weight: 800;
       color: #2563eb;
-      text-decoration: none;
     }
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 20px;
+      align-items: center;
     }
 
     .nav-links a {
-      text-decoration: none;
-      color: #4b5563;
-      font-size: 15px;
+      color: #374151;
       font-weight: 600;
+      font-size: 14px;
     }
 
     .nav-links a:hover {
       color: #2563eb;
     }
 
+    /* HERO */
+
     .hero {
-      max-width: 1150px;
-      margin: auto;
-      padding: 70px 20px 45px;
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+      padding: 70px 20px 55px;
       text-align: center;
     }
 
+    .hero-content {
+      max-width: 900px;
+      margin: auto;
+    }
+
     .hero h1 {
-      font-size: clamp(35px, 6vw, 58px);
-      line-height: 1.1;
-      margin-bottom: 18px;
+      font-size: 46px;
+      line-height: 1.15;
       color: #111827;
+      margin-bottom: 18px;
     }
 
     .hero h1 span {
@@ -86,164 +104,208 @@
     }
 
     .hero p {
-      max-width: 650px;
-      margin: auto;
-      color: #667085;
+      max-width: 700px;
+      margin: 0 auto 28px;
+      color: #6b7280;
       font-size: 18px;
     }
 
     .search-box {
-      max-width: 620px;
-      margin: 30px auto 0;
+      max-width: 650px;
+      margin: auto;
+      position: relative;
     }
 
     .search-box input {
       width: 100%;
       padding: 17px 20px;
-      border: 1px solid #dfe3eb;
+      border: 1px solid #d1d5db;
       border-radius: 12px;
       font-size: 16px;
       outline: none;
       background: white;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     }
 
     .search-box input:focus {
       border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
     }
 
-    .container {
-      max-width: 1150px;
-      margin: auto;
+    /* ADS */
+
+    .ad-box {
+      max-width: 1100px;
+      min-height: 90px;
+      margin: 25px auto;
       padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+      border: 1px dashed #d1d5db;
+      border-radius: 10px;
+      color: #9ca3af;
+      font-size: 13px;
     }
 
-    .section-title {
+    /* TOOLS */
+
+    .tools-section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-heading {
       text-align: center;
-      margin: 30px 0;
+      margin-bottom: 30px;
     }
 
-    .section-title h2 {
-      font-size: 30px;
-      margin-bottom: 7px;
+    .section-heading h2 {
+      font-size: 32px;
+      color: #111827;
+      margin-bottom: 8px;
     }
 
-    .section-title p {
-      color: #667085;
+    .section-heading p {
+      color: #6b7280;
     }
 
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      gap: 20px;
     }
 
     .tool-card {
       background: #ffffff;
-      border: 1px solid #e8eaf0;
-      border-radius: 15px;
-      padding: 24px;
-      text-decoration: none;
-      color: inherit;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 25px;
       transition: 0.2s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     }
 
     .tool-card:hover {
       transform: translateY(-4px);
-      border-color: #cbd8ff;
-      box-shadow: 0 12px 30px rgba(37,99,235,0.08);
+      border-color: #bfdbfe;
+      box-shadow: 0 10px 25px rgba(37,99,235,0.1);
     }
 
     .tool-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: #eef4ff;
+      width: 45px;
+      height: 45px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 23px;
+      align-items: center;
+      background: #eff6ff;
+      border-radius: 10px;
+      font-size: 22px;
       margin-bottom: 15px;
     }
 
     .tool-card h3 {
-      font-size: 17px;
-      margin-bottom: 7px;
+      font-size: 18px;
+      color: #111827;
+      margin-bottom: 8px;
     }
 
     .tool-card p {
-      color: #667085;
       font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 17px;
     }
 
-    .ad-box {
-      max-width: 970px;
-      height: 90px;
-      margin: 45px auto;
-      background: #f0f1f4;
-      border: 1px dashed #c9ccd4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #8a8f9c;
-      font-size: 13px;
+    .tool-btn {
+      display: inline-block;
+      padding: 9px 15px;
+      background: #2563eb;
+      color: white;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
     }
+
+    .tool-btn:hover {
+      background: #1d4ed8;
+    }
+
+    .no-results {
+      display: none;
+      text-align: center;
+      color: #6b7280;
+      padding: 30px;
+    }
+
+    /* ABOUT */
 
     .about {
-      background: white;
-      margin-top: 60px;
-      padding: 55px 20px;
-      border-top: 1px solid #e8eaf0;
-      border-bottom: 1px solid #e8eaf0;
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
-    .about-inner {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
+    .about-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 40px;
+      border: 1px solid #e5e7eb;
     }
 
-    .about h2 {
+    .about-card h2 {
       font-size: 30px;
+      margin-bottom: 15px;
+      color: #111827;
+    }
+
+    .about-card p {
+      color: #4b5563;
       margin-bottom: 15px;
     }
 
-    .about p {
-      color: #667085;
-      margin-bottom: 12px;
-    }
+    /* FOOTER */
 
     footer {
       background: #111827;
       color: #d1d5db;
-      padding: 35px 20px;
-      margin-top: 0;
+      margin-top: 60px;
+      padding: 45px 20px 25px;
     }
 
-    .footer-inner {
-      max-width: 1150px;
+    .footer-container {
+      max-width: 1100px;
       margin: auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
     }
 
-    .footer-logo {
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      padding-bottom: 30px;
+    }
+
+    .footer-brand h3 {
       color: white;
-      font-weight: 800;
-      font-size: 20px;
+      font-size: 22px;
+      margin-bottom: 10px;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+    .footer-brand p {
+      color: #9ca3af;
+      max-width: 550px;
+      font-size: 14px;
+    }
+
+    .footer-links h4 {
+      color: white;
+      margin-bottom: 12px;
     }
 
     .footer-links a {
-      color: #d1d5db;
-      text-decoration: none;
+      display: block;
+      color: #9ca3af;
+      margin-bottom: 7px;
       font-size: 14px;
     }
 
@@ -251,56 +313,68 @@
       color: white;
     }
 
-    .copyright {
-      max-width: 1150px;
-      margin: 25px auto 0;
-      padding-top: 20px;
+    .footer-bottom {
       border-top: 1px solid #374151;
-      font-size: 13px;
+      padding-top: 20px;
+      text-align: center;
       color: #9ca3af;
+      font-size: 13px;
     }
 
-    @media (max-width: 900px) {
+    /* MOBILE */
+
+    @media (max-width: 1000px) {
       .tools-grid {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 650px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 50px;
-      }
-
+    @media (max-width: 750px) {
       .tools-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
       }
 
-      .tool-card {
-        padding: 18px;
+      .footer-top {
+        grid-template-columns: 1fr;
       }
 
-      .tool-card h3 {
-        font-size: 15px;
-      }
-
-      .tool-card p {
-        font-size: 13px;
-      }
-
-      .ad-box {
-        height: 70px;
+      .hero h1 {
+        font-size: 38px;
       }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .hero {
+        padding: 50px 15px 40px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
       .tools-grid {
         grid-template-columns: 1fr;
+      }
+
+      .tool-card {
+        padding: 22px;
+      }
+
+      .about-card {
+        padding: 25px 20px;
       }
     }
   </style>
@@ -308,9 +382,10 @@
 
 <body>
 
-<header>
+<!-- HEADER -->
 
-  <nav class="nav">
+<header>
+  <nav class="navbar">
 
     <a href="index.html" class="logo">
       FreeToolsHub
@@ -319,503 +394,594 @@
     <div class="nav-links">
       <a href="#tools">Tools</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
     </div>
 
   </nav>
-
 </header>
 
-<main>
 
-  <section class="hero">
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
 
     <h1>
-      Free Online <span>Tools</span> for Everyone
+      Free Online <span>Tools & Calculators</span>
     </h1>
 
     <p>
-      Fast, simple and free tools for calculations,
-      conversions, text editing and everyday tasks.
+      Simple, fast and free online tools for everyday calculations,
+      conversions, text utilities, generators and more.
     </p>
 
     <div class="search-box">
-
       <input
         type="text"
-        id="searchInput"
+        id="toolSearch"
         placeholder="Search for a tool..."
-        onkeyup="searchTools()"
+        aria-label="Search tools"
       >
-
-    </div>
-
-  </section>
-
-  <div class="ad-box">
-    Advertisement
-  </div>
-
-  <section class="container" id="tools">
-
-    <div class="section-title">
-
-      <h2>
-        Popular Tools
-      </h2>
-
-      <p>
-        Useful tools you can use instantly — no registration required.
-      </p>
-
-    </div>
-
-    <div class="tools-grid" id="toolsGrid">
-
-      <a
-        href="age-calculator.html"
-        class="tool-card"
-        data-name="age calculator"
-      >
-        <div class="tool-icon">🎂</div>
-
-        <h3>
-          Age Calculator
-        </h3>
-
-        <p>
-          Calculate your exact age in years, months and days.
-        </p>
-
-      </a>
-
-      <a
-        href="percentage-calculator.html"
-        class="tool-card"
-        data-name="percentage calculator"
-      >
-        <div class="tool-icon">%</div>
-
-        <h3>
-          Percentage Calculator
-        </h3>
-
-        <p>
-          Calculate percentages quickly and easily.
-        </p>
-
-      </a>
-
-      <a
-        href="emi-calculator.html"
-        class="tool-card"
-        data-name="emi calculator"
-      >
-        <div class="tool-icon">💰</div>
-
-        <h3>
-          EMI Calculator
-        </h3>
-
-        <p>
-          Calculate your monthly loan EMI and total interest.
-        </p>
-
-      </a>
-
-      <a
-        href="bmi-calculator.html"
-        class="tool-card"
-        data-name="bmi calculator"
-      >
-        <div class="tool-icon">⚖️</div>
-
-        <h3>
-          BMI Calculator
-        </h3>
-
-        <p>
-          Calculate your Body Mass Index easily.
-        </p>
-
-      </a>
-
-      <a
-        href="discount-calculator.html"
-        class="tool-card"
-        data-name="discount calculator"
-      >
-        <div class="tool-icon">🏷️</div>
-
-        <h3>
-          Discount Calculator
-        </h3>
-
-        <p>
-          Find the final price after applying a discount.
-        </p>
-
-      </a>
-
-      <a
-        href="gst-calculator.html"
-        class="tool-card"
-        data-name="gst calculator"
-      >
-        <div class="tool-icon">🧾</div>
-
-        <h3>
-          GST Calculator
-        </h3>
-
-        <p>
-          Calculate GST amount and final price instantly.
-        </p>
-
-      </a>
-
-      <a
-        href="unit-converter.html"
-        class="tool-card"
-        data-name="unit converter"
-      >
-        <div class="tool-icon">📏</div>
-
-        <h3>
-          Unit Converter
-        </h3>
-
-        <p>
-          Convert common units quickly and easily.
-        </p>
-
-      </a>
-
-      <a
-        href="length-converter.html"
-        class="tool-card"
-        data-name="length converter"
-      >
-        <div class="tool-icon">📐</div>
-
-        <h3>
-          Length Converter
-        </h3>
-
-        <p>
-          Convert meters, feet, inches, kilometers and more.
-        </p>
-
-      </a>
-
-      <a
-        href="weight-converter.html"
-        class="tool-card"
-        data-name="weight converter"
-      >
-        <div class="tool-icon">⚖️</div>
-
-        <h3>
-          Weight Converter
-        </h3>
-
-        <p>
-          Convert kilograms, pounds, grams and more.
-        </p>
-
-      </a>
-
-      <a
-        href="temperature-converter.html"
-        class="tool-card"
-        data-name="temperature converter"
-      >
-        <div class="tool-icon">🌡️</div>
-
-        <h3>
-          Temperature Converter
-        </h3>
-
-        <p>
-          Convert Celsius, Fahrenheit and Kelvin.
-        </p>
-
-      </a>
-
-      <a
-        href="word-counter.html"
-        class="tool-card"
-        data-name="word counter"
-      >
-        <div class="tool-icon">📝</div>
-
-        <h3>
-          Word Counter
-        </h3>
-
-        <p>
-          Count words and characters in your text.
-        </p>
-
-      </a>
-
-      <a
-        href="character-counter.html"
-        class="tool-card"
-        data-name="character counter"
-      >
-        <div class="tool-icon">🔤</div>
-
-        <h3>
-          Character Counter
-        </h3>
-
-        <p>
-          Count characters, spaces and words instantly.
-        </p>
-
-      </a>
-
-      <a
-        href="case-converter.html"
-        class="tool-card"
-        data-name="case converter"
-      >
-        <div class="tool-icon">Aa</div>
-
-        <h3>
-          Case Converter
-        </h3>
-
-        <p>
-          Convert text to uppercase, lowercase and more.
-        </p>
-
-      </a>
-
-      <a
-        href="qr-code-generator.html"
-        class="tool-card"
-        data-name="qr code generator"
-      >
-        <div class="tool-icon">▦</div>
-
-        <h3>
-          QR Code Generator
-        </h3>
-
-        <p>
-          Create QR codes quickly from text or links.
-        </p>
-
-      </a>
-
-      <a
-        href="random-number-generator.html"
-        class="tool-card"
-        data-name="random number generator"
-      >
-        <div class="tool-icon">🎲</div>
-
-        <h3>
-          Random Number Generator
-        </h3>
-
-        <p>
-          Generate random numbers within any range.
-        </p>
-
-      </a>
-
-      <a
-        href="password-generator.html"
-        class="tool-card"
-        data-name="password generator"
-      >
-        <div class="tool-icon">🔐</div>
-
-        <h3>
-          Password Generator
-        </h3>
-
-        <p>
-          Create strong random passwords instantly.
-        </p>
-
-      </a>
-
-      <a
-        href="tip-calculator.html"
-        class="tool-card"
-        data-name="tip calculator"
-      >
-        <div class="tool-icon">💵</div>
-
-        <h3>
-          Tip Calculator
-        </h3>
-
-        <p>
-          Calculate tips and split bills easily.
-        </p>
-
-      </a>
-
-      <a
-        href="date-calculator.html"
-        class="tool-card"
-        data-name="date calculator"
-      >
-        <div class="tool-icon">📅</div>
-
-        <h3>
-          Date Calculator
-        </h3>
-
-        <p>
-          Calculate the difference between two dates.
-        </p>
-
-      </a>
-
-      <a
-        href="typing-speed-test.html"
-        class="tool-card"
-        data-name="typing speed test"
-      >
-        <div class="tool-icon">⌨️</div>
-
-        <h3>
-          Typing Speed Test
-        </h3>
-
-        <p>
-          Test your typing speed and accuracy.
-        </p>
-
-      </a>
-
-      <a
-        href="time-zone-converter.html"
-        class="tool-card"
-        data-name="time zone converter"
-      >
-        <div class="tool-icon">🌎</div>
-
-        <h3>
-          Time Zone Converter
-        </h3>
-
-        <p>
-          Convert time between different countries.
-        </p>
-
-      </a>
-
-    </div>
-
-  </section>
-
-  <div class="ad-box">
-    Advertisement
-  </div>
-
-  <section class="about" id="about">
-
-    <div class="about-inner">
-
-      <h2>
-        Simple Tools. Free for Everyone.
-      </h2>
-
-      <p>
-        FreeToolsHub provides simple and useful online tools
-        designed to make everyday calculations and tasks easier.
-      </p>
-
-      <p>
-        Our tools are fast, easy to use and work across
-        desktop and mobile devices.
-      </p>
-
-    </div>
-
-  </section>
-
-</main>
-
-<footer id="contact">
-
-  <div class="footer-inner">
-
-    <div class="footer-logo">
-      FreeToolsHub
-    </div>
-
-    <div class="footer-links">
-
-      <a href="#">
-        Privacy Policy
-      </a>
-
-      <a href="#">
-        Terms
-      </a>
-
-      <a href="#">
-        Disclaimer
-      </a>
-
-      <a href="#">
-        Contact
-      </a>
-
     </div>
 
   </div>
 
-  <div class="copyright">
+</section>
 
-    © 2026 FreeToolsHub. All rights reserved.
+
+<!-- TOP AD PLACEHOLDER -->
+
+<div class="ad-box">
+  Advertisement
+</div>
+
+
+<!-- TOOLS -->
+
+<section class="tools-section" id="tools">
+
+  <div class="section-heading">
+    <h2>All Free Tools</h2>
+    <p>Choose a tool and get your result instantly.</p>
+  </div>
+
+
+  <div class="tools-grid" id="toolsGrid">
+
+
+    <!-- 1 -->
+
+    <div class="tool-card" data-name="age calculator age">
+
+      <div class="tool-icon">🎂</div>
+
+      <h3>Age Calculator</h3>
+
+      <p>
+        Calculate your exact age in years, months and days.
+      </p>
+
+      <a href="age-calculator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 2 -->
+
+    <div class="tool-card" data-name="percentage calculator percentage">
+
+      <div class="tool-icon">％</div>
+
+      <h3>Percentage Calculator</h3>
+
+      <p>
+        Calculate percentages quickly and easily.
+      </p>
+
+      <a href="percentage-calculator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 3 -->
+
+    <div class="tool-card" data-name="emi calculator loan emi">
+
+      <div class="tool-icon">💰</div>
+
+      <h3>EMI Calculator</h3>
+
+      <p>
+        Calculate monthly loan EMI, interest and total payment.
+      </p>
+
+      <a href="emi-calculator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 4 -->
+
+    <div class="tool-card" data-name="bmi calculator bmi health">
+
+      <div class="tool-icon">⚖️</div>
+
+      <h3>BMI Calculator</h3>
+
+      <p>
+        Calculate your Body Mass Index using height and weight.
+      </p>
+
+      <a href="bmi-calculator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 5 -->
+
+    <div class="tool-card" data-name="discount calculator discount sale">
+
+      <div class="tool-icon">🏷️</div>
+
+      <h3>Discount Calculator</h3>
+
+      <p>
+        Calculate discount amount and final selling price.
+      </p>
+
+      <a href="discount-calculator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 6 -->
+
+    <div class="tool-card" data-name="gst calculator gst tax">
+
+      <div class="tool-icon">🧾</div>
+
+      <h3>GST Calculator</h3>
+
+      <p>
+        Calculate GST amount and price including or excluding GST.
+      </p>
+
+      <a href="gst-calculator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 7 -->
+
+    <div class="tool-card" data-name="unit converter converter units">
+
+      <div class="tool-icon">🔄</div>
+
+      <h3>Unit Converter</h3>
+
+      <p>
+        Convert common units quickly and easily.
+      </p>
+
+      <a href="unit-converter.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 8 -->
+
+    <div class="tool-card" data-name="length converter length distance">
+
+      <div class="tool-icon">📏</div>
+
+      <h3>Length Converter</h3>
+
+      <p>
+        Convert meters, kilometers, feet, inches and more.
+      </p>
+
+      <a href="length-calculator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 9 -->
+
+    <div class="tool-card" data-name="weight converter weight kg">
+
+      <div class="tool-icon">⚖️</div>
+
+      <h3>Weight Converter</h3>
+
+      <p>
+        Convert kilograms, grams, pounds and other units.
+      </p>
+
+      <a href="weight-converter.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 10 -->
+
+    <div class="tool-card" data-name="temperature converter temperature celsius fahrenheit">
+
+      <div class="tool-icon">🌡️</div>
+
+      <h3>Temperature Converter</h3>
+
+      <p>
+        Convert Celsius, Fahrenheit and Kelvin.
+      </p>
+
+      <a href="temperature-converter.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 11 -->
+
+    <div class="tool-card" data-name="word counter words text">
+
+      <div class="tool-icon">📝</div>
+
+      <h3>Word Counter</h3>
+
+      <p>
+        Count words, sentences and other text statistics.
+      </p>
+
+      <a href="word-counter.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 12 -->
+
+    <div class="tool-card" data-name="character counter characters text">
+
+      <div class="tool-icon">🔤</div>
+
+      <h3>Character Counter</h3>
+
+      <p>
+        Count characters with and without spaces.
+      </p>
+
+      <a href="character-counter.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 13 -->
+
+    <div class="tool-card" data-name="case converter uppercase lowercase text">
+
+      <div class="tool-icon">Aa</div>
+
+      <h3>Case Converter</h3>
+
+      <p>
+        Convert text to uppercase, lowercase and title case.
+      </p>
+
+      <a href="case-converter.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 14 -->
+
+    <div class="tool-card" data-name="qr code generator qr">
+
+      <div class="tool-icon">▦</div>
+
+      <h3>QR Code Generator</h3>
+
+      <p>
+        Generate a QR code from text or a website URL.
+      </p>
+
+      <a href="qr-code-generator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 15 -->
+
+    <div class="tool-card" data-name="random number generator random number">
+
+      <div class="tool-icon">🎲</div>
+
+      <h3>Random Number Generator</h3>
+
+      <p>
+        Generate random numbers within any chosen range.
+      </p>
+
+      <a href="random-number-generator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 16 -->
+
+    <div class="tool-card" data-name="password generator password security">
+
+      <div class="tool-icon">🔐</div>
+
+      <h3>Password Generator</h3>
+
+      <p>
+        Generate strong and secure random passwords.
+      </p>
+
+      <a href="password-generator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 17 -->
+
+    <div class="tool-card" data-name="tip calculator tip restaurant">
+
+      <div class="tool-icon">💵</div>
+
+      <h3>Tip Calculator</h3>
+
+      <p>
+        Calculate tip amount and split bills easily.
+      </p>
+
+      <a href="tip-calculator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 18 -->
+
+    <div class="tool-card" data-name="date calculator date days">
+
+      <div class="tool-icon">📅</div>
+
+      <h3>Date Calculator</h3>
+
+      <p>
+        Calculate the difference between dates and add or subtract days.
+      </p>
+
+      <a href="date-calculator.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 19 -->
+
+    <div class="tool-card" data-name="typing speed test typing wpm">
+
+      <div class="tool-icon">⌨️</div>
+
+      <h3>Typing Speed Test</h3>
+
+      <p>
+        Test your typing speed, WPM and accuracy.
+      </p>
+
+      <a href="typing-speed-test.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+    <!-- 20 -->
+
+    <div class="tool-card" data-name="time zone converter timezone time">
+
+      <div class="tool-icon">🌍</div>
+
+      <h3>Time Zone Converter</h3>
+
+      <p>
+        Convert time between different countries and time zones.
+      </p>
+
+      <a href="time-zone-converter.html" class="tool-btn">
+        Use Tool
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="no-results" id="noResults">
+    No tools found. Try another search.
+  </div>
+
+</section>
+
+
+<!-- MIDDLE AD -->
+
+<div class="ad-box">
+  Advertisement
+</div>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+  <div class="about-card">
+
+    <h2>About FreeToolsHub</h2>
+
+    <p>
+      FreeToolsHub is a collection of simple and useful online tools
+      designed to make everyday calculations, conversions and text
+      related tasks easier.
+    </p>
+
+    <p>
+      All tools are designed to be fast, easy to use and mobile-friendly.
+      You can use our tools directly from your browser without installing
+      any software.
+    </p>
+
+    <p>
+      We regularly work on improving existing tools and adding new
+      useful utilities for students, professionals, creators and everyday
+      users.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-container">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+
+        <h3>FreeToolsHub</h3>
+
+        <p>
+          Free online calculators, converters, text tools, generators
+          and everyday utilities — simple, fast and easy to use.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <h4>Important Links</h4>
+
+        <a href="privacy-policy.html">
+          Privacy Policy
+        </a>
+
+        <a href="terms.html">
+          Terms & Conditions
+        </a>
+
+        <a href="disclaimer.html">
+          Disclaimer
+        </a>
+
+        <a href="contact.html">
+          Contact Us
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      © 2026 FreeToolsHub. All rights reserved.
+
+    </div>
 
   </div>
 
 </footer>
 
+
 <script>
 
-function searchTools() {
+  const searchInput = document.getElementById("toolSearch");
 
-  const input =
-    document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
+  const toolCards = document.querySelectorAll(".tool-card");
 
-  const cards =
-    document.querySelectorAll(".tool-card");
+  const noResults = document.getElementById("noResults");
 
-  cards.forEach(card => {
 
-    const name =
-      card
+  searchInput.addEventListener("input", function () {
+
+    const searchTerm = this.value.toLowerCase().trim();
+
+    let visibleCount = 0;
+
+
+    toolCards.forEach(function (card) {
+
+      const toolName = card
         .getAttribute("data-name")
         .toLowerCase();
 
-    if (name.includes(input)) {
 
-      card.style.display = "";
+      if (toolName.includes(searchTerm)) {
+
+        card.style.display = "";
+
+        visibleCount++;
+
+      } else {
+
+        card.style.display = "none";
+
+      }
+
+    });
+
+
+    if (visibleCount === 0) {
+
+      noResults.style.display = "block";
 
     } else {
 
-      card.style.display = "none";
+      noResults.style.display = "none";
 
     }
 
   });
-
-}
 
 </script>
 
