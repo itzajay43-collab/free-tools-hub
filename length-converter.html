@@ -4,24 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Length Converter - Meters, Feet, Miles & More | FreeToolsHub</title>
+  <title>Length Converter – Meters, Kilometers, Feet, Inches & More | FreeToolsHub</title>
 
-  <meta name="description" content="Free online length converter to convert meters, kilometers, centimeters, millimeters, miles, yards, feet and inches quickly and accurately.">
-
-  <meta name="keywords" content="length converter, free length converter, meter to feet, km to miles, feet to meter, inch to cm, online length conversion">
-
+  <meta name="description" content="Free online length converter. Convert meters, kilometers, centimeters, millimeters, feet, inches, yards and miles instantly. Fast, accurate and mobile-friendly.">
+  <meta name="keywords" content="length converter, meter to feet, feet to meter, km to miles, cm to inches, inches to cm, online length converter">
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/length-converter.html">
 
-  <meta property="og:title" content="Free Length Converter | FreeToolsHub">
-  <meta property="og:description" content="Convert meters, kilometers, feet, inches, miles and other length units instantly.">
   <meta property="og:type" content="website">
+  <meta property="og:title" content="Length Converter – Free Online Tool">
+  <meta property="og:description" content="Convert meters, kilometers, centimeters, millimeters, feet, inches, yards and miles instantly.">
   <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/length-converter.html">
+  <meta property="og:site_name" content="FreeToolsHub">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Length Converter – Free Online Tool">
+  <meta name="twitter:description" content="Fast and accurate online length conversion tool.">
 
   <style>
+    :root {
+      --primary: #635bff;
+      --primary-dark: #4f46e5;
+      --secondary: #8b5cf6;
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --text: #101828;
+      --muted: #667085;
+      --border: #e4e7ec;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --shadow: 0 15px 45px rgba(16,24,40,.08);
+      --radius: 20px;
+    }
+
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
@@ -29,25 +49,37 @@
     }
 
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f3f4f6;
-      color: #111827;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 18px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .header-inner {
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
       max-width: 1100px;
       margin: auto;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -55,336 +87,452 @@
     }
 
     .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
       color: white;
-      text-decoration: none;
-      font-size: 24px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      box-shadow: 0 8px 20px rgba(99,91,255,.25);
+    }
+
+    .logo span:last-child {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      padding: 9px 13px;
+      border-radius: 9px;
+      color: #475467;
+      font-size: 14px;
       font-weight: 700;
     }
 
-    nav a {
-      color: #d1d5db;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 15px;
+    .nav-links a:hover {
+      color: var(--primary);
+      background: #f2f0ff;
     }
 
-    nav a:hover {
-      color: white;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 25px 20px 50px;
-    }
-
-    .breadcrumb {
-      font-size: 14px;
-      color: #6b7280;
-      margin-bottom: 20px;
-    }
-
-    .breadcrumb a {
-      color: #2563eb;
-      text-decoration: none;
+    .nav-home {
+      background: #111827;
+      color: white !important;
     }
 
     .hero {
-      background: white;
-      border-radius: 14px;
-      padding: 30px;
+      padding: 65px 20px 45px;
       text-align: center;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(99,91,255,.15), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(139,92,246,.13), transparent 30%),
+        linear-gradient(180deg, #fff, #f7f7ff);
+      border-bottom: 1px solid #eaecf0;
     }
 
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: 34px;
-      line-height: 1.2;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 13px;
+      margin-bottom: 17px;
+      border: 1px solid #ddd9ff;
+      border-radius: 999px;
+      background: white;
+      color: #574fc7;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 15px;
     }
 
     .hero p {
-      color: #6b7280;
-      max-width: 760px;
+      max-width: 680px;
       margin: auto;
+      color: var(--muted);
+      font-size: 17px;
     }
 
-    .ad {
-      background: #e5e7eb;
-      border: 1px dashed #9ca3af;
+    .container {
+      max-width: 1050px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .ad-box {
       min-height: 90px;
+      margin: 25px auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #6b7280;
-      margin: 25px 0;
-      border-radius: 10px;
+      border: 1px dashed #d0d5dd;
+      border-radius: 14px;
+      background: rgba(255,255,255,.7);
+      color: #98a2b3;
+      font-size: 12px;
+      letter-spacing: .4px;
+    }
+
+    .tool-section {
+      padding: 35px 0 55px;
+    }
+
+    .tool-card {
+      max-width: 720px;
+      margin: auto;
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .tool-card h2 {
+      font-size: 24px;
+      margin-bottom: 7px;
+    }
+
+    .tool-card > p {
+      color: var(--muted);
+      margin-bottom: 25px;
       font-size: 14px;
     }
 
-    .calculator {
-      background: white;
-      border-radius: 14px;
-      padding: 30px;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
-    }
-
-    .calculator h2 {
-      margin-top: 0;
-      font-size: 24px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    .field {
+      margin-bottom: 17px;
     }
 
     label {
       display: block;
-      font-weight: 600;
       margin-bottom: 7px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #344054;
     }
 
     input,
     select {
       width: 100%;
       padding: 13px 14px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      font-size: 16px;
+      border: 1px solid #d0d5dd;
+      border-radius: 10px;
       outline: none;
       background: white;
+      color: var(--text);
     }
 
     input:focus,
     select:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(99,91,255,.12);
     }
 
-    button {
-      width: 100%;
-      margin-top: 20px;
-      padding: 13px;
-      border: none;
-      border-radius: 8px;
-      background: #2563eb;
-      color: white;
-      font-size: 16px;
-      font-weight: 600;
+    .conversion-grid {
+      display: grid;
+      grid-template-columns: 1fr 70px 1fr;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .swap-wrap {
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      padding-bottom: 1px;
+    }
+
+    .swap-btn {
+      width: 48px;
+      height: 48px;
+      border: 1px solid #d0d5dd;
+      border-radius: 12px;
+      background: #f8f9fc;
       cursor: pointer;
+      font-size: 20px;
+      transition: .2s;
     }
 
-    button:hover {
-      background: #1d4ed8;
+    .swap-btn:hover {
+      background: #f1efff;
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: rotate(180deg);
     }
 
-    button:focus-visible {
-      outline: 3px solid rgba(37, 99, 235, 0.3);
-      outline-offset: 2px;
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 22px;
     }
 
-    .error {
-      display: none;
-      margin-top: 15px;
-      padding: 12px 14px;
-      background: #fef2f2;
-      color: #b91c1c;
-      border: 1px solid #fecaca;
-      border-radius: 8px;
-      font-size: 14px;
+    .btn {
+      border: 0;
+      border-radius: 11px;
+      padding: 13px 15px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      background: #111827;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary);
+    }
+
+    .btn-secondary {
+      background: #f2f4f7;
+      color: #344054;
+    }
+
+    .btn-secondary:hover {
+      background: #e4e7ec;
     }
 
     .result {
-      margin-top: 25px;
+      display: none;
+      margin-top: 22px;
       padding: 20px;
-      background: #eff6ff;
-      border-left: 4px solid #2563eb;
-      border-radius: 8px;
-      text-align: center;
+      border-radius: 14px;
+      background: #f4f3ff;
+      border: 1px solid #ddd9ff;
     }
 
     .result-label {
-      color: #6b7280;
-      font-size: 14px;
+      color: #667085;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
     }
 
     .result-value {
+      color: var(--primary-dark);
       font-size: 28px;
-      font-weight: 700;
-      margin-top: 5px;
+      font-weight: 900;
       word-break: break-word;
     }
 
-    .quick-conversions {
-      margin-top: 25px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+    .status {
+      min-height: 22px;
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 700;
     }
 
-    .quick-card {
-      background: #f9fafb;
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-      border: 1px solid #e5e7eb;
+    .status.error {
+      color: var(--danger);
     }
 
-    .quick-card strong {
-      display: block;
-      margin-bottom: 5px;
+    .status.success {
+      color: var(--success);
     }
 
-    .content {
+    .content-section {
+      padding: 15px 0 65px;
+    }
+
+    .content-card {
+      max-width: 900px;
+      margin: auto;
       background: white;
-      border-radius: 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
       padding: 30px;
+    }
+
+    .content-card h2 {
+      margin-bottom: 12px;
+      font-size: 26px;
+    }
+
+    .content-card h3 {
       margin-top: 25px;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+      margin-bottom: 7px;
+      font-size: 18px;
     }
 
-    .content h2 {
-      margin-top: 0;
-    }
-
-    .content h3 {
-      margin-top: 25px;
-    }
-
-    .formula {
-      background: #f3f4f6;
-      padding: 15px;
-      border-radius: 8px;
-      font-family: monospace;
-      margin: 12px 0;
-      overflow-x: auto;
-    }
-
-    .example {
-      background: #f9fafb;
-      padding: 18px;
-      border-radius: 8px;
-      margin: 15px 0;
-    }
-
-    .faq {
-      margin-top: 30px;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid #e5e7eb;
-      padding: 16px 0;
-    }
-
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-
-    .faq-item h3 {
-      margin: 0 0 7px;
-      font-size: 17px;
-    }
-
-    .faq-item p {
-      margin: 0;
-      color: #6b7280;
-    }
-
-    .note {
-      background: #f9fafb;
-      padding: 18px;
-      border-radius: 8px;
-      color: #4b5563;
-      margin-top: 20px;
-    }
-
-    .related-tools {
-      margin-top: 30px;
-      padding-top: 25px;
-      border-top: 1px solid #e5e7eb;
-    }
-
-    .related-tools a {
-      display: inline-block;
-      margin: 6px 8px 6px 0;
-      padding: 8px 12px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      text-decoration: none;
-      border-radius: 7px;
+    .content-card p {
+      color: var(--muted);
       font-size: 14px;
+      margin-bottom: 10px;
     }
 
-    .related-tools a:hover {
-      background: #dbeafe;
+    .related {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
     }
 
-    .back-link {
-      display: inline-block;
-      margin-top: 25px;
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
+    .related a {
+      padding: 14px;
+      background: #f8f9fc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #344054;
+    }
+
+    .related a:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #f4f3ff;
     }
 
     footer {
-      background: #111827;
-      color: #9ca3af;
-      text-align: center;
-      padding: 30px 20px;
+      padding: 45px 20px 22px;
+      background: #090d16;
+      color: #cbd5e1;
     }
 
-    footer a {
-      color: #d1d5db;
-      text-decoration: none;
-      margin: 0 8px;
+    .footer-inner {
+      max-width: 1050px;
+      margin: auto;
     }
 
-    footer a:hover {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 30px;
+    }
+
+    .footer-grid h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .footer-grid h4 {
+      color: white;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .footer-grid p,
+    .footer-grid a {
+      color: #98a2b3;
+      font-size: 13px;
+    }
+
+    .footer-grid a {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .footer-grid a:hover {
       color: white;
     }
 
+    .copyright {
+      padding-top: 20px;
+      border-top: 1px solid #1f2937;
+      text-align: center;
+      color: #667085;
+      font-size: 12px;
+    }
+
     @media (max-width: 700px) {
-      .header-inner {
-        flex-direction: column;
+      .nav-links a:not(.nav-home) {
+        display: none;
       }
 
-      nav {
-        text-align: center;
+      .tool-card {
+        padding: 22px;
       }
 
-      nav a {
-        margin: 0 7px;
-      }
-
-      .hero h1 {
-        font-size: 28px;
-      }
-
-      .form-grid {
+      .conversion-grid {
         grid-template-columns: 1fr;
       }
 
-      .quick-conversions {
-        grid-template-columns: 1fr;
+      .swap-wrap {
+        padding: 0;
       }
 
-      .hero,
-      .calculator,
-      .content {
-        padding: 20px;
+      .swap-btn {
+        transform: rotate(90deg);
       }
 
-      .result-value {
-        font-size: 23px;
+      .swap-btn:hover {
+        transform: rotate(270deg);
+      }
+
+      .related {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 48px 15px 35px;
+      }
+
+      h1 {
+        font-size: 36px;
       }
 
       .container {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding: 0 15px;
+      }
+
+      .tool-card {
+        padding: 18px;
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
+      }
+
+      .related {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-brand {
+        grid-column: auto;
       }
     }
   </style>
@@ -393,11 +541,11 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "Free Length Converter",
+    "name": "Length Converter",
     "url": "https://itzajay43-collab.github.io/free-tools-hub/length-converter.html",
     "applicationCategory": "UtilitiesApplication",
     "operatingSystem": "Any",
-    "description": "Free online length converter for meters, kilometers, centimeters, millimeters, miles, yards, feet and inches.",
+    "description": "Free online length converter for meters, kilometers, centimeters, millimeters, feet, inches, yards and miles.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -413,34 +561,18 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How many meters are in 1 kilometer?",
+        "name": "How do I convert meters to feet?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "There are exactly 1,000 meters in 1 kilometer."
+          "text": "Enter the value, select meters as the source unit and feet as the target unit, then click Convert."
         }
       },
       {
         "@type": "Question",
-        "name": "How many feet are in 1 meter?",
+        "name": "Can I convert kilometers to miles?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "1 meter equals approximately 3.28084 feet."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How many inches are in 1 foot?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "1 foot equals exactly 12 inches."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How many kilometers are in 1 mile?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "1 mile equals approximately 1.609344 kilometers."
+          "text": "Yes. Select kilometers as the source unit and miles as the target unit."
         }
       },
       {
@@ -448,7 +580,7 @@
         "name": "Is this length converter free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The FreeToolsHub length converter is free to use on desktop, tablet and mobile devices."
+          "text": "Yes. The FreeToolsHub length converter is free to use in your browser."
         }
       }
     ]
@@ -459,474 +591,361 @@
 <body>
 
 <header>
-  <div class="header-inner">
-
-    <a class="logo" href="index.html">
-      FreeToolsHub
+  <nav class="navbar">
+    <a href="index.html" class="logo" aria-label="FreeToolsHub Home">
+      <span class="logo-mark">✦</span>
+      <span>FreeToolsHub</span>
     </a>
 
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="index.html#tools">Tools</a>
-    </nav>
-
-  </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-home">← All Tools</a>
+    </div>
+  </nav>
 </header>
 
-<main class="container">
+<section class="hero">
+  <div class="container">
 
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> →
-    Length Converter
-  </div>
+    <div class="eyebrow">
+      <span class="dot"></span>
+      Free online converter
+    </div>
 
-  <section class="hero">
-
-    <h1>Free Online Length Converter</h1>
+    <h1>Length Converter</h1>
 
     <p>
-      Convert meters, kilometers, centimeters, millimeters, miles,
-      yards, feet and inches quickly and accurately with this free
-      online length converter.
+      Convert meters, kilometers, centimeters, millimeters, feet,
+      inches, yards and miles quickly and accurately.
     </p>
 
-  </section>
-
-  <div class="ad" aria-label="Advertisement">
-    Advertisement
   </div>
+</section>
 
-  <section class="calculator" aria-labelledby="calculator-title">
+<div class="container">
+  <div class="ad-box">Advertisement</div>
+</div>
 
-    <h2 id="calculator-title">Online Length Converter</h2>
+<section class="tool-section">
+  <div class="container">
 
-    <div class="form-grid">
+    <div class="tool-card">
 
-      <div>
-        <label for="amount">
-          Enter Value
-        </label>
+      <h2>Convert Length Units</h2>
 
+      <p>
+        Enter a value, choose the units and click Convert.
+      </p>
+
+      <div class="field">
+        <label for="value">Value</label>
         <input
+          id="value"
           type="number"
-          id="amount"
-          value="1"
-          step="any"
           inputmode="decimal"
-          placeholder="Enter value"
-          aria-describedby="error"
+          step="any"
+          placeholder="Enter a number"
+          aria-label="Length value"
         >
       </div>
 
-      <div>
-        <label for="fromUnit">
-          From
-        </label>
+      <div class="conversion-grid">
 
-        <select id="fromUnit" aria-label="Select source length unit">
+        <div class="field">
+          <label for="fromUnit">From</label>
 
-          <option value="meter">Meter</option>
-          <option value="kilometer">Kilometer</option>
-          <option value="centimeter">Centimeter</option>
-          <option value="millimeter">Millimeter</option>
-          <option value="mile">Mile</option>
-          <option value="yard">Yard</option>
-          <option value="foot">Foot</option>
-          <option value="inch">Inch</option>
+          <select id="fromUnit">
+            <option value="m">Meters (m)</option>
+            <option value="km">Kilometers (km)</option>
+            <option value="cm">Centimeters (cm)</option>
+            <option value="mm">Millimeters (mm)</option>
+            <option value="ft">Feet (ft)</option>
+            <option value="in">Inches (in)</option>
+            <option value="yd">Yards (yd)</option>
+            <option value="mi">Miles (mi)</option>
+          </select>
+        </div>
 
-        </select>
+        <div class="swap-wrap">
+          <button
+            type="button"
+            class="swap-btn"
+            id="swapBtn"
+            aria-label="Swap units"
+            title="Swap units"
+          >
+            ⇄
+          </button>
+        </div>
+
+        <div class="field">
+          <label for="toUnit">To</label>
+
+          <select id="toUnit">
+            <option value="m">Meters (m)</option>
+            <option value="km">Kilometers (km)</option>
+            <option value="cm">Centimeters (cm)</option>
+            <option value="mm">Millimeters (mm)</option>
+            <option value="ft" selected>Feet (ft)</option>
+            <option value="in">Inches (in)</option>
+            <option value="yd">Yards (yd)</option>
+            <option value="mi">Miles (mi)</option>
+          </select>
+        </div>
+
       </div>
 
-      <div>
-        <label for="toUnit">
-          Convert To
-        </label>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="convertBtn">
+          Convert
+        </button>
 
-        <select id="toUnit" aria-label="Select destination length unit">
-
-          <option value="meter">Meter</option>
-          <option value="kilometer">Kilometer</option>
-          <option value="centimeter">Centimeter</option>
-          <option value="millimeter">Millimeter</option>
-          <option value="mile">Mile</option>
-          <option value="yard">Yard</option>
-          <option value="foot" selected>Foot</option>
-          <option value="inch">Inch</option>
-
-        </select>
+        <button type="button" class="btn btn-secondary" id="resetBtn">
+          Reset
+        </button>
       </div>
 
-    </div>
+      <div
+        id="status"
+        class="status"
+        role="status"
+        aria-live="polite"
+      ></div>
 
-    <button type="button" id="convertButton">
-      Convert Length
-    </button>
-
-    <div
-      class="error"
-      id="error"
-      role="alert"
-      aria-live="polite">
-    </div>
-
-    <div class="result" aria-live="polite">
-
-      <div class="result-label">
-        Conversion Result
-      </div>
-
-      <div class="result-value" id="result">
-        3.28084 Feet
-      </div>
-
-    </div>
-
-    <div class="quick-conversions">
-
-      <div class="quick-card">
-        <strong>1 Kilometer</strong>
-        1,000 Meters
-      </div>
-
-      <div class="quick-card">
-        <strong>1 Meter</strong>
-        100 Centimeters
-      </div>
-
-      <div class="quick-card">
-        <strong>1 Foot</strong>
-        12 Inches
+      <div class="result" id="result">
+        <div class="result-label">Converted Result</div>
+        <div class="result-value" id="resultValue"></div>
       </div>
 
     </div>
 
-  </section>
-
-  <div class="ad" aria-label="Advertisement">
-    Advertisement
   </div>
+</section>
 
-  <section class="content">
+<div class="container">
+  <div class="ad-box">Advertisement</div>
+</div>
 
-    <h2>What is Length Conversion?</h2>
+<section class="content-section">
+  <div class="container">
 
-    <p>
-      Length conversion is the process of changing a measurement from
-      one unit of distance to another. Different countries and industries
-      use different units such as meters, kilometers, feet, inches and
-      miles.
-    </p>
+    <div class="content-card">
 
-    <p>
-      This free length converter makes it easy to convert common length
-      and distance measurements without manually calculating conversion
-      factors.
-    </p>
+      <h2>Free Online Length Converter</h2>
 
-    <h3>Supported Length Units</h3>
-
-    <ul>
-      <li>Meter (m)</li>
-      <li>Kilometer (km)</li>
-      <li>Centimeter (cm)</li>
-      <li>Millimeter (mm)</li>
-      <li>Mile (mi)</li>
-      <li>Yard (yd)</li>
-      <li>Foot (ft)</li>
-      <li>Inch (in)</li>
-    </ul>
-
-    <h3>Common Length Conversion Formulas</h3>
-
-    <div class="formula">
-      1 Kilometer = 1,000 Meters
-    </div>
-
-    <div class="formula">
-      1 Meter = 100 Centimeters
-    </div>
-
-    <div class="formula">
-      1 Meter = 1,000 Millimeters
-    </div>
-
-    <div class="formula">
-      1 Mile = 1,609.344 Meters
-    </div>
-
-    <div class="formula">
-      1 Yard = 0.9144 Meters
-    </div>
-
-    <div class="formula">
-      1 Foot = 0.3048 Meters
-    </div>
-
-    <div class="formula">
-      1 Inch = 0.0254 Meters
-    </div>
-
-    <h3>Length Conversion Examples</h3>
-
-    <div class="example">
-      <strong>Example 1: Kilometer to Meter</strong>
       <p>
-        5 kilometers × 1,000 =
-        <strong>5,000 meters</strong>
+        Use this length converter to quickly convert between common
+        metric and imperial length units. It works directly in your
+        browser and requires no software installation.
       </p>
-    </div>
 
-    <div class="example">
-      <strong>Example 2: Meter to Feet</strong>
+      <h3>Supported Units</h3>
+
       <p>
-        10 meters × 3.28084 =
-        <strong>32.8084 feet</strong>
+        Meters, kilometers, centimeters, millimeters, feet, inches,
+        yards and miles.
       </p>
-    </div>
 
-    <div class="example">
-      <strong>Example 3: Feet to Inches</strong>
+      <h3>How to Use the Length Converter</h3>
+
       <p>
-        10 feet × 12 =
-        <strong>120 inches</strong>
+        Enter the number you want to convert, select the starting unit,
+        select the unit you want to convert to, and click the
+        <strong>Convert</strong> button.
       </p>
-    </div>
 
-    <div class="example">
-      <strong>Example 4: Miles to Kilometers</strong>
-      <p>
-        1 mile =
-        <strong>1.609344 kilometers</strong>
-      </p>
-    </div>
+      <h3>Related Tools</h3>
 
-    <div class="note">
-      <strong>Tip:</strong>
-      Enter your measurement, select the original unit and then choose
-      the unit you want. The result updates automatically.
-    </div>
-
-    <div class="faq">
-
-      <h2>Frequently Asked Questions</h2>
-
-      <div class="faq-item">
-        <h3>How many meters are in 1 kilometer?</h3>
-        <p>
-          There are exactly 1,000 meters in 1 kilometer.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How many feet are in 1 meter?</h3>
-        <p>
-          1 meter equals approximately 3.28084 feet.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How many inches are in 1 foot?</h3>
-        <p>
-          1 foot equals exactly 12 inches.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How many kilometers are in 1 mile?</h3>
-        <p>
-          1 mile equals approximately 1.609344 kilometers.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Is this length converter free?</h3>
-        <p>
-          Yes. The FreeToolsHub length converter is free to use on
-          desktop, tablet and mobile devices.
-        </p>
+      <div class="related">
+        <a href="unit-converter.html">Unit Converter</a>
+        <a href="weight-converter.html">Weight Converter</a>
+        <a href="temperature-converter.html">Temperature Converter</a>
+        <a href="percentage-calculator.html">Percentage Calculator</a>
       </div>
 
     </div>
 
-    <div class="related-tools">
-
-      <h2>Related Free Tools</h2>
-
-      <a href="unit-converter.html">Unit Converter</a>
-      <a href="weight-converter.html">Weight Converter</a>
-      <a href="temperature-converter.html">Temperature Converter</a>
-      <a href="percentage-calculator.html">Percentage Calculator</a>
-      <a href="discount-calculator.html">Discount Calculator</a>
-      <a href="gst-calculator.html">GST Calculator</a>
-
-    </div>
-
-    <a class="back-link" href="index.html">
-      ← Back to FreeToolsHub
-    </a>
-
-  </section>
-
-  <div class="ad" aria-label="Advertisement">
-    Advertisement
   </div>
-
-</main>
+</section>
 
 <footer>
+  <div class="footer-inner">
 
-  <p>
-    © 2026 FreeToolsHub. All rights reserved.
-  </p>
+    <div class="footer-grid">
 
-  <p>
-    <a href="privacy-policy.html">Privacy Policy</a>
-    <a href="terms.html">Terms</a>
-    <a href="disclaimer.html">Disclaimer</a>
-    <a href="contact.html">Contact</a>
-  </p>
+      <div class="footer-brand">
+        <h3>FreeToolsHub</h3>
+        <p>
+          Free online calculators, converters, text tools,
+          generators and everyday utilities.
+        </p>
+      </div>
 
+      <div>
+        <h4>Tools</h4>
+        <a href="index.html">All Tools</a>
+        <a href="unit-converter.html">Unit Converter</a>
+        <a href="weight-converter.html">Weight Converter</a>
+        <a href="temperature-converter.html">Temperature Converter</a>
+      </div>
+
+      <div>
+        <h4>Information</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="disclaimer.html">Disclaimer</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 FreeToolsHub. All rights reserved.
+    </div>
+
+  </div>
 </footer>
 
 <script>
-
-  const conversionFactors = {
-
-    meter: 1,
-    kilometer: 1000,
-    centimeter: 0.01,
-    millimeter: 0.001,
-    mile: 1609.344,
-    yard: 0.9144,
-    foot: 0.3048,
-    inch: 0.0254
-
-  };
-
-  const unitNames = {
-
-    meter: "Meters",
-    kilometer: "Kilometers",
-    centimeter: "Centimeters",
-    millimeter: "Millimeters",
-    mile: "Miles",
-    yard: "Yards",
-    foot: "Feet",
-    inch: "Inches"
-
-  };
-
-  const amountInput = document.getElementById("amount");
+  const valueInput = document.getElementById("value");
   const fromUnit = document.getElementById("fromUnit");
   const toUnit = document.getElementById("toUnit");
+  const convertBtn = document.getElementById("convertBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  const swapBtn = document.getElementById("swapBtn");
   const result = document.getElementById("result");
-  const error = document.getElementById("error");
-  const convertButton = document.getElementById("convertButton");
+  const resultValue = document.getElementById("resultValue");
+  const status = document.getElementById("status");
 
-  function clearError() {
-    error.textContent = "";
-    error.style.display = "none";
+  /*
+    Every value represents how many meters are in one unit.
+  */
+  const factors = {
+    m: 1,
+    km: 1000,
+    cm: 0.01,
+    mm: 0.001,
+    ft: 0.3048,
+    in: 0.0254,
+    yd: 0.9144,
+    mi: 1609.344
+  };
+
+  const labels = {
+    m: "m",
+    km: "km",
+    cm: "cm",
+    mm: "mm",
+    ft: "ft",
+    in: "in",
+    yd: "yd",
+    mi: "mi"
+  };
+
+  function setStatus(message, type) {
+    status.textContent = message;
+    status.className = "status" + (type ? " " + type : "");
   }
 
-  function showError(message) {
-    error.textContent = message;
-    error.style.display = "block";
-  }
-
-  function formatNumber(value) {
-
-    if (Object.is(value, -0)) {
-      value = 0;
+  function formatNumber(number) {
+    if (!Number.isFinite(number)) {
+      return "";
     }
 
-    const rounded =
-      Number(value.toPrecision(12));
+    if (number === 0) {
+      return "0";
+    }
 
-    return rounded.toLocaleString("en-IN", {
-      maximumFractionDigits: 10
+    const absolute = Math.abs(number);
+
+    if (absolute >= 1e12 || absolute < 1e-9) {
+      return number.toExponential(10).replace(/\.?0+e/, "e");
+    }
+
+    return Number(number.toFixed(12)).toLocaleString("en-US", {
+      maximumFractionDigits: 12
     });
   }
 
   function convertLength() {
+    const value = Number(valueInput.value);
 
-    clearError();
+    if (valueInput.value.trim() === "") {
+      result.style.display = "none";
+      setStatus("Please enter a value.", "error");
+      valueInput.focus();
+      return;
+    }
 
-    const amount =
-      parseFloat(amountInput.value);
+    if (!Number.isFinite(value)) {
+      result.style.display = "none";
+      setStatus("Please enter a valid number.", "error");
+      valueInput.focus();
+      return;
+    }
 
     const from = fromUnit.value;
     const to = toUnit.value;
 
-    if (amountInput.value.trim() === "") {
-      result.textContent = "0";
-      showError("Please enter a value to convert.");
-      return;
-    }
+    const meters = value * factors[from];
+    const converted = meters / factors[to];
 
-    if (!Number.isFinite(amount)) {
-      result.textContent = "0";
-      showError("Please enter a valid number.");
-      return;
-    }
-
-    if (
-      !conversionFactors[from] ||
-      !conversionFactors[to]
-    ) {
-      result.textContent = "Invalid conversion";
-      showError("Please select valid units.");
-      return;
-    }
-
-    const valueInMeters =
-      amount * conversionFactors[from];
-
-    const converted =
-      valueInMeters / conversionFactors[to];
-
-    if (!Number.isFinite(converted)) {
-      result.textContent = "Invalid conversion";
-      showError("Unable to calculate this conversion.");
-      return;
-    }
-
-    result.textContent =
+    resultValue.textContent =
+      formatNumber(value) + " " +
+      labels[from] +
+      " = " +
       formatNumber(converted) +
       " " +
-      unitNames[to];
+      labels[to];
+
+    result.style.display = "block";
+    setStatus("Conversion completed successfully.", "success");
   }
 
-  amountInput.addEventListener(
-    "input",
-    convertLength
-  );
+  function resetTool() {
+    valueInput.value = "";
+    fromUnit.value = "m";
+    toUnit.value = "ft";
 
-  fromUnit.addEventListener(
-    "change",
-    convertLength
-  );
+    result.style.display = "none";
+    resultValue.textContent = "";
+    setStatus("");
 
-  toUnit.addEventListener(
-    "change",
-    convertLength
-  );
+    valueInput.focus();
+  }
 
-  convertButton.addEventListener(
-    "click",
-    convertLength
-  );
+  function swapUnits() {
+    const oldFrom = fromUnit.value;
 
-  amountInput.addEventListener(
-    "keydown",
-    function(event) {
-      if (event.key === "Enter") {
-        convertLength();
-      }
+    fromUnit.value = toUnit.value;
+    toUnit.value = oldFrom;
+
+    if (valueInput.value.trim() !== "") {
+      convertLength();
     }
-  );
+  }
 
-  convertLength();
+  convertBtn.addEventListener("click", convertLength);
+  resetBtn.addEventListener("click", resetTool);
+  swapBtn.addEventListener("click", swapUnits);
 
+  valueInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      convertLength();
+    }
+  });
+
+  fromUnit.addEventListener("change", function() {
+    if (valueInput.value.trim() !== "") {
+      convertLength();
+    }
+  });
+
+  toUnit.addEventListener("change", function() {
+    if (valueInput.value.trim() !== "") {
+      convertLength();
+    }
+  });
 </script>
 
 </body>
