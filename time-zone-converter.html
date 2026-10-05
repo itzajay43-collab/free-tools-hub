@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Time Zone Converter - Convert Time Between Countries | FreeToolsHub</title>
+  <meta name="description" content="Free Time Zone Converter to convert date and time between India, USA, UK, France, Portugal, Japan, Australia, UAE and other time zones.">
+  <meta name="keywords" content="time zone converter, timezone converter, time converter, India time to USA, UTC converter, IST converter, world time converter">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/time-zone-converter.html">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 0 18px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: #6b7280;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      margin-bottom: 25px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
+      background: white;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
+    button {
+      border: none;
+      background: #2563eb;
+      color: white;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .secondary {
+      background: #6b7280;
+      margin-left: 8px;
+    }
+
+    .secondary:hover {
+      background: #4b5563;
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+      padding: 22px;
+      border-radius: 12px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+    }
+
+    .result h2 {
+      margin-top: 0;
+      color: #1d4ed8;
+    }
+
+    .result-main {
+      font-size: 26px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .result-info {
+      color: #4b5563;
+    }
+
+    .ad {
+      margin: 25px 0;
+      min-height: 90px;
+      border: 2px dashed #d1d5db;
+      background: #f9fafb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #9ca3af;
+      border-radius: 10px;
+    }
+
+    .quick-zones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .zone-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .zone-card strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .zone-time {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .content h2 {
+      margin-top: 0;
+    }
+
+    .content h3 {
+      margin-top: 25px;
+    }
+
+    .faq {
+      border-top: 1px solid #e5e7eb;
+      padding: 15px 0;
+    }
+
+    .faq strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .quick-zones {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .secondary {
+        margin-left: 0;
+        margin-top: 8px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .quick-zones {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="index.html">FreeToolsHub</a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#tools">All Tools</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>Time Zone Converter</h1>
+    <p>Convert date and time between different countries and time zones instantly.</p>
+  </section>
+
+  <div class="card">
+
+    <div class="form-grid">
+
+      <div class="full">
+        <label for="dateTime">Date & Time</label>
+        <input type="datetime-local" id="dateTime">
+      </div>
+
+      <div>
+        <label for="fromZone">From Time Zone</label>
+        <select id="fromZone">
+          <option value="UTC">UTC</option>
+          <option value="Asia/Kolkata" selected>India — IST (Kolkata)</option>
+          <option value="America/New_York">USA — Eastern Time</option>
+          <option value="America/Chicago">USA — Central Time</option>
+          <option value="America/Denver">USA — Mountain Time</option>
+          <option value="America/Los_Angeles">USA — Pacific Time</option>
+          <option value="Europe/London">UK — London</option>
+          <option value="Europe/Paris">France — Paris</option>
+          <option value="Europe/Lisbon">Portugal — Lisbon</option>
+          <option value="Asia/Dubai">UAE — Dubai</option>
+          <option value="Asia/Singapore">Singapore</option>
+          <option value="Asia/Shanghai">China — Shanghai</option>
+          <option value="Asia/Tokyo">Japan — Tokyo</option>
+          <option value="Australia/Sydney">Australia — Sydney</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="toZone">To Time Zone</label>
+        <select id="toZone">
+          <option value="UTC">UTC</option>
+          <option value="Asia/Kolkata">India — IST (Kolkata)</option>
+          <option value="America/New_York" selected>USA — Eastern Time</option>
+          <option value="America/Chicago">USA — Central Time</option>
+          <option value="America/Denver">USA — Mountain Time</option>
+          <option value="America/Los_Angeles">USA — Pacific Time</option>
+          <option value="Europe/London">UK — London</option>
+          <option value="Europe/Paris">France — Paris</option>
+          <option value="Europe/Lisbon">Portugal — Lisbon</option>
+          <option value="Asia/Dubai">UAE — Dubai</option>
+          <option value="Asia/Singapore">Singapore</option>
+          <option value="Asia/Shanghai">China — Shanghai</option>
+          <option value="Asia/Tokyo">Japan — Tokyo</option>
+          <option value="Australia/Sydney">Australia — Sydney</option>
+        </select>
+      </div>
+
+      <div class="full">
+        <button onclick="convertTime()">Convert Time</button>
+        <button class="secondary" onclick="setNow()">Use Current Time</button>
+      </div>
+
+    </div>
+
+    <div class="result" id="result">
+
+      <h2>Converted Time</h2>
+
+      <div class="result-main" id="convertedTime"></div>
+
+      <div class="result-info" id="sourceInfo"></div>
+      <div class="result-info" id="targetInfo"></div>
+
+    </div>
+
+  </div>
+
+  <div class="ad">
+    Advertisement
+  </div>
+
+  <div class="card">
+
+    <h2>Current Time in Popular Time Zones</h2>
+
+    <div class="quick-zones">
+
+      <div class="zone-card">
+        <strong>🇮🇳 India</strong>
+        <span class="zone-time" id="indiaTime">--:--</span>
+      </div>
+
+      <div class="zone-card">
+        <strong>🇺🇸 New York</strong>
+        <span class="zone-time" id="newYorkTime">--:--</span>
+      </div>
+
+      <div class="zone-card">
+        <strong>🇺🇸 Los Angeles</strong>
+        <span class="zone-time" id="losAngelesTime">--:--</span>
+      </div>
+
+      <div class="zone-card">
+        <strong>🇬🇧 London</strong>
+        <span class="zone-time" id="londonTime">--:--</span>
+      </div>
+
+      <div class="zone-card">
+        <strong>🇫🇷 Paris</strong>
+        <span class="zone-time" id="parisTime">--:--</span>
+      </div>
+
+      <div class="zone-card">
+        <strong>🇯🇵 Tokyo</strong>
+        <span class="zone-time" id="tokyoTime">--:--</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="ad">
+    Advertisement
+  </div>
+
+  <section class="card content">
+
+    <h2>What is a Time Zone Converter?</h2>
+
+    <p>
+      A Time Zone Converter helps you convert a specific date and time from
+      one time zone to another. It is useful when scheduling meetings,
+      online classes, international calls, travel plans and events across
+      different countries.
+    </p>
+
+    <h3>How to Use This Time Zone Converter</h3>
+
+    <ol>
+      <li>Select the date and time you want to convert.</li>
+      <li>Select the original time zone.</li>
+      <li>Select the destination time zone.</li>
+      <li>Click <strong>Convert Time</strong>.</li>
+      <li>The converted local date and time will be displayed instantly.</li>
+    </ol>
+
+    <h3>Popular Time Zone Conversions</h3>
+
+    <ul>
+      <li>India Standard Time (IST) to USA</li>
+      <li>India time to New York time</li>
+      <li>India time to California time</li>
+      <li>India time to UK time</li>
+      <li>India time to France time</li>
+      <li>USA time to India time</li>
+      <li>UTC to IST</li>
+      <li>London time to India time</li>
+      <li>Japan time to India time</li>
+    </ul>
+
+    <h3>Why Do Time Zones Change?</h3>
+
+    <p>
+      Different regions of the world use different local times. Some
+      countries also observe daylight saving time, which can change the
+      difference between two time zones during parts of the year.
+      This converter uses your browser's built-in international time-zone
+      data to calculate the displayed conversion.
+    </p>
+
+    <h3>Frequently Asked Questions</h3>
+
+    <div class="faq">
+      <strong>Is this Time Zone Converter free?</strong>
+      Yes. You can use the converter for free without creating an account.
+    </div>
+
+    <div class="faq">
+      <strong>Can I convert India time to USA time?</strong>
+      Yes. Select India — IST as the source time zone and the required USA
+      time zone as the destination.
+    </div>
+
+    <div class="faq">
+      <strong>Does the converter account for daylight saving time?</strong>
+      Yes. Modern browsers use their built-in IANA time-zone data when
+      formatting dates for supported time zones.
+    </div>
+
+    <div class="faq">
+      <strong>What is IST?</strong>
+      IST stands for India Standard Time. India Standard Time is UTC+5:30.
+    </div>
+
+    <div class="faq">
+      <strong>Can I convert UTC to local time?</strong>
+      Yes. Select UTC as the source time zone and choose any supported
+      destination time zone.
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 FreeToolsHub. All rights reserved.</p>
+
+  <div>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+
+  const dateTimeInput = document.getElementById("dateTime");
+
+  function pad(number) {
+    return String(number).padStart(2, "0");
+  }
+
+  function setNow() {
+    const now = new Date();
+
+    const localValue =
+      now.getFullYear() + "-" +
+      pad(now.getMonth() + 1) + "-" +
+      pad(now.getDate()) + "T" +
+      pad(now.getHours()) + ":" +
+      pad(now.getMinutes());
+
+    dateTimeInput.value = localValue;
+
+    convertTime();
+  }
+
+  function parseDateTime(value) {
+    const match = value.match(
+      /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/
+    );
+
+    if (!match) return null;
+
+    return {
+      year: Number(match[1]),
+      month: Number(match[2]),
+      day: Number(match[3]),
+      hour: Number(match[4]),
+      minute: Number(match[5])
+    };
+  }
+
+  function getTimeZoneOffset(date, timeZone) {
+
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: timeZone,
+      timeZoneName: "longOffset",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23"
+    });
+
+    const parts = formatter.formatToParts(date);
+
+    const offsetPart = parts.find(
+      part => part.type === "timeZoneName"
+    );
+
+    if (!offsetPart) return 0;
+
+    const value = offsetPart.value;
+
+    if (value === "GMT" || value === "UTC") {
+      return 0;
+    }
+
+    const match = value.match(
+      /GMT([+-])(\d{1,2})(?::(\d{2}))?/
+    );
+
+    if (!match) return 0;
+
+    const sign = match[1] === "+" ? 1 : -1;
+    const hours = Number(match[2]);
+    const minutes = Number(match[3] || 0);
+
+    return sign * (hours * 60 + minutes);
+  }
+
+  function getUtcFromZone(parts, timeZone) {
+
+    let utcMillis = Date.UTC(
+      parts.year,
+      parts.month - 1,
+      parts.day,
+      parts.hour,
+      parts.minute
+    );
+
+    for (let i = 0; i < 4; i++) {
+
+      const offset = getTimeZoneOffset(
+        new Date(utcMillis),
+        timeZone
+      );
+
+      utcMillis =
+        Date.UTC(
+          parts.year,
+          parts.month - 1,
+          parts.day,
+          parts.hour,
+          parts.minute
+        ) - offset * 60000;
+    }
+
+    return new Date(utcMillis);
+  }
+
+  function formatDate(date, timeZone) {
+
+    return new Intl.DateTimeFormat("en-IN", {
+      timeZone: timeZone,
+      dateStyle: "full",
+      timeStyle: "long"
+    }).format(date);
+  }
+
+  function getShortOffset(date, timeZone) {
+
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: timeZone,
+      timeZoneName: "longOffset"
+    });
+
+    const parts = formatter.formatToParts(date);
+
+    const part = parts.find(
+      item => item.type === "timeZoneName"
+    );
+
+    return part ? part.value : "";
+  }
+
+  function getZoneName(selectElement) {
+    return selectElement.options[
+      selectElement.selectedIndex
+    ].text;
+  }
+
+  function convertTime() {
+
+    const value = dateTimeInput.value;
+
+    if (!value) {
+      alert("Please select a date and time.");
+      return;
+    }
+
+    const parts = parseDateTime(value);
+
+    if (!parts) {
+      alert("Please enter a valid date and time.");
+      return;
+    }
+
+    const fromZone =
+      document.getElementById("fromZone").value;
+
+    const toZone =
+      document.getElementById("toZone").value;
+
+    const sourceDate = getUtcFromZone(
+      parts,
+      fromZone
+    );
+
+    const converted = formatDate(
+      sourceDate,
+      toZone
+    );
+
+    const sourceOffset =
+      getShortOffset(sourceDate, fromZone);
+
+    const targetOffset =
+      getShortOffset(sourceDate, toZone);
+
+    document.getElementById("convertedTime").textContent =
+      converted;
+
+    document.getElementById("sourceInfo").textContent =
+      "From: " + getZoneName(
+        document.getElementById("fromZone")
+      ) + " (" + sourceOffset + ")";
+
+    document.getElementById("targetInfo").textContent =
+      "To: " + getZoneName(
+        document.getElementById("toZone")
+      ) + " (" + targetOffset + ")";
+
+    document.getElementById("result").style.display =
+      "block";
+  }
+
+  function updateCurrentTimes() {
+
+    const now = new Date();
+
+    const zones = {
+      indiaTime: "Asia/Kolkata",
+      newYorkTime: "America/New_York",
+      losAngelesTime: "America/Los_Angeles",
+      londonTime: "Europe/London",
+      parisTime: "Europe/Paris",
+      tokyoTime: "Asia/Tokyo"
+    };
+
+    Object.keys(zones).forEach(function(id) {
+
+      const formatted =
+        new Intl.DateTimeFormat("en-IN", {
+          timeZone: zones[id],
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: true
+        }).format(now);
+
+      document.getElementById(id).textContent =
+        formatted;
+    });
+  }
+
+  setNow();
+  updateCurrentTimes();
+
+  setInterval(updateCurrentTimes, 1000);
+
+</script>
+
+</body>
+</html>
