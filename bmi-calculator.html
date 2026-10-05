@@ -6,17 +6,71 @@
 
   <title>BMI Calculator - Free Body Mass Index Calculator | FreeToolsHub</title>
 
-  <meta name="description" content="Free online BMI calculator. Calculate your Body Mass Index using height and weight and understand your BMI category instantly.">
+  <meta name="description" content="Use our free BMI Calculator to calculate Body Mass Index from height and weight. Supports metric and imperial units and shows standard adult BMI categories.">
 
-  <meta name="keywords" content="BMI calculator, BMI calculator online, body mass index calculator, calculate BMI, BMI chart, healthy BMI">
+  <meta name="keywords" content="BMI calculator, BMI calculator online, body mass index calculator, calculate BMI, BMI chart, healthy BMI, BMI calculator kg cm, BMI calculator pounds feet">
 
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/bmi-calculator.html">
 
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a healthy BMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For standard adult BMI categories, a BMI from 18.5 to 24.9 is generally classified as normal weight."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is BMI calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMI is calculated by dividing weight in kilograms by height in meters squared."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I calculate BMI in pounds and feet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Select the Imperial option and enter your weight in pounds and height in feet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is BMI accurate for everyone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMI is a screening measure and may not accurately represent body composition for every individual, especially people with high muscle mass."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this BMI calculator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. This online BMI calculator is completely free to use."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -83,21 +137,23 @@
     .hero {
       background: white;
       border-radius: 14px;
-      padding: 30px;
+      padding: 32px;
       text-align: center;
       margin-bottom: 25px;
       box-shadow: 0 3px 15px rgba(0,0,0,0.06);
     }
 
     .hero h1 {
-      margin: 0 0 10px;
-      font-size: 34px;
+      margin: 0 0 12px;
+      font-size: 36px;
+      line-height: 1.25;
     }
 
     .hero p {
       color: #6b7280;
-      max-width: 750px;
+      max-width: 780px;
       margin: auto;
+      font-size: 16px;
     }
 
     .ad {
@@ -122,11 +178,12 @@
 
     .calculator h2 {
       margin-top: 0;
-      font-size: 24px;
+      font-size: 25px;
     }
 
     .description {
       color: #6b7280;
+      margin-bottom: 0;
     }
 
     .form-grid {
@@ -134,6 +191,10 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       margin-top: 25px;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
     }
 
     label {
@@ -145,23 +206,31 @@
     input,
     select {
       width: 100%;
-      padding: 13px 14px;
+      padding: 14px;
       border: 1px solid #d1d5db;
       border-radius: 8px;
       font-size: 16px;
       outline: none;
       background: white;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     input:focus,
     select:focus {
       border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+    }
+
+    .input-note {
+      color: #6b7280;
+      font-size: 13px;
+      margin-top: 5px;
     }
 
     button {
       width: 100%;
       margin-top: 25px;
-      padding: 13px;
+      padding: 14px;
       border: none;
       border-radius: 8px;
       background: #2563eb;
@@ -169,23 +238,43 @@
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
+      transition: background 0.2s;
     }
 
     button:hover {
       background: #1d4ed8;
     }
 
+    button:focus {
+      outline: 3px solid rgba(37,99,235,0.25);
+    }
+
+    .error {
+      display: none;
+      margin-top: 18px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      background: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
     .result {
       margin-top: 25px;
-      padding: 22px;
+      padding: 25px;
       background: #eff6ff;
       border-left: 4px solid #2563eb;
       border-radius: 8px;
       text-align: center;
     }
 
+    .result-title {
+      color: #6b7280;
+      font-size: 15px;
+    }
+
     .bmi-number {
-      font-size: 38px;
+      font-size: 40px;
       font-weight: 700;
       margin: 5px 0;
     }
@@ -195,8 +284,13 @@
       font-weight: 700;
     }
 
+    .range-table-wrapper {
+      overflow-x: auto;
+    }
+
     .range-table {
       width: 100%;
+      min-width: 420px;
       border-collapse: collapse;
       margin-top: 20px;
     }
@@ -222,10 +316,16 @@
 
     .content h2 {
       margin-top: 0;
+      font-size: 26px;
     }
 
     .content h3 {
-      margin-top: 25px;
+      margin-top: 28px;
+    }
+
+    .content p,
+    .content li {
+      color: #374151;
     }
 
     .formula {
@@ -246,7 +346,7 @@
     }
 
     .faq {
-      margin-top: 30px;
+      margin-top: 35px;
     }
 
     .faq-item {
@@ -266,6 +366,31 @@
     .faq-item p {
       margin: 0;
       color: #6b7280;
+    }
+
+    .related-tools {
+      margin-top: 35px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .related-grid a {
+      display: block;
+      padding: 14px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .related-grid a:hover {
+      background: #eff6ff;
     }
 
     .back-link {
@@ -289,22 +414,40 @@
       margin: 0 8px;
     }
 
+    footer a:hover {
+      color: white;
+    }
+
     @media (max-width: 700px) {
 
       .header-inner {
         flex-direction: column;
+        gap: 10px;
       }
 
       nav a {
-        margin: 0 7px;
+        margin: 0 6px;
+      }
+
+      .container {
+        padding: 18px 12px 40px;
+      }
+
+      .hero {
+        padding: 24px 18px;
       }
 
       .hero h1 {
-        font-size: 28px;
+        font-size: 29px;
       }
 
-      .form-grid {
+      .form-grid,
+      .related-grid {
         grid-template-columns: 1fr;
+      }
+
+      .full-width {
+        grid-column: auto;
       }
 
       .hero,
@@ -313,8 +456,8 @@
         padding: 20px;
       }
 
-      .range-table {
-        font-size: 14px;
+      .bmi-number {
+        font-size: 36px;
       }
     }
   </style>
@@ -329,14 +472,13 @@
       FreeToolsHub
     </a>
 
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#tools">Tools</a>
     </nav>
 
   </div>
 </header>
-
 
 <main class="container">
 
@@ -345,59 +487,47 @@
     BMI Calculator
   </div>
 
-
   <section class="hero">
 
     <h1>BMI Calculator</h1>
 
     <p>
       Calculate your Body Mass Index (BMI) using your height and weight.
-      Get your BMI value and understand which standard BMI category it falls into.
+      Get your BMI value and understand which standard adult BMI category
+      it falls into.
     </p>
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
-
   <section class="calculator">
 
-    <h2>Calculate Your BMI</h2>
+    <h2>Free BMI Calculator</h2>
 
     <p class="description">
       Enter your height and weight below. You can calculate BMI using
       either metric or imperial units.
     </p>
 
-
     <div class="form-grid">
 
       <div>
-
-        <label for="unit">
-          Unit System
-        </label>
+        <label for="unit">Unit System</label>
 
         <select id="unit" onchange="changeUnits()">
-
-          <option value="metric">
-            Metric (kg / cm)
-          </option>
-
-          <option value="imperial">
-            Imperial (lb / ft)
-          </option>
-
+          <option value="metric">Metric (kg / cm)</option>
+          <option value="imperial">Imperial (lb / ft)</option>
         </select>
 
+        <div class="input-note">
+          Choose the measurement system you want to use.
+        </div>
       </div>
 
-
       <div>
-
         <label id="weightLabel" for="weight">
           Weight (kg)
         </label>
@@ -408,13 +538,15 @@
           placeholder="Example: 70"
           min="0"
           step="any"
+          inputmode="decimal"
         >
 
+        <div class="input-note">
+          Enter your current weight.
+        </div>
       </div>
 
-
-      <div>
-
+      <div class="full-width">
         <label id="heightLabel" for="height">
           Height (cm)
         </label>
@@ -425,21 +557,34 @@
           placeholder="Example: 175"
           min="0"
           step="any"
+          inputmode="decimal"
         >
 
+        <div class="input-note">
+          Enter your height.
+        </div>
       </div>
 
     </div>
 
-
-    <button onclick="calculateBMI()">
+    <button type="button" onclick="calculateBMI()">
       Calculate BMI
     </button>
 
+    <div
+      id="errorMessage"
+      class="error"
+      role="alert"
+      aria-live="polite"
+    ></div>
 
-    <div class="result" id="result">
+    <div
+      class="result"
+      id="result"
+      aria-live="polite"
+    >
 
-      <div>
+      <div class="result-title">
         Your BMI
       </div>
 
@@ -455,11 +600,9 @@
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
-
 
   <section class="content">
 
@@ -470,7 +613,6 @@
       compares a person's weight with their height. BMI is commonly used
       as a screening measure to classify weight categories.
     </p>
-
 
     <h3>BMI Formula</h3>
 
@@ -486,46 +628,42 @@
       BMI = 70 ÷ (1.75 × 1.75) = 22.86
     </div>
 
-
     <h3>Standard Adult BMI Categories</h3>
 
-    <table class="range-table">
+    <div class="range-table-wrapper">
 
-      <thead>
+      <table class="range-table">
+        <thead>
+          <tr>
+            <th>BMI Range</th>
+            <th>Category</th>
+          </tr>
+        </thead>
 
-        <tr>
-          <th>BMI Range</th>
-          <th>Category</th>
-        </tr>
+        <tbody>
+          <tr>
+            <td>Below 18.5</td>
+            <td>Underweight</td>
+          </tr>
 
-      </thead>
+          <tr>
+            <td>18.5 – 24.9</td>
+            <td>Normal Weight</td>
+          </tr>
 
-      <tbody>
+          <tr>
+            <td>25.0 – 29.9</td>
+            <td>Overweight</td>
+          </tr>
 
-        <tr>
-          <td>Below 18.5</td>
-          <td>Underweight</td>
-        </tr>
+          <tr>
+            <td>30.0 and above</td>
+            <td>Obesity</td>
+          </tr>
+        </tbody>
+      </table>
 
-        <tr>
-          <td>18.5 – 24.9</td>
-          <td>Normal Weight</td>
-        </tr>
-
-        <tr>
-          <td>25.0 – 29.9</td>
-          <td>Overweight</td>
-        </tr>
-
-        <tr>
-          <td>30.0 and above</td>
-          <td>Obesity</td>
-        </tr>
-
-      </tbody>
-
-    </table>
-
+    </div>
 
     <div class="note">
 
@@ -536,7 +674,6 @@
 
     </div>
 
-
     <h3>Metric BMI Calculation</h3>
 
     <p>
@@ -544,7 +681,6 @@
       centimeters. The calculator automatically converts height to meters
       before calculating BMI.
     </p>
-
 
     <h3>Imperial BMI Calculation</h3>
 
@@ -554,50 +690,48 @@
       calculating BMI.
     </p>
 
+    <h3>How to Use This BMI Calculator</h3>
+
+    <ol>
+      <li>Select Metric or Imperial units.</li>
+      <li>Enter your weight.</li>
+      <li>Enter your height.</li>
+      <li>Click <strong>Calculate BMI</strong>.</li>
+      <li>Review your BMI value and standard category.</li>
+    </ol>
 
     <div class="faq">
 
       <h2>Frequently Asked Questions</h2>
 
-
       <div class="faq-item">
-
         <h3>What is a healthy BMI?</h3>
 
         <p>
           For standard adult BMI categories, a BMI from 18.5 to 24.9
           is generally classified as normal weight.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>How is BMI calculated?</h3>
 
         <p>
           BMI is calculated by dividing weight in kilograms by height
           in meters squared.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>Can I calculate BMI in pounds and feet?</h3>
 
         <p>
           Yes. Select the Imperial option and enter your weight in pounds
           and height in feet.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>Is BMI accurate for everyone?</h3>
 
         <p>
@@ -605,22 +739,60 @@
           body composition for every individual, especially people with
           high muscle mass.
         </p>
-
       </div>
 
+      <div class="faq-item">
+        <h3>Does BMI directly measure body fat?</h3>
+
+        <p>
+          No. BMI does not directly measure body fat. It is a screening
+          measure based on height and weight.
+        </p>
+      </div>
 
       <div class="faq-item">
-
         <h3>Is this BMI calculator free?</h3>
 
         <p>
           Yes. This online BMI calculator is completely free to use.
         </p>
-
       </div>
 
     </div>
 
+    <div class="related-tools">
+
+      <h2>Related Calculators</h2>
+
+      <div class="related-grid">
+
+        <a href="age-calculator.html">
+          Age Calculator
+        </a>
+
+        <a href="percentage-calculator.html">
+          Percentage Calculator
+        </a>
+
+        <a href="discount-calculator.html">
+          Discount Calculator
+        </a>
+
+        <a href="emi-calculator.html">
+          EMI Calculator
+        </a>
+
+        <a href="tip-calculator.html">
+          Tip Calculator
+        </a>
+
+        <a href="unit-converter.html">
+          Unit Converter
+        </a>
+
+      </div>
+
+    </div>
 
     <a class="back-link" href="index.html">
       ← Back to FreeToolsHub
@@ -628,13 +800,11 @@
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
 </main>
-
 
 <footer>
 
@@ -643,14 +813,13 @@
   </p>
 
   <p>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Disclaimer</a>
-    <a href="#">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
   </p>
 
 </footer>
-
 
 <script>
 
@@ -670,7 +839,6 @@
 
     const height =
       document.getElementById("height");
-
 
     if (unit === "metric") {
 
@@ -693,7 +861,31 @@
   }
 
 
+  function showError(message) {
+
+    const error =
+      document.getElementById("errorMessage");
+
+    error.textContent = message;
+    error.style.display = "block";
+
+  }
+
+
+  function hideError() {
+
+    const error =
+      document.getElementById("errorMessage");
+
+    error.textContent = "";
+    error.style.display = "none";
+
+  }
+
+
   function calculateBMI() {
+
+    hideError();
 
     const unit =
       document.getElementById("unit").value;
@@ -703,7 +895,6 @@
 
     let height =
       parseFloat(document.getElementById("height").value);
-
 
     const bmiValue =
       document.getElementById("bmiValue");
@@ -722,7 +913,9 @@
       bmiValue.textContent = "—";
 
       bmiCategory.textContent =
-        "Please enter valid height and weight.";
+        "Enter valid height and weight.";
+
+      showError("Please enter valid height and weight.");
 
       return;
 
@@ -741,8 +934,6 @@
         weight / (heightMeters * heightMeters);
 
     } else {
-
-      // Convert pounds and feet to kg and meters
 
       const weightKg =
         weight * 0.45359237;
@@ -781,11 +972,26 @@
     }
 
 
-    bmiValue.textContent = bmi.toFixed(2);
+    bmiValue.textContent =
+      bmi.toFixed(2);
 
-    bmiCategory.textContent = category;
+    bmiCategory.textContent =
+      category;
 
   }
+
+
+  document.querySelectorAll("input").forEach(function(input) {
+
+    input.addEventListener("keydown", function(event) {
+
+      if (event.key === "Enter") {
+        calculateBMI();
+      }
+
+    });
+
+  });
 
 </script>
 
