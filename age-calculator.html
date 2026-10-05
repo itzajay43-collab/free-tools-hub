@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Age Calculator - Calculate Your Exact Age Online | FreeToolsHub</title>
+
+  <meta name="description" content="Use our free age calculator to calculate your exact age in years, months and days. Fast, accurate and easy to use on mobile and desktop.">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="age-calculator.html">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8fc;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e8eaf0;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 23px;
+      font-weight: 800;
+    }
+
+    .home {
+      color: #475467;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .home:hover {
+      color: #2563eb;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 48px);
+      color: #111827;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #667085;
+      font-size: 17px;
+    }
+
+    .calculator {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #d0d5dd;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #2563eb;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .result {
+      display: none;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 14px;
+      background: #eef4ff;
+      text-align: center;
+    }
+
+    .result h2 {
+      color: #1d4ed8;
+      margin-bottom: 10px;
+      font-size: 26px;
+    }
+
+    .result p {
+      color: #475467;
+      margin: 5px 0;
+    }
+
+    .error {
+      display: none;
+      color: #dc2626;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .ad-box {
+      height: 90px;
+      margin: 35px auto;
+      background: #f0f1f4;
+      border: 1px dashed #c9ccd4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a8f9c;
+      font-size: 13px;
+      max-width: 728px;
+    }
+
+    .content {
+      background: white;
+      border-top: 1px solid #e8eaf0;
+      margin-top: 20px;
+      padding: 45px 20px;
+    }
+
+    .content-inner {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .content h2 {
+      margin: 25px 0 10px;
+      color: #111827;
+    }
+
+    .content p {
+      color: #667085;
+      margin-bottom: 12px;
+    }
+
+    .content ul {
+      margin: 10px 0 15px 25px;
+      color: #667085;
+    }
+
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding-top: 35px;
+      }
+
+      .calculator {
+        padding: 22px;
+      }
+
+      .ad-box {
+        height: 70px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo">FreeToolsHub</a>
+    <a href="index.html" class="home">← All Tools</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="container">
+
+    <div class="hero">
+      <h1>Age Calculator</h1>
+      <p>Calculate your exact age in years, months and days.</p>
+    </div>
+
+    <div class="calculator">
+
+      <div class="input-group">
+        <label for="birthDate">Enter your date of birth</label>
+        <input type="date" id="birthDate">
+      </div>
+
+      <button onclick="calculateAge()">Calculate Age</button>
+
+      <div class="error" id="error">
+        Please enter a valid date of birth.
+      </div>
+
+      <div class="result" id="result">
+        <h2 id="ageText"></h2>
+
+        <p id="nextBirthday"></p>
+        <p id="totalDays"></p>
+      </div>
+
+    </div>
+
+    <div class="ad-box">
+      Advertisement
+    </div>
+
+  </section>
+
+  <section class="content">
+
+    <div class="content-inner">
+
+      <h2>What is an Age Calculator?</h2>
+
+      <p>
+        An age calculator is a simple online tool that calculates
+        a person's age based on their date of birth. It can show
+        your age in years, months and days.
+      </p>
+
+      <h2>How to use this Age Calculator</h2>
+
+      <p>Using the calculator is simple:</p>
+
+      <ul>
+        <li>Enter your date of birth.</li>
+        <li>Click the "Calculate Age" button.</li>
+        <li>Your exact age will be displayed instantly.</li>
+      </ul>
+
+      <h2>Why use an online age calculator?</h2>
+
+      <p>
+        Calculating age manually can be inconvenient, especially
+        when you want the exact number of months and days.
+        This free tool performs the calculation instantly.
+      </p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>Is this age calculator free?</h3>
+
+      <p>
+        Yes. FreeToolsHub's age calculator is free to use.
+      </p>
+
+      <h3>Does the calculator work on mobile?</h3>
+
+      <p>
+        Yes. The calculator is designed to work on smartphones,
+        tablets and desktop computers.
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2026 FreeToolsHub. All rights reserved.
+</footer>
+
+<script>
+
+function calculateAge() {
+
+  const birthInput = document.getElementById("birthDate");
+  const birthDate = new Date(birthInput.value);
+  const today = new Date();
+
+  const error = document.getElementById("error");
+  const result = document.getElementById("result");
+
+  if (!birthInput.value || birthDate > today) {
+    error.style.display = "block";
+    result.style.display = "none";
+    return;
+  }
+
+  error.style.display = "none";
+
+  let years = today.getFullYear() - birthDate.getFullYear();
+  let months = today.getMonth() - birthDate.getMonth();
+  let days = today.getDate() - birthDate.getDate();
+
+  if (days < 0) {
+    months--;
+
+    const previousMonth =
+      new Date(today.getFullYear(), today.getMonth(), 0);
+
+    days += previousMonth.getDate();
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  const birthThisYear =
+    new Date(
+      today.getFullYear(),
+      birthDate.getMonth(),
+      birthDate.getDate()
+    );
+
+  let nextBirthday = birthThisYear;
+
+  if (birthThisYear < today) {
+    nextBirthday =
+      new Date(
+        today.getFullYear() + 1,
+        birthDate.getMonth(),
+        birthDate.getDate()
+      );
+  }
+
+  const milliseconds =
+    nextBirthday.getTime() - today.getTime();
+
+  const daysUntilBirthday =
+    Math.ceil(milliseconds / (1000 * 60 * 60 * 24));
+
+  const totalMilliseconds =
+    today.getTime() - birthDate.getTime();
+
+  const totalDays =
+    Math.floor(
+      totalMilliseconds / (1000 * 60 * 60 * 24)
+    );
+
+  document.getElementById("ageText").textContent =
+    `${years} Years, ${months} Months, ${days} Days`;
+
+  document.getElementById("nextBirthday").textContent =
+    `Next birthday: ${daysUntilBirthday} day(s) from now`;
+
+  document.getElementById("totalDays").textContent =
+    `You have been alive for approximately ${totalDays.toLocaleString()} days.`;
+
+  result.style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
