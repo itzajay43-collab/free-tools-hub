@@ -4,19 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Unit Converter - Free Online Unit Conversion Tool | FreeToolsHub</title>
+  <title>Unit Converter - Free Online Length, Weight, Temperature & More | FreeToolsHub</title>
 
-  <meta name="description" content="Free online unit converter for length, weight, temperature, area, volume and time. Convert common units quickly and accurately.">
+  <meta name="description" content="Free online unit converter for length, weight, temperature, area, volume and time. Convert meters, kilometers, kilograms, pounds, Celsius, Fahrenheit and more instantly.">
 
-  <meta name="keywords" content="unit converter, online unit converter, length converter, weight converter, temperature converter, area converter, volume converter, time converter">
+  <meta name="keywords" content="unit converter, online unit converter, free unit converter, length converter, weight converter, temperature converter, area converter, volume converter, time converter">
 
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/unit-converter.html">
 
+  <meta property="og:title" content="Free Online Unit Converter | FreeToolsHub">
+  <meta property="og:description" content="Convert length, weight, temperature, area, volume and time units quickly and accurately.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itzajay43-collab.github.io/free-tools-hub/unit-converter.html">
+
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -86,12 +95,13 @@
       padding: 30px;
       text-align: center;
       margin-bottom: 25px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
     }
 
     .hero h1 {
       margin: 0 0 10px;
       font-size: 34px;
+      line-height: 1.2;
     }
 
     .hero p {
@@ -117,7 +127,7 @@
       background: white;
       border-radius: 14px;
       padding: 30px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
     }
 
     .calculator h2 {
@@ -151,6 +161,7 @@
     input:focus,
     select:focus {
       border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
 
     button {
@@ -168,6 +179,22 @@
 
     button:hover {
       background: #1d4ed8;
+    }
+
+    button:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.3);
+      outline-offset: 2px;
+    }
+
+    .error {
+      display: none;
+      margin-top: 15px;
+      padding: 12px 14px;
+      background: #fef2f2;
+      color: #b91c1c;
+      border-radius: 8px;
+      border: 1px solid #fecaca;
+      font-size: 14px;
     }
 
     .result {
@@ -196,7 +223,7 @@
       border-radius: 14px;
       padding: 30px;
       margin-top: 25px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
     }
 
     .content h2 {
@@ -212,6 +239,14 @@
       padding: 18px;
       border-radius: 8px;
       margin: 15px 0;
+    }
+
+    .note {
+      background: #f9fafb;
+      padding: 18px;
+      border-radius: 8px;
+      color: #4b5563;
+      margin-top: 20px;
     }
 
     .faq {
@@ -237,12 +272,25 @@
       color: #6b7280;
     }
 
-    .note {
-      background: #f9fafb;
-      padding: 18px;
-      border-radius: 8px;
-      color: #4b5563;
-      margin-top: 20px;
+    .related-tools {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .related-tools a {
+      display: inline-block;
+      margin: 6px 8px 6px 0;
+      padding: 8px 12px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      text-decoration: none;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    .related-tools a:hover {
+      background: #dbeafe;
     }
 
     .back-link {
@@ -266,10 +314,17 @@
       margin: 0 8px;
     }
 
-    @media (max-width: 700px) {
+    footer a:hover {
+      color: white;
+    }
 
+    @media (max-width: 700px) {
       .header-inner {
         flex-direction: column;
+      }
+
+      nav {
+        text-align: center;
       }
 
       nav a {
@@ -293,29 +348,93 @@
       .result-value {
         font-size: 23px;
       }
+
+      .container {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Unit Converter",
+    "url": "https://itzajay43-collab.github.io/free-tools-hub/unit-converter.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "description": "Free online unit converter for length, weight, temperature, area, volume and time.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What can I convert with this unit converter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can convert length, weight, temperature, area, volume and time units."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this unit converter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. FreeToolsHub's unit converter is completely free to use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I convert kilometers to miles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Select Length, choose kilometers as the source unit and miles as the destination unit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I convert Celsius to Fahrenheit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Select Temperature and choose Celsius and Fahrenheit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the unit converter work on mobile?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The unit converter is responsive and works on phones, tablets and desktop computers."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
 
 <header>
-
   <div class="header-inner">
+    <a class="logo" href="index.html">FreeToolsHub</a>
 
-    <a class="logo" href="index.html">
-      FreeToolsHub
-    </a>
-
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="index.html#tools">Tools</a>
     </nav>
-
   </div>
-
 </header>
-
 
 <main class="container">
 
@@ -324,100 +443,85 @@
     Unit Converter
   </div>
 
-
   <section class="hero">
-
-    <h1>Unit Converter</h1>
+    <h1>Free Online Unit Converter</h1>
 
     <p>
       Convert units quickly and accurately. Convert length, weight,
       temperature, area, volume and time units with this free online
       unit converter.
     </p>
-
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
+  <section class="calculator" aria-labelledby="calculator-title">
 
-  <section class="calculator">
-
-    <h2>Online Unit Converter</h2>
+    <h2 id="calculator-title">Online Unit Converter</h2>
 
     <div class="form-grid">
 
       <div>
+        <label for="category">Conversion Type</label>
 
-        <label for="category">
-          Conversion Type
-        </label>
-
-        <select id="category" onchange="loadUnits()">
-
+        <select id="category" aria-label="Select conversion category">
           <option value="length">Length</option>
           <option value="weight">Weight</option>
           <option value="temperature">Temperature</option>
           <option value="area">Area</option>
           <option value="volume">Volume</option>
           <option value="time">Time</option>
-
         </select>
-
       </div>
 
-
       <div>
-
-        <label for="amount">
-          Value
-        </label>
+        <label for="amount">Value</label>
 
         <input
           type="number"
           id="amount"
           value="1"
           step="any"
+          inputmode="decimal"
           placeholder="Enter value"
-          oninput="convertUnit()"
+          aria-describedby="error"
         >
-
       </div>
 
-
       <div>
+        <label for="fromUnit">From</label>
 
-        <label for="fromUnit">
-          From
-        </label>
-
-        <select id="fromUnit" onchange="convertUnit()"></select>
-
+        <select
+          id="fromUnit"
+          aria-label="Select source unit">
+        </select>
       </div>
 
-
       <div>
+        <label for="toUnit">To</label>
 
-        <label for="toUnit">
-          To
-        </label>
-
-        <select id="toUnit" onchange="convertUnit()"></select>
-
+        <select
+          id="toUnit"
+          aria-label="Select destination unit">
+        </select>
       </div>
 
     </div>
 
-
-    <button onclick="convertUnit()">
+    <button type="button" id="convertBtn">
       Convert
     </button>
 
+    <div
+      class="error"
+      id="error"
+      role="alert"
+      aria-live="polite">
+    </div>
 
-    <div class="result">
-
+    <div class="result" aria-live="polite">
       <div class="result-label">
         Conversion Result
       </div>
@@ -425,16 +529,13 @@
       <div class="result-value" id="result">
         0
       </div>
-
     </div>
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
-
 
   <section class="content">
 
@@ -447,20 +548,16 @@
       gallons and many other units.
     </p>
 
-
     <h3>Available Conversions</h3>
 
     <ul>
-
       <li>Length conversion</li>
       <li>Weight and mass conversion</li>
       <li>Temperature conversion</li>
       <li>Area conversion</li>
       <li>Volume conversion</li>
       <li>Time conversion</li>
-
     </ul>
-
 
     <h3>Length Conversion</h3>
 
@@ -470,17 +567,10 @@
       inches, feet, yards and miles.
     </p>
 
-
     <div class="example">
-
       <strong>Example:</strong>
-
-      <p>
-        1 kilometer = 1,000 meters.
-      </p>
-
+      <p>1 kilometer = 1,000 meters.</p>
     </div>
-
 
     <h3>Weight Conversion</h3>
 
@@ -489,17 +579,10 @@
       milligrams, pounds and ounces.
     </p>
 
-
     <div class="example">
-
       <strong>Example:</strong>
-
-      <p>
-        1 kilogram = 1,000 grams.
-      </p>
-
+      <p>1 kilogram = 1,000 grams.</p>
     </div>
-
 
     <h3>Temperature Conversion</h3>
 
@@ -508,17 +591,10 @@
       Kelvin using standard temperature conversion formulas.
     </p>
 
-
     <div class="example">
-
       <strong>Example:</strong>
-
-      <p>
-        0°C = 32°F.
-      </p>
-
+      <p>0°C = 32°F.</p>
     </div>
-
 
     <h3>Area Conversion</h3>
 
@@ -526,7 +602,6 @@
       Area units can be converted between square meters, square
       kilometers, square feet, square yards, acres and hectares.
     </p>
-
 
     <h3>Volume Conversion</h3>
 
@@ -536,88 +611,73 @@
       gallons, cubic meters and cubic feet.
     </p>
 
-
     <h3>Time Conversion</h3>
 
     <p>
       Convert between seconds, minutes, hours, days and weeks quickly.
     </p>
 
-
     <div class="note">
-
       <strong>Tip:</strong>
       Select the conversion category, enter a value, choose the
       original unit and then choose the unit you want to convert to.
       The result will be calculated instantly.
-
     </div>
-
 
     <div class="faq">
 
       <h2>Frequently Asked Questions</h2>
 
-
       <div class="faq-item">
-
         <h3>What can I convert with this tool?</h3>
-
         <p>
           You can convert length, weight, temperature, area, volume
           and time units.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>Is this unit converter free?</h3>
-
         <p>
           Yes. FreeToolsHub's unit converter is completely free to use.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>Can I convert kilometers to miles?</h3>
-
         <p>
           Yes. Select Length, choose kilometers as the source unit and
           miles as the destination unit.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>Can I convert Celsius to Fahrenheit?</h3>
-
         <p>
           Yes. Select Temperature and choose Celsius and Fahrenheit.
         </p>
-
       </div>
 
-
       <div class="faq-item">
-
         <h3>Does the calculator work on mobile?</h3>
-
         <p>
           Yes. The unit converter is responsive and works on phones,
           tablets and desktop computers.
         </p>
-
       </div>
 
     </div>
 
+    <div class="related-tools">
+      <h2>Related Free Tools</h2>
+
+      <a href="length-converter.html">Length Converter</a>
+      <a href="weight-converter.html">Weight Converter</a>
+      <a href="temperature-converter.html">Temperature Converter</a>
+      <a href="percentage-calculator.html">Percentage Calculator</a>
+      <a href="gst-calculator.html">GST Calculator</a>
+      <a href="discount-calculator.html">Discount Calculator</a>
+    </div>
 
     <a class="back-link" href="index.html">
       ← Back to FreeToolsHub
@@ -625,13 +685,11 @@
 
   </section>
 
-
-  <div class="ad">
+  <div class="ad" aria-label="Advertisement">
     Advertisement
   </div>
 
 </main>
-
 
 <footer>
 
@@ -640,21 +698,18 @@
   </p>
 
   <p>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Disclaimer</a>
-    <a href="#">Contact</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
+    <a href="disclaimer.html">Disclaimer</a>
+    <a href="contact.html">Contact</a>
   </p>
 
 </footer>
 
-
 <script>
-
   const units = {
 
     length: {
-
       "Meter": 1,
       "Kilometer": 1000,
       "Centimeter": 0.01,
@@ -663,23 +718,17 @@
       "Yard": 0.9144,
       "Foot": 0.3048,
       "Inch": 0.0254
-
     },
 
-
     weight: {
-
       "Kilogram": 1,
       "Gram": 0.001,
       "Milligram": 0.000001,
       "Pound": 0.45359237,
       "Ounce": 0.028349523125
-
     },
 
-
     area: {
-
       "Square Meter": 1,
       "Square Kilometer": 1000000,
       "Square Centimeter": 0.0001,
@@ -687,12 +736,9 @@
       "Square Yard": 0.83612736,
       "Acre": 4046.8564224,
       "Hectare": 10000
-
     },
 
-
     volume: {
-
       "Liter": 1,
       "Milliliter": 0.001,
       "Cubic Meter": 1000,
@@ -701,40 +747,44 @@
       "Quart (US)": 0.946352946,
       "Pint (US)": 0.473176473,
       "Cup (US)": 0.2365882365
-
     },
 
-
     time: {
-
       "Second": 1,
       "Minute": 60,
       "Hour": 3600,
       "Day": 86400,
       "Week": 604800
-
     }
 
   };
 
+  const category = document.getElementById("category");
+  const amount = document.getElementById("amount");
+  const fromUnit = document.getElementById("fromUnit");
+  const toUnit = document.getElementById("toUnit");
+  const result = document.getElementById("result");
+  const error = document.getElementById("error");
+  const convertBtn = document.getElementById("convertBtn");
+
+  function showError(message) {
+    error.textContent = message;
+    error.style.display = "block";
+  }
+
+  function clearError() {
+    error.textContent = "";
+    error.style.display = "none";
+  }
 
   function loadUnits() {
 
-    const category =
-      document.getElementById("category").value;
+    const selectedCategory = category.value;
 
-    const from =
-      document.getElementById("fromUnit");
+    fromUnit.innerHTML = "";
+    toUnit.innerHTML = "";
 
-    const to =
-      document.getElementById("toUnit");
-
-
-    from.innerHTML = "";
-    to.innerHTML = "";
-
-
-    if (category === "temperature") {
+    if (selectedCategory === "temperature") {
 
       const temperatureUnits = [
         "Celsius",
@@ -742,171 +792,135 @@
         "Kelvin"
       ];
 
-
       temperatureUnits.forEach(unit => {
-
-        from.add(
-          new Option(unit, unit)
-        );
-
-        to.add(
-          new Option(unit, unit)
-        );
-
+        fromUnit.add(new Option(unit, unit));
+        toUnit.add(new Option(unit, unit));
       });
 
-      to.value = "Fahrenheit";
+      fromUnit.value = "Celsius";
+      toUnit.value = "Fahrenheit";
 
     } else {
 
-      Object.keys(units[category]).forEach(unit => {
+      const availableUnits = Object.keys(
+        units[selectedCategory]
+      );
 
-        from.add(
-          new Option(unit, unit)
-        );
-
-        to.add(
-          new Option(unit, unit)
-        );
-
+      availableUnits.forEach(unit => {
+        fromUnit.add(new Option(unit, unit));
+        toUnit.add(new Option(unit, unit));
       });
 
-
-      const available =
-        Object.keys(units[category]);
-
-
-      if (available.length > 1) {
-
-        to.value = available[1];
-
+      if (availableUnits.length > 1) {
+        fromUnit.value = availableUnits[0];
+        toUnit.value = availableUnits[1];
       }
-
     }
 
-
     convertUnit();
-
   }
 
-
-  function temperatureConvert(
-    value,
-    from,
-    to
-  ) {
+  function temperatureConvert(value, from, to) {
 
     let celsius;
 
-
     if (from === "Celsius") {
-
       celsius = value;
-
     } else if (from === "Fahrenheit") {
-
       celsius = (value - 32) * 5 / 9;
-
     } else {
-
       celsius = value - 273.15;
-
     }
-
 
     if (to === "Celsius") {
-
       return celsius;
-
     }
-
 
     if (to === "Fahrenheit") {
-
       return (celsius * 9 / 5) + 32;
-
     }
 
-
     return celsius + 273.15;
-
   }
 
+  function formatNumber(value) {
+
+    if (Object.is(value, -0)) {
+      value = 0;
+    }
+
+    const rounded = Number(
+      value.toPrecision(12)
+    );
+
+    return rounded.toLocaleString("en-IN", {
+      maximumFractionDigits: 10
+    });
+  }
 
   function convertUnit() {
 
-    const category =
-      document.getElementById("category").value;
+    clearError();
 
-    const amount =
-      parseFloat(document.getElementById("amount").value);
+    const value = parseFloat(amount.value);
+    const selectedCategory = category.value;
+    const from = fromUnit.value;
+    const to = toUnit.value;
 
-    const from =
-      document.getElementById("fromUnit").value;
-
-    const to =
-      document.getElementById("toUnit").value;
-
-    const result =
-      document.getElementById("result");
-
-
-    if (isNaN(amount)) {
-
-      result.textContent = "Enter a value";
-
+    if (amount.value.trim() === "") {
+      result.textContent = "0";
+      showError("Please enter a value to convert.");
       return;
-
     }
 
+    if (!Number.isFinite(value)) {
+      result.textContent = "0";
+      showError("Please enter a valid number.");
+      return;
+    }
 
     let converted;
 
+    if (selectedCategory === "temperature") {
 
-    if (category === "temperature") {
-
-      converted =
-        temperatureConvert(
-          amount,
-          from,
-          to
-        );
+      converted = temperatureConvert(
+        value,
+        from,
+        to
+      );
 
     } else {
 
       const baseValue =
-        amount * units[category][from];
+        value * units[selectedCategory][from];
 
       converted =
-        baseValue / units[category][to];
-
+        baseValue / units[selectedCategory][to];
     }
 
-
-    if (
-      !isFinite(converted)
-    ) {
-
+    if (!Number.isFinite(converted)) {
       result.textContent = "Invalid conversion";
-
+      showError("Unable to calculate this conversion.");
       return;
-
     }
-
 
     result.textContent =
-      Number(converted.toPrecision(12)).toLocaleString(
-        "en-IN",
-        {
-          maximumFractionDigits: 10
-        }
-      ) + " " + to;
-
+      formatNumber(converted) + " " + to;
   }
 
+  category.addEventListener("change", loadUnits);
+  amount.addEventListener("input", convertUnit);
+  fromUnit.addEventListener("change", convertUnit);
+  toUnit.addEventListener("change", convertUnit);
+  convertBtn.addEventListener("click", convertUnit);
+
+  amount.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      convertUnit();
+    }
+  });
 
   loadUnits();
-
 </script>
 
 </body>
