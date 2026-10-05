@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tip Calculator - Calculate Tip & Bill Per Person | FreeToolsHub</title>
+
+  <meta name="description" content="Free online tip calculator to calculate tip amount, total bill and per-person cost. Choose a tip percentage and split the bill easily.">
+
+  <meta name="keywords" content="tip calculator, gratuity calculator, restaurant tip calculator, bill split calculator, tip percentage calculator">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://itzajay43-collab.github.io/free-tools-hub/tip-calculator.html">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 25px 20px 50px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 25px 0;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #6b7280;
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .ad {
+      background: #e5e7eb;
+      border: 1px dashed #9ca3af;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .tool-card {
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    .tip-buttons {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tip-btn {
+      background: #eff6ff;
+      color: #2563eb;
+      border: 1px solid #bfdbfe;
+    }
+
+    .tip-btn:hover,
+    .tip-btn.active {
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+    }
+
+    .custom-tip {
+      margin-bottom: 20px;
+    }
+
+    .custom-tip label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+
+    button {
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .reset-btn {
+      background: #ef4444;
+    }
+
+    .reset-btn:hover {
+      background: #dc2626;
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .result-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .result-card span {
+      display: block;
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .result-card strong {
+      font-size: 25px;
+      color: #2563eb;
+    }
+
+    .total-card {
+      grid-column: 1 / -1;
+      background: #eff6ff;
+      border-color: #bfdbfe;
+    }
+
+    .total-card strong {
+      font-size: 32px;
+    }
+
+    .info-section {
+      background: white;
+      margin-top: 25px;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .info-section h2 {
+      margin-bottom: 12px;
+      font-size: 25px;
+    }
+
+    .info-section h3 {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .info-section p {
+      color: #4b5563;
+      margin-bottom: 12px;
+    }
+
+    .info-section ul,
+    .info-section ol {
+      padding-left: 20px;
+      color: #4b5563;
+    }
+
+    .faq {
+      border-top: 1px solid #e5e7eb;
+      padding: 15px 0;
+    }
+
+    .faq strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #d1d5db;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 700px) {
+
+      .header-inner {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .input-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .tip-buttons {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .results {
+        grid-template-columns: 1fr;
+      }
+
+      .total-card {
+        grid-column: auto;
+      }
+
+      .tool-card,
+      .info-section {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <a href="index.html" class="logo">
+      FreeToolsHub
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#tools">All Tools</a>
+    </nav>
+
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+
+    <h1>Tip Calculator</h1>
+
+    <p>
+      Calculate restaurant tips, total bills and the amount each
+      person should pay when splitting a bill.
+    </p>
+
+  </section>
+
+  <div class="ad">
+    Advertisement
+  </div>
+
+  <section class="tool-card">
+
+    <div class="input-grid">
+
+      <div class="field">
+
+        <label for="billAmount">
+          Bill Amount
+        </label>
+
+        <input
+          type="number"
+          id="billAmount"
+          placeholder="Enter bill amount"
+          min="0"
+          step="0.01"
+          value="1000"
+          oninput="calculateTip()"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label for="people">
+          Number of People
+        </label>
+
+        <input
+          type="number"
+          id="people"
+          min="1"
+          step="1"
+          value="1"
+          oninput="calculateTip()"
+        >
+
+      </div>
+
+    </div>
+
+    <div class="custom-tip">
+
+      <label>
+        Select Tip Percentage
+      </label>
+
+      <div class="tip-buttons">
+
+        <button
+          type="button"
+          class="tip-btn"
+          data-tip="5"
+          onclick="setTip(5)"
+        >
+          5%
+        </button>
+
+        <button
+          type="button"
+          class="tip-btn"
+          data-tip="10"
+          onclick="setTip(10)"
+        >
+          10%
+        </button>
+
+        <button
+          type="button"
+          class="tip-btn active"
+          data-tip="15"
+          onclick="setTip(15)"
+        >
+          15%
+        </button>
+
+        <button
+          type="button"
+          class="tip-btn"
+          data-tip="20"
+          onclick="setTip(20)"
+        >
+          20%
+        </button>
+
+        <button
+          type="button"
+          class="tip-btn"
+          data-tip="25"
+          onclick="setTip(25)"
+        >
+          25%
+        </button>
+
+      </div>
+
+      <label for="tipPercentage">
+        Custom Tip Percentage
+      </label>
+
+      <input
+        type="number"
+        id="tipPercentage"
+        value="15"
+        min="0"
+        max="100"
+        step="0.1"
+        oninput="customTipChanged()"
+      >
+
+    </div>
+
+    <div class="button-row">
+
+      <button onclick="calculateTip()">
+        Calculate Tip
+      </button>
+
+      <button
+        class="reset-btn"
+        onclick="resetCalculator()"
+      >
+        Reset
+      </button>
+
+    </div>
+
+    <div class="results">
+
+      <div class="result-card">
+
+        <span>Tip Amount</span>
+
+        <strong id="tipAmount">
+          ₹0.00
+        </strong>
+
+      </div>
+
+      <div class="result-card">
+
+        <span>Bill Before Tip</span>
+
+        <strong id="billResult">
+          ₹0.00
+        </strong>
+
+      </div>
+
+      <div class="result-card total-card">
+
+        <span>Total Bill</span>
+
+        <strong id="totalBill">
+          ₹0.00
+        </strong>
+
+      </div>
+
+      <div class="result-card">
+
+        <span>Tip Per Person</span>
+
+        <strong id="tipPerPerson">
+          ₹0.00
+        </strong>
+
+      </div>
+
+      <div class="result-card">
+
+        <span>Total Per Person</span>
+
+        <strong id="perPerson">
+          ₹0.00
+        </strong>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="ad">
+    Advertisement
+  </div>
+
+  <section class="info-section">
+
+    <h2>Free Online Tip Calculator</h2>
+
+    <p>
+      FreeToolsHub Tip Calculator helps you quickly calculate a tip,
+      total restaurant bill and per-person payment. Enter your bill,
+      select a tip percentage and choose how many people are sharing
+      the bill.
+    </p>
+
+    <h3>How to Use the Tip Calculator</h3>
+
+    <ol>
+
+      <li>Enter the total bill amount.</li>
+
+      <li>Enter the number of people sharing the bill.</li>
+
+      <li>Select a tip percentage such as 10%, 15% or 20%.</li>
+
+      <li>Click Calculate Tip.</li>
+
+      <li>View the tip, total bill and per-person amounts.</li>
+
+    </ol>
+
+    <h3>Tip Calculation Formula</h3>
+
+    <p>
+      <strong>Tip Amount = Bill Amount × Tip Percentage ÷ 100</strong>
+    </p>
+
+    <p>
+      <strong>Total Bill = Bill Amount + Tip Amount</strong>
+    </p>
+
+    <p>
+      <strong>
+        Amount Per Person = Total Bill ÷ Number of People
+      </strong>
+    </p>
+
+    <h3>Example</h3>
+
+    <p>
+      If your restaurant bill is ₹2,000 and you choose a 15% tip,
+      the tip amount is ₹300. The total bill becomes ₹2,300.
+      If four people share the bill equally, each person pays ₹575.
+    </p>
+
+    <h3>Why Use a Tip Calculator?</h3>
+
+    <ul>
+
+      <li>Calculate tips quickly and accurately.</li>
+
+      <li>Split restaurant bills between multiple people.</li>
+
+      <li>Compare different tip percentages.</li>
+
+      <li>Avoid manual calculations.</li>
+
+      <li>Works on phones, tablets and computers.</li>
+
+    </ul>
+
+    <h3>Frequently Asked Questions</h3>
+
+    <div class="faq">
+
+      <strong>
+        What is a tip?
+      </strong>
+
+      <p>
+        A tip is an additional amount paid to service staff in
+        appreciation for their service. Whether and how much to tip
+        depends on the country, establishment and local customs.
+      </p>
+
+    </div>
+
+    <div class="faq">
+
+      <strong>
+        How is a 15% tip calculated?
+      </strong>
+
+      <p>
+        Multiply the bill by 15 and divide the result by 100.
+        For example, a ₹1,000 bill with a 15% tip gives a ₹150 tip.
+      </p>
+
+    </div>
+
+    <div class="faq">
+
+      <strong>
+        Can I split the bill between multiple people?
+      </strong>
+
+      <p>
+        Yes. Enter the number of people and the calculator will show
+        the estimated tip and total amount for each person.
+      </p>
+
+    </div>
+
+    <div class="faq">
+
+      <strong>
+        Can I enter a custom tip percentage?
+      </strong>
+
+      <p>
+        Yes. You can enter any tip percentage from 0% to 100%.
+      </p>
+
+    </div>
+
+    <div class="faq">
+
+      <strong>
+        Is this tip calculator free?
+      </strong>
+
+      <p>
+        Yes. FreeToolsHub Tip Calculator is free to use online.
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+
+  <p>
+    © 2026 FreeToolsHub. All rights reserved.
+  </p>
+
+  <p>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Contact</a>
+  </p>
+
+</footer>
+
+<script>
+
+let currentTip = 15;
+
+
+function formatMoney(amount) {
+
+  return "₹" + amount.toLocaleString("en-IN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+
+}
+
+
+function setTip(tip) {
+
+  currentTip = tip;
+
+  document.getElementById("tipPercentage").value =
+    tip;
+
+  document.querySelectorAll(".tip-btn").forEach(button => {
+
+    button.classList.remove("active");
+
+    if (
+      Number(button.dataset.tip) === tip
+    ) {
+
+      button.classList.add("active");
+
+    }
+
+  });
+
+  calculateTip();
+
+}
+
+
+function customTipChanged() {
+
+  const tip =
+    Number(
+      document.getElementById("tipPercentage").value
+    );
+
+
+  currentTip = tip;
+
+
+  document.querySelectorAll(".tip-btn").forEach(button => {
+
+    button.classList.remove("active");
+
+  });
+
+
+  const matchingButton =
+    document.querySelector(
+      `.tip-btn[data-tip="${tip}"]`
+    );
+
+
+  if (matchingButton) {
+
+    matchingButton.classList.add("active");
+
+  }
+
+
+  calculateTip();
+
+}
+
+
+function calculateTip() {
+
+  const bill =
+    Number(
+      document.getElementById("billAmount").value
+    );
+
+  const people =
+    Number(
+      document.getElementById("people").value
+    );
+
+  const tipPercentage =
+    Number(
+      document.getElementById("tipPercentage").value
+    );
+
+
+  if (
+    !Number.isFinite(bill) ||
+    bill < 0
+  ) {
+
+    return;
+
+  }
+
+
+  if (
+    !Number.isFinite(people) ||
+    people < 1
+  ) {
+
+    return;
+
+  }
+
+
+  if (
+    !Number.isFinite(tipPercentage) ||
+    tipPercentage < 0 ||
+    tipPercentage > 100
+  ) {
+
+    return;
+
+  }
+
+
+  const tipAmount =
+    bill * tipPercentage / 100;
+
+
+  const totalBill =
+    bill + tipAmount;
+
+
+  const tipPerPerson =
+    tipAmount / people;
+
+
+  const totalPerPerson =
+    totalBill / people;
+
+
+  document.getElementById("tipAmount").textContent =
+    formatMoney(tipAmount);
+
+
+  document.getElementById("billResult").textContent =
+    formatMoney(bill);
+
+
+  document.getElementById("totalBill").textContent =
+    formatMoney(totalBill);
+
+
+  document.getElementById("tipPerPerson").textContent =
+    formatMoney(tipPerPerson);
+
+
+  document.getElementById("perPerson").textContent =
+    formatMoney(totalPerPerson);
+
+}
+
+
+function resetCalculator() {
+
+  document.getElementById("billAmount").value =
+    1000;
+
+  document.getElementById("people").value =
+    1;
+
+  document.getElementById("tipPercentage").value =
+    15;
+
+  currentTip = 15;
+
+
+  document.querySelectorAll(".tip-btn").forEach(button => {
+
+    button.classList.remove("active");
+
+  });
+
+
+  const defaultButton =
+    document.querySelector(
+      '.tip-btn[data-tip="15"]'
+    );
+
+
+  if (defaultButton) {
+
+    defaultButton.classList.add("active");
+
+  }
+
+
+  calculateTip();
+
+}
+
+
+calculateTip();
+
+</script>
+
+</body>
+</html>
